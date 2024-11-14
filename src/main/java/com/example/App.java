@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        scene = new Scene(loadFXML("RegisterHostel"), 1080, 720);
+        scene = new Scene(loadFXML("login"), 1080, 720);
         stage.setScene(scene);
         stage.show();
     }
@@ -36,9 +36,9 @@ public class App extends Application {
 
 public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
-		// String url = "jdbc:mysql://localhost:3306/livingplus";
+		// String url = "jdbc:mysql://localhost:3306/sda_project";
 		// String username = "root";
-		// String password = "1234";
+		// String password = "12345678";
 		// System.out.println("Connecting database");
 		// Connection connection = null;
 		// try  {
