@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
-        scene = new Scene(loadFXML("SignUp"), 1080, 720);
+        scene = new Scene(loadFXML("RegisterHostel"), 1080, 720);
         stage.setScene(scene);
         stage.show();
     }
@@ -36,29 +36,29 @@ public class App extends Application {
 
 public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
-		String url = "jdbc:mysql://localhost:3306/sda_project";
-		String username = "root";
-		String password = "12345678";
-		System.out.println("Connecting database");
-		Connection connection = null;
-		try  {
-			connection = DriverManager.getConnection(url, username, password);
-					System.out.println("Database connected!");
-					Statement s = connection.createStatement();
+		// String url = "jdbc:mysql://localhost:3306/livingplus";
+		// String username = "root";
+		// String password = "1234";
+		// System.out.println("Connecting database");
+		// Connection connection = null;
+		// try  {
+		// 	connection = DriverManager.getConnection(url, username, password);
+		// 			System.out.println("Database connected!");
+		// 			Statement s = connection.createStatement();
 					
-					ResultSet rs = s.executeQuery("Select * from user");
+		// 			ResultSet rs = s.executeQuery("Select * from user");
 					
-					while(rs.next()) {
-						String id = rs.getString(1);
-						String name = rs.getString("name");
-						System.out.println(id + " " + name);
-					}
+		// 			while(rs.next()) {
+		// 				String id = rs.getString(1);
+		// 				String name = rs.getString("name");
+		// 				System.out.println(id + " " + name);
+		// 			}
 					
-					connection.close();
-		}catch(Exception e) {
-			e.printStackTrace();
+		// 			connection.close();
+		// }catch(Exception e) {
+		// 	e.printStackTrace();
 
-		}
+		// }
 	
         launch();
     }

@@ -38,21 +38,21 @@
                      </font>
                   </Hyperlink>
                   <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
-                  <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" text="Search" />
+                  <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
                   <Icon fx:id="logo" content="HELP_OUTLINE" layoutX="13.0" layoutY="14.0" prefHeight="80.0" prefWidth="80.0" />
                   <Icon fx:id="account" content="HELP_OUTLINE" layoutX="970.0" layoutY="11.0" prefHeight="80.0" prefWidth="80.0" />
                </children>
             </Pane>
             <Pane fx:id="menupane" layoutY="250.0" prefHeight="446.0" prefWidth="252.0">
                <children>
-                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" text="Menu" />
-                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" text="Meals" />
-                  <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" text="Parking" />
-                  <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" text="Feedback" />
-                  <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" text="Register Rental" />
-                  <Hyperlink fx:id="evictionUrl" alignment="CENTER" layoutX="-2.0" layoutY="287.0" onAction="#evictionUrl_Clicked" prefHeight="25.0" prefWidth="252.0" text="Eviction" />
-                  <Hyperlink fx:id="finesUrl" alignment="CENTER" contentDisplay="CENTER" layoutY="335.0" onAction="#finesUrl_Clicked" prefHeight="25.0" prefWidth="254.0" text="Fines" />
-                  <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" text="Maintainace" />
+                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
+                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
+                  <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
+                  <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Feedback" />
+                  <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Register Rental" />
+                  <Hyperlink fx:id="evictionUrl" alignment="CENTER" layoutX="-2.0" layoutY="287.0" onAction="#evictionUrl_Clicked" prefHeight="25.0" prefWidth="252.0" stylesheets="@mainCSSFile.css" text="Eviction" />
+                  <Hyperlink fx:id="finesUrl" alignment="CENTER" contentDisplay="CENTER" layoutY="335.0" onAction="#finesUrl_Clicked" prefHeight="25.0" prefWidth="254.0" stylesheets="@mainCSSFile.css" text="Fines" />
+                  <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
                </children>
             </Pane>
          </children></AnchorPane>

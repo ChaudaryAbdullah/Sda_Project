@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FinesOwnerController">
+   <children>
+      <Pane fx:id="headerpane" prefHeight="115.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
+         <children>
+            <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+               <font>
+                  <Font name="Britannic Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
+            <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" text="Search" />
+         </children>
+      </Pane>
+      <Pane fx:id="menupane" layoutY="274.0" prefHeight="446.0" prefWidth="252.0">
+         <children>
+            <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
+            <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
+            <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
+            <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
+            <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Register Rental" />
+            <Hyperlink fx:id="evictionUrl" alignment="CENTER" layoutX="-2.0" layoutY="287.0" onAction="#evictionUrl_Clicked" prefHeight="25.0" prefWidth="252.0" stylesheets="@mainCSSFile.css" text="Eviction" />
+            <Hyperlink fx:id="finesUrl" alignment="CENTER" contentDisplay="CENTER" layoutY="335.0" onAction="#finesUrl_Clicked" prefHeight="25.0" prefWidth="254.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Fines" />
+            <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
+         </children>
+      </Pane>
+      <Pane fx:id="mainpane" layoutX="257.0" layoutY="115.0" prefHeight="606.0" prefWidth="823.0">
+         <children>
+            <Label fx:id="fineslabel" layoutX="45.0" layoutY="40.0" text="Fines">
+               <font>
+                  <Font name="SansSerif Regular" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="101.0" layoutY="152.0" text="Select Tenant">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="returnButton1" layoutX="729.0" layoutY="537.0" mnemonicParsing="false" onAction="#returnButton1Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Return" />
+            <ComboBox layoutX="130.0" layoutY="185.0" prefWidth="150.0" />
+            <TableView layoutX="113.0" layoutY="280.0" prefHeight="313.0" prefWidth="586.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <Label layoutX="101.0" layoutY="249.0" text="View Fines">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="333.0" layoutY="150.0" text="Fine Amount">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="fineamountfield" layoutX="332.0" layoutY="185.0" onAction="#fineamountfieldClicked" />
+         </children>
+      </Pane>
+      <Text layoutX="86.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">
+         <font>
+            <Font name="Eras Bold ITC" size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
