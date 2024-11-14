@@ -1,0 +1,53 @@
+.custom-border-pane {
+    /*-fx-border-color: red;*/
+    -fx-border-width: 2px;
+    /*-fx-border-style: solid;*/
+    -fx-border-radius: 5px;
+    -fx-background-color: #718F94;
+}
+
+.button-glow {
+    background-color: #8e44ad;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.button-glow:hover {
+    box-shadow: 0 0 10px #8e44ad, 0 0 20px #8e44ad, 0 0 30px #8e44ad;
+}
+
+.hyperlink {
+    -fx-font-size: 14px;
+    -fx-text-fill: #0066CC; /* Default text color */
+    -fx-padding: 5px 10px;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5;
+    -fx-cursor: hand;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 5, 0.3, 0, 2);
+}
+.hyperlink-selected {
+    -fx-text-fill: #ffffff; /* Text color on hover */
+    -fx-background-color: #008080; /* Background color on hover */
+    -fx-border-color: #008080;
+    
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 102, 204, 0.5), 10, 0.4, 0, 2);
+}
+/* Hover effect */
+.hyperlink:hover {
+    -fx-text-fill: #ffffff; /* Text color on hover */
+    -fx-background-color: #008080; /* Background color on hover */
+    -fx-border-color: #9EEFE5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 102, 204, 0.5), 10, 0.4, 0, 2);
+    -fx-scale-shape: 105%;
+}
+
+/* Focused effect (optional) */
+.hyperlink:focused {
+    -fx-border-color: #004080; /* Border color when focused */
+}
