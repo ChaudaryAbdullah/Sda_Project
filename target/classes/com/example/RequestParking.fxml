@@ -15,7 +15,7 @@
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Request Parking" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RequestParkingController">
   <content>
-    <AnchorPane fx:id="backgroundpane" minHeight="696.0" minWidth="1076.0" prefHeight="696.0" prefWidth="1076.0" style="-fx-background-image: &quot;C:\Users\Chaudary Abdullah\Downloads\—Pngtree—2 5d buy a house_930567.jpg&quot;; -fx-background-color: pink;">
+    <AnchorPane fx:id="backgroundpane" minHeight="696.0" minWidth="1076.0" prefHeight="696.0" prefWidth="1076.0">
          <children>
             <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="115.0" layoutY="100.0" startX="-114.99999237060547" startY="-7.62939453125E-6" />
             <Line endX="-100.0" endY="605.867919921875" layoutX="354.0" layoutY="101.0" startX="-100.0" />
@@ -38,7 +38,7 @@
                     </columns>
                   </TableView>
                </children></Pane>
-            <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented" wrappingWidth="80.9753532409668">
+            <Text layoutX="79.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented" wrappingWidth="80.9753532409668">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font></Text>
@@ -49,7 +49,7 @@
                   <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
                   <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Parking" />
                   <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
-                  <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Register Rental" />
+                  <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Choose Rental" />
                   <Hyperlink fx:id="evictionUrl" alignment="CENTER" layoutX="-2.0" layoutY="287.0" onAction="#evictionUrl_Clicked" prefHeight="25.0" prefWidth="252.0" stylesheets="@mainCSSFile.css" text="Eviction" />
                   <Hyperlink fx:id="finesUrl" alignment="CENTER" contentDisplay="CENTER" layoutY="335.0" onAction="#finesUrl_Clicked" prefHeight="25.0" prefWidth="254.0" stylesheets="@mainCSSFile.css" text="Fines" />
                   <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />

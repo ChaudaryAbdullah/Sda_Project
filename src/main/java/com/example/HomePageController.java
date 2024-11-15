@@ -1,5 +1,7 @@
 package com.example;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,13 +38,13 @@ public class HomePageController {
     private Pane mappane;
 
     @FXML
-    void DashbordLogo_clicked(MouseEvent event) {
-
+    void DashbordLogo_clicked(MouseEvent event) throws IOException {
+        App.setRoot("Dashboard");
     }
 
     @FXML
-    void HomeUrl_Clicked(ActionEvent event) {
-
+    void HomeUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("HomePage");
     }
 
     @FXML
@@ -51,8 +53,8 @@ public class HomePageController {
     }
 
     @FXML
-    void homeLogo_Clicked(MouseEvent event) {
-
+    void homeLogo_Clicked(MouseEvent event) throws IOException {
+        App.setRoot("HomePage");
     }
 
 }
