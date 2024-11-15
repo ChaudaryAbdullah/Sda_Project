@@ -10,10 +10,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class RequestParkingController {
+public class ChooseRentalController {
 
     @FXML
     private ImageView DashbordLogo;
@@ -37,9 +36,6 @@ public class RequestParkingController {
     private TextField SearchTextField;
 
     @FXML
-    private AnchorPane backgroundpane;
-
-    @FXML
     private Hyperlink evictionUrl;
 
     @FXML
@@ -58,10 +54,10 @@ public class RequestParkingController {
     private Hyperlink maintainanceUrl;
 
     @FXML
-    private Pane menupane;
+    private TableView<?> menuTable;
 
     @FXML
-    private TableView<?> parkingTable;
+    private Pane menupane;
 
     @FXML
     private Hyperlink parkingUrl;
@@ -70,7 +66,7 @@ public class RequestParkingController {
     private Hyperlink registerUrl;
 
     @FXML
-    private Button requestbtn;
+    private Button selectbtn;
 
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
@@ -123,10 +119,6 @@ public class RequestParkingController {
     }
 
     @FXML
-    void parkingTable_Sort(ActionEvent event) throws IOException {
-    }
-
-    @FXML
     void parkingUrl_Clicked(ActionEvent event) throws IOException {
     App.setRoot("RequestParking");
     }
@@ -137,8 +129,13 @@ public class RequestParkingController {
     }
 
     @FXML
-    void requestbtn_clicked(ActionEvent event) throws IOException {
-        
+    void selectbtn_clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void table_sort(ActionEvent event) {
+
     }
 
 }

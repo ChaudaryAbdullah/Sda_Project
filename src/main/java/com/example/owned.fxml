@@ -21,7 +21,7 @@
             <Line endX="-100.0" endY="605.867919921875" layoutX="354.0" layoutY="101.0" startX="-100.0" />
             <Pane fx:id="mainpane" layoutX="257.0" layoutY="103.0" prefHeight="602.0" prefWidth="823.0">
                <children>
-                  <TableView layoutX="20.0" layoutY="66.0" prefHeight="437.0" prefWidth="781.0">
+                  <TableView fx:id="ownedTable" layoutX="20.0" layoutY="66.0" onSort="#ownedTable_sort" prefHeight="437.0" prefWidth="781.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
