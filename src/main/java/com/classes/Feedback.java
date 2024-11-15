@@ -1,4 +1,4 @@
-package com.example;
+package com.classes;
 import java.util.List;
 
 public class Feedback {

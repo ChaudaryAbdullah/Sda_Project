@@ -1,4 +1,4 @@
-package com.example;
+package com.classes;
 
 public class Payment {
     private String paymentID;

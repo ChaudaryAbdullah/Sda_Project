@@ -1,4 +1,4 @@
-package com.example;
+package com.classes;
 public class MaintenanceRequest {
     private String requestID;
     private String description;

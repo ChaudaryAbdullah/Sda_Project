@@ -1,4 +1,4 @@
-package com.example;
+package com.classes;
 
 public class Rent {
     private String rentID;
