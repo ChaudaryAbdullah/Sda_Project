@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -13,17 +14,6 @@
 
 <AnchorPane fx:id="mainscene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RegisterHostelController">
    <children>
-      <Pane fx:id="headerpane" prefHeight="115.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
-         <children>
-            <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
-               <font>
-                  <Font name="Britannic Bold" size="15.0" />
-               </font>
-            </Hyperlink>
-            <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
-            <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" text="Search" />
-         </children>
-      </Pane>
       <Pane fx:id="menupane" layoutY="274.0" prefHeight="446.0" prefWidth="252.0">
          <children>
             <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
@@ -96,5 +86,18 @@
             <Font name="Eras Bold ITC" size="20.0" />
          </font>
       </Text>
+      <Pane fx:id="headerpane" layoutX="1.0" layoutY="1.0" prefHeight="107.0" prefWidth="1080.0">
+         <children>
+            <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+               <font>
+                  <Font name="Britannic Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
+            <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
+            <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
