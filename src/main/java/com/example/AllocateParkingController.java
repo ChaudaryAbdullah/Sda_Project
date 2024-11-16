@@ -137,4 +137,11 @@ public class AllocateParkingController {
 
     }
 
+    @FXML
+    void acceptbtn_clikcked(ActionEvent event) {
+
+    }
+
+    
+
 }

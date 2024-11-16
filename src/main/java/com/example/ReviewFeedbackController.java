@@ -129,4 +129,9 @@ public class ReviewFeedbackController {
     App.setRoot("RegisterHostel");
     }
 
+    @FXML
+    void feedbackTable_sort(ActionEvent event) throws IOException {
+    
+    }
+
 }

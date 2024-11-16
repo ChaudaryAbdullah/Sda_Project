@@ -52,7 +52,7 @@
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="evictiButton" layoutX="360.0" layoutY="197.0" mnemonicParsing="false" onAction="#evictiButton" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Evict" />
+            <Button fx:id="evictiButton" layoutX="360.0" layoutY="197.0" mnemonicParsing="false" onAction="#evictiButton_Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Evict" />
          </children>
       </Pane>
       <Text layoutX="93.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">

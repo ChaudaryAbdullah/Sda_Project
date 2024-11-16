@@ -1,14 +1,25 @@
 package com.example;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 public class FinesOwnerController {
+
+    @FXML
+    private ImageView DashbordLogo;
+
+    @FXML
+    private ImageView HomeLogo;
 
     @FXML
     private Hyperlink HomeUrl1;
@@ -62,18 +73,26 @@ public class FinesOwnerController {
     private Button returnButton1;
 
     @FXML
-    void HomeUrl_Clicked(ActionEvent event) {
+    private ComboBox<?> selectTenant;
 
+    @FXML
+    void DashbordLogo_clicked(MouseEvent event) throws IOException {
+        App.setRoot("Dashboard");
     }
 
     @FXML
-    void MealUrl_Clicked(ActionEvent event) {
-
+    void HomeUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("HomePage");
     }
 
     @FXML
-    void MenuUrl_Clicked(ActionEvent event) {
+    void MealUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("");
+    }
 
+    @FXML
+    void MenuUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("addMenu");
     }
 
     @FXML
@@ -82,13 +101,13 @@ public class FinesOwnerController {
     }
 
     @FXML
-    void evictionUrl_Clicked(ActionEvent event) {
-
+    void evictionUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("Eviction");
     }
 
     @FXML
-    void feedbackUrl_Clicked(ActionEvent event) {
-
+    void feedbackUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("ReviewFeedback");
     }
 
     @FXML
@@ -97,27 +116,37 @@ public class FinesOwnerController {
     }
 
     @FXML
-    void finesUrl_Clicked(ActionEvent event) {
-
+    void finesUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("FinesOwner");
     }
 
     @FXML
-    void maintainanceUrl_Clicked(ActionEvent event) {
-
+    void homeLogo_Clicked(MouseEvent event) throws IOException {
+        App.setRoot("HomePage");
     }
 
     @FXML
-    void parkingUrl_Clicked(ActionEvent event) {
-
+    void maintainanceUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("MaintainanceOwner");
     }
 
     @FXML
-    void registerUrl_Clicked(ActionEvent event) {
+    void parkingUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("AllocateParking");
+    }
 
+    @FXML
+    void registerUrl_Clicked(ActionEvent event) throws IOException {
+        App.setRoot("RegisterHostel");
     }
 
     @FXML
     void returnButton1Clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void selectTenant_Clicked(ActionEvent event) {
 
     }
 
