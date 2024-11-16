@@ -107,6 +107,11 @@ public class AddMenuController {
     }
 
     @FXML
+    void addBtn_clicked(ActionEvent event) throws IOException {
+        
+    }
+
+    @FXML
     void evictionUrl_Clicked(ActionEvent event) throws IOException {
         App.setRoot("Eviction");
     }

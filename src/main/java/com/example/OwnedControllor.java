@@ -137,4 +137,11 @@ public class OwnedControllor {
     void ownedTable_sort(ActionEvent event) {
     
     }
+    
+    @FXML
+    void approveBtn_clicked(ActionEvent event) throws IOException {
+        App.setRoot("ApproveApplicants");
+    }
+
+    
 }

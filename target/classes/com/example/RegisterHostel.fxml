@@ -14,9 +14,9 @@
 
 <AnchorPane fx:id="mainscene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RegisterHostelController">
    <children>
-      <Pane fx:id="menupane" layoutY="274.0" prefHeight="446.0" prefWidth="252.0">
+      <Pane fx:id="menupane" layoutY="274.0" prefHeight="446.0" prefWidth="252.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
          <children>
-            <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
+            <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Menu" />
             <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
             <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
             <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
@@ -86,7 +86,7 @@
             <Font name="Eras Bold ITC" size="20.0" />
          </font>
       </Text>
-      <Pane fx:id="headerpane" layoutX="1.0" layoutY="1.0" prefHeight="107.0" prefWidth="1080.0">
+      <Pane fx:id="headerpane" layoutX="1.0" layoutY="1.0" prefHeight="107.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
          <children>
             <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
                <font>
