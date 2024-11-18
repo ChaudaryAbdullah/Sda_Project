@@ -1,63 +1,73 @@
+/* Updated Color Scheme */
 .custom-border-pane {
-    -fx-border-color: red;
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-    -fx-border-radius: 5px;
-    -fx-background-color: #718F94;
+    -fx-background-color: #7AB2D3; /* Clean white header */
+}
+
+.corner-side {
+    -fx-background-color: #fff; /* Soft gray background for sides */
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+}
+
+.work-scene {
+    -fx-background-color: #DFF2EB; /* Bright white workspace */
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
 }
 
 .menuBar-pane {
-    -fx-border-color: red;
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-    -fx-border-radius: 5px;
-    -fx-text-fill: #0066CC;
-    -fx-background-color: #718F94;
+    -fx-background-color: #7AB2D3; /* Dark gray for the menu bar */
+    -fx-border-radius: 10px;
+    -fx-padding: 10px;
 }
 
 .button-glow {
-    background-color: #8e44ad;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: box-shadow 0.3s;
+    -fx-background-color: #3DC2EC; /* Bright blue button */
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 8px;
+    -fx-cursor: pointer;
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.4), 4, 0.2, 0, 1);
+    -fx-font-size: 14px;
 }
 
 .button-glow:hover {
-    box-shadow: 0 0 10px #8e44ad, 0 0 20px #8e44ad, 0 0 30px #8e44ad;
+    -fx-background-color: #2563EB; /* Darker blue on hover */
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.6), 6, 0.3, 0, 2);
 }
 
 .hyperlink {
-    -fx-font-size: 14px;
-    -fx-text-fill: #0066CC;
-    -fx-padding: 5px 10px;
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-border-radius: 5;
+    -fx-font-size: 15px;
+    -fx-text-fill: #E2E8F0; /* Light gray text */
+    -fx-padding: 8px 12px;
+    -fx-border-radius: 8px;
     -fx-cursor: hand;
-    -fx-background-radius: 5;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 5, 0.3, 0, 2);
-}
-.hyperlink-selected {
-    -fx-text-fill: #ffffff;
-    -fx-background-color: #008080;
-    -fx-border-color: #008080;
-    
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 102, 204, 0.5), 10, 0.4, 0, 2);
 }
 
 .hyperlink:hover {
-    -fx-text-fill: #ffffff;
-    -fx-background-color: #008080;
-    -fx-border-color: #9EEFE5;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 102, 204, 0.5), 10, 0.4, 0, 2);
-    -fx-scale-shape: 105%;
+    -fx-text-fill: #000;
+    -fx-background-color: #8BD4FF; /* Blue highlight */
 }
 
-
-.hyperlink:focused {
-    -fx-border-color: #004080;
+.hyperlink-selected {
+    -fx-text-fill: white;
+    -fx-background-color: #4A628A; /* Active state */
 }
 
+.text-field {
+    -fx-background-color: #F3F4F6; /* Light gray text field */
+    -fx-border-radius: 8px;
+    -fx-padding: 10px;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #374151; /* Dark gray text */
+}
+
+.menu-button {
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #111827;
+}
