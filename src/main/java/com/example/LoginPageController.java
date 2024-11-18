@@ -8,6 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import com.classes.*;
+
+
 
 public class LoginPageController {
 
@@ -33,7 +36,14 @@ public class LoginPageController {
 
     @FXML
     void loginButton_Clicked(ActionEvent event) throws IOException {
+        Utility util=new Utility();
+        boolean state=util.getUser(userNameTextField.getText(),passwordTextField.getText());
+        if(state){
         App.setRoot("HomePage");
+        }
+        else{
+            System.err.println("Wrong credentials");
+        }
     }
 
     @FXML
