@@ -54,4 +54,97 @@ public class Utility {
 		return state;
 	}
 
+	public boolean addUser(String userName, String firstName, String lastName, String dob, String pass, String address){
+		
+		String url = "jdbc:mysql://localhost:3306/sda_project";
+		String username = "root";
+		String password = "12345678";
+		System.out.println("Connecting database");
+		String query = "INSERT INTO owner (userName, firstName, lastName, address, dob, password) VALUES (?, ?, ?, ?, ?, ?)";
+        boolean isInserted = false;
+
+        try (Connection connection = DriverManager.getConnection(url, username, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            // Set query parameters
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, firstName);
+            preparedStatement.setString(3, lastName);
+            preparedStatement.setString(4, address);
+            preparedStatement.setString(5, dob);
+            preparedStatement.setString(6, pass);
+
+            // Execute update
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User added successfully!");
+                isInserted = true;
+            } else {
+                System.out.println("Failed to add user.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+		query = "INSERT INTO applicant (userName, firstName, lastName, address, dob, password) VALUES (?, ?, ?, ?, ?, ?)";
+        isInserted = false;
+
+        try (Connection connection = DriverManager.getConnection(url, username, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            // Set query parameters
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, firstName);
+            preparedStatement.setString(3, lastName);
+            preparedStatement.setString(4, address);
+            preparedStatement.setString(5, dob);
+            preparedStatement.setString(6, pass);
+
+            // Execute update
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User added successfully!");
+                isInserted = true;
+            } else {
+                System.out.println("Failed to add user.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+		query = "INSERT INTO tenant (userName, firstName, lastName, address, dob, password) VALUES (?, ?, ?, ?, ?, ?)";
+        isInserted = false;
+
+        try (Connection connection = DriverManager.getConnection(url, username, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            // Set query parameters
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, firstName);
+            preparedStatement.setString(3, lastName);
+            preparedStatement.setString(4, address);
+            preparedStatement.setString(5, dob);
+            preparedStatement.setString(6, pass);
+
+            // Execute update
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("User added successfully!");
+                isInserted = true;
+            } else {
+                System.out.println("Failed to add user.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return isInserted;
+    }
+	
+
+	
+
 }
