@@ -13,33 +13,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" text="Choose Rental" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.ChooseRentalController">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" text="Choose Rental" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ChooseRentalController">
    <content>
-      <AnchorPane prefHeight="705.0" prefWidth="1084.0">
+      <AnchorPane prefHeight="705.0" prefWidth="1084.0" styleClass="corner-side" stylesheets="@mainCSSFile.css">
          <children>
-            <Pane fx:id="headerpane" layoutX="14.0" layoutY="21.0" prefHeight="87.0" prefWidth="1080.0">
+            <Pane fx:id="headerpane" layoutX="14.0" layoutY="21.0" prefHeight="88.0" prefWidth="1086.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="39.0" prefWidth="125.0" text="Living+ Home" textFill="#100b0b">
                      <font>
                         <Font name="Britannic Bold" size="15.0" />
                      </font>
                   </Hyperlink>
                   <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
                   <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
-                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" styleClass="home-img" />
+                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-img" />
                </children>
             </Pane>
-            <Pane fx:id="menupane" layoutX="14.0" layoutY="247.0" prefHeight="446.0" prefWidth="252.0">
+            <Pane fx:id="menupane" layoutX="22.0" layoutY="258.0" prefHeight="468.0" prefWidth="243.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Menu" />
-                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
-                  <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
-                  <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
-                  <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Choose Rental" />
-                  <Hyperlink fx:id="evictionUrl" alignment="CENTER" layoutX="-2.0" layoutY="287.0" onAction="#evictionUrl_Clicked" prefHeight="25.0" prefWidth="252.0" stylesheets="@mainCSSFile.css" text="Eviction" />
-                  <Hyperlink fx:id="finesUrl" alignment="CENTER" contentDisplay="CENTER" layoutY="335.0" onAction="#finesUrl_Clicked" prefHeight="25.0" prefWidth="254.0" stylesheets="@mainCSSFile.css" text="Fines" />
-                  <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
+                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="39.0" prefWidth="247.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Menu" />
+                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="39.0" prefWidth="241.0" stylesheets="@mainCSSFile.css" text="Meals" />
+                  <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="39.0" prefWidth="246.0" stylesheets="@mainCSSFile.css" text="Parking" />
+                  <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="39.0" prefWidth="242.0" stylesheets="@mainCSSFile.css" text="Feedback" />
+                  <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="39.0" prefWidth="246.0" stylesheets="@mainCSSFile.css" text="Choose Rental" />
+                  <Hyperlink fx:id="evictionUrl" alignment="CENTER" layoutX="-2.0" layoutY="287.0" onAction="#evictionUrl_Clicked" prefHeight="39.0" prefWidth="244.0" stylesheets="@mainCSSFile.css" text="Eviction" />
+                  <Hyperlink fx:id="finesUrl" alignment="CENTER" contentDisplay="CENTER" layoutY="335.0" onAction="#finesUrl_Clicked" prefHeight="39.0" prefWidth="242.0" stylesheets="@mainCSSFile.css" text="Fines" />
+                  <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="39.0" prefWidth="244.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
                </children>
             </Pane>
             <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="125.0" layoutY="110.0" startX="-114.99999237060547" startY="-7.62939453125E-6" />

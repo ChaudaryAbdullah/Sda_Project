@@ -12,23 +12,23 @@
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Home" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.HomePageController">
   <content>
-    <AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" style="-fx-background-image:C:\Users\Chaudary Abdullah\Downloads\—Pngtree—2 5d buy a house_930567.jpg; -fx-background-color: pink;">
+    <AnchorPane minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0">
          <children>
             <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="115.0" layoutY="100.0" startX="-114.99999237060547" startY="-7.62939453125E-6" />
             <Line endX="-100.0" endY="605.867919921875" layoutX="786.0" layoutY="99.0" startX="-100.0" />
-            <Pane fx:id="mappane" layoutX="688.0" layoutY="103.0" prefHeight="602.0" prefWidth="392.0" />
-            <Pane fx:id="mainpane" layoutY="100.0" prefHeight="602.0" prefWidth="685.0" />
-            <Pane fx:id="headerpane" layoutY="12.0" prefHeight="87.0" prefWidth="1080.0">
+            <Pane fx:id="mappane" layoutX="688.0" layoutY="103.0" prefHeight="602.0" prefWidth="392.0" styleClass="corner-side" stylesheets="@mainCSSFile.css" />
+            <Pane fx:id="mainpane" layoutY="100.0" prefHeight="602.0" prefWidth="685.0" styleClass="work-scene" stylesheets="@mainCSSFile.css" />
+            <Pane fx:id="headerpane" layoutY="12.0" prefHeight="87.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="39.0" prefWidth="123.0" text="Living+ Home" textFill="#100b0b">
                      <font>
                         <Font name="Britannic Bold" size="15.0" />
                      </font>
                   </Hyperlink>
                   <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
                   <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
-                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" styleClass="home-img" />
+                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-img" />
                </children>
             </Pane>
          </children></AnchorPane>
