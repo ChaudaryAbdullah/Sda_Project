@@ -26,7 +26,7 @@
             <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
          </children>
       </Pane>
-      <Pane fx:id="mainpane" layoutX="252.0" layoutY="115.0" prefHeight="606.0" prefWidth="823.0">
+      <Pane fx:id="mainpane" layoutX="252.0" layoutY="115.0" prefHeight="606.0" prefWidth="823.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
          <children>
             <Label layoutX="45.0" layoutY="40.0" text="Register A Hostel">
                <font>
@@ -88,15 +88,15 @@
       </Text>
       <Pane fx:id="headerpane" prefHeight="109.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
          <children>
-            <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+            <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="39.0" prefWidth="120.0" text="Living+ Home" textFill="#100b0b">
                <font>
                   <Font name="Britannic Bold" size="15.0" />
                </font>
             </Hyperlink>
             <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
             <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
-            <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" styleClass="home-img" />
+            <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-img" />
          </children>
       </Pane>
    </children>

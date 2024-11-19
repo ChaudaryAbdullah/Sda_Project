@@ -12,7 +12,7 @@
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Login" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginPageController">
   <content>
-    <AnchorPane fx:id="backgroundpane" cacheShape="false" centerShape="false" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" scaleShape="false" style="-fx-background-image: 'url(C:\Users\Chaudary Abdullah\Downloads\background.jpg)'; -fx-background-color: brown;" visible="false">
+    <AnchorPane fx:id="backgroundpane" cacheShape="false" centerShape="false" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" scaleShape="false" styleClass="login-pages" stylesheets="@mainCSSFile.css" visible="false">
       <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="502.0" layoutX="586.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="401.0" />
         <TextField fx:id="userNameTextField" layoutX="735.0" layoutY="268.0" prefHeight="28.0" prefWidth="235.0" />
@@ -26,7 +26,7 @@
             <Font name="Eras Bold ITC" size="20.0" />
           </font>
         </Text>
-        <Button fx:id="loginButton" layoutX="713.0" layoutY="477.0" mnemonicParsing="false" onAction="#loginButton_Clicked" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: blue;" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Login" textFill="WHITE">
+        <Button fx:id="loginButton" layoutX="713.0" layoutY="477.0" mnemonicParsing="false" onAction="#loginButton_Clicked" prefHeight="41.0" prefWidth="139.0" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Login" textFill="WHITE">
           <font>
             <Font name="Eras Bold ITC" size="16.0" />
           </font>

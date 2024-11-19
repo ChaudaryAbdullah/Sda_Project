@@ -43,7 +43,7 @@
                   <Font name="Eras Bold ITC" size="20.0" />
                </font></Text>
             <Line endX="100.0" layoutX="153.0" layoutY="249.0" startX="-152.99998474121094" startY="-1.52587890625E-5" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
-            <Pane fx:id="menupane" layoutY="248.0" prefHeight="446.0" prefWidth="252.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css">
+            <Pane fx:id="menupane" layoutY="248.0" prefHeight="446.0" prefWidth="252.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
                <children>
                   <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Menu" />
                   <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
@@ -55,17 +55,17 @@
                   <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
                </children>
             </Pane>
-            <Pane fx:id="headerpane" layoutY="4.0" prefHeight="96.0" prefWidth="1080.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css">
+            <Pane fx:id="headerpane" layoutY="4.0" prefHeight="96.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="39.0" prefWidth="121.0" text="Living+ Home" textFill="#100b0b">
                      <font>
                         <Font name="Britannic Bold" size="15.0" />
                      </font>
                   </Hyperlink>
                   <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
                   <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
-                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" styleClass="home-img" />
+                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-img" />
                </children>
             </Pane>
          </children></AnchorPane>

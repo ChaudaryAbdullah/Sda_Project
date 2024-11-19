@@ -11,10 +11,55 @@
 }
 
 .work-scene {
-    -fx-background-color: #DFF2EB; /* Bright white workspace */
+    /*-fx-background-color: #DFF2EB;*/
+    -fx-background-color: #fff;
     -fx-padding: 15px;
     -fx-border-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 3);
+}
+
+.login-pages {
+    -fx-background-color: #7AB2D3;
+    -fx-background-image: url("images/background.jpg"); /* Replace with your image name */
+    -fx-background-size: contain; /* Ensures the image covers the entire background */
+    -fx-background-position: center; /* Centers the image */
+    -fx-background-repeat: repeat-y; /* Prevents the image from repeating */
+}
+
+.dashboard-img {
+    -fx-image: url("images/User-avatar.png"); /* Replace with your image path */
+    -fx-preserve-ratio: true; /* Maintain the aspect ratio */
+    -fx-fit-width: 80; /* Set the width to 300 pixels */
+    -fx-fit-height: 80; /* Set the height to 200 pixels */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 5, 5); /* Add a shadow effect */
+    -fx-opacity: 0.9; /* Make the image slightly transparent */
+    -fx-transition: 1.9s;
+}
+
+.dashboard-img:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 15, 0.7, 10, 10); /* Intensify shadow on hover */
+    -fx-opacity: 0.8; /* Slightly fade the image on hover */
+    -fx-transform: scale(1.05); /* Slight zoom effect */
+    -fx-rotate: 30;
+    -fx-transition: 1.9s;
+}
+
+.home-img {
+    -fx-image: url("images/home.png"); /* Replace with your image path */
+    -fx-preserve-ratio: true; /* Maintain the aspect ratio */
+    -fx-fit-width: 60; /* Set the width to 300 pixels */
+    -fx-fit-height: 60; /* Set the height to 200 pixels */
+    /*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0.5, 5, 5);  */
+    -fx-opacity: 0.9; /* Make the image slightly transparent */
+    -fx-transition: 1.9s;
+}
+
+.home-img:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.7), 15, 0.7, 10, 10); /* Intensify shadow on hover */
+    -fx-opacity: 0.8; /* Slightly fade the image on hover */
+    -fx-transform: scale(1.05); /* Slight zoom effect */
+    -fx-rotate: 30;
+    -fx-transition: 1.9s;
 }
 
 .menuBar-pane {

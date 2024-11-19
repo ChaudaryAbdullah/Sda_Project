@@ -11,7 +11,7 @@
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Sign Up" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.SignUpController">
   <content>
-    <AnchorPane fx:id="backgroundpane" minHeight="686.0" minWidth="1065.0" prefHeight="686.0" prefWidth="1074.0" style="-fx-background-color: pink;">
+    <AnchorPane fx:id="backgroundpane" minHeight="686.0" minWidth="1065.0" prefHeight="686.0" prefWidth="1074.0" styleClass="login-pages" stylesheets="@mainCSSFile.css">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="502.0" layoutX="583.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="403.0" />
             <TextField fx:id="firstNameTextField" layoutX="735.0" layoutY="268.0" prefHeight="28.0" prefWidth="235.0" />
@@ -25,7 +25,7 @@
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <Button fx:id="SignUpButton" layoutX="713.0" layoutY="513.0" mnemonicParsing="false" onAction="#SignUpButton_Clicked" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: blue; -fx-cursor: HAND;" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Sign Up" textFill="WHITE">
+            <Button fx:id="SignUpButton" layoutX="713.0" layoutY="513.0" mnemonicParsing="false" onAction="#SignUpButton_Clicked" prefHeight="41.0" prefWidth="139.0" style="-fx-cursor: HAND;" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="Eras Bold ITC" size="16.0" />
                </font>

@@ -13,23 +13,23 @@
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Allocate Parking" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.AllocateParkingController">
   <content>
-    <AnchorPane fx:id="backgroundpane" minHeight="696.0" minWidth="1076.0" prefHeight="696.0" prefWidth="1076.0" style="-fx-background-image: &quot;C:\Users\Chaudary Abdullah\Downloads\—Pngtree—2 5d buy a house_930567.jpg&quot;; -fx-background-color: pink;">
+    <AnchorPane fx:id="backgroundpane" minHeight="696.0" minWidth="1076.0" prefHeight="696.0" prefWidth="1076.0" styleClass="corner-side" stylesheets="@mainCSSFile.css">
          <children>
             <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="115.0" layoutY="100.0" startX="-114.99999237060547" startY="-7.62939453125E-6" />
             <Line endX="-100.0" endY="605.867919921875" layoutX="354.0" layoutY="101.0" startX="-100.0" />
-            <Pane fx:id="mainpane" layoutX="257.0" layoutY="103.0" prefHeight="602.0" prefWidth="823.0">
+            <Pane fx:id="mainpane" layoutX="257.0" layoutY="103.0" prefHeight="602.0" prefWidth="823.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
                <children>
                   <Text layoutX="348.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parking" wrappingWidth="117.20173263549805">
                      <font>
                         <Font name="Eras Bold ITC" size="20.0" />
                      </font>
                   </Text>
-                  <Button fx:id="acceptbtn" layoutX="341.0" layoutY="518.0" mnemonicParsing="false" onAction="#acceptbtn_clikcked" stylesheets="@mainCSSFile.css" text="Accept">
+                  <Button fx:id="acceptbtn" layoutX="324.0" layoutY="518.0" mnemonicParsing="false" onAction="#acceptbtn_clikcked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Accept">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="rejectbtn" layoutX="423.0" layoutY="518.0" mnemonicParsing="false" onAction="#rejectbtn_clikcked" stylesheets="@mainCSSFile.css" text="Reject">
+                  <Button fx:id="rejectbtn" layoutX="423.0" layoutY="518.0" mnemonicParsing="false" onAction="#rejectbtn_clikcked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Reject">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -40,7 +40,7 @@
                   <Font name="Eras Bold ITC" size="20.0" />
                </font></Text>
             <Line endX="100.0" layoutX="153.0" layoutY="249.0" startX="-152.99998474121094" startY="-1.52587890625E-5" />
-            <Pane fx:id="menupane" layoutY="248.0" prefHeight="446.0" prefWidth="252.0">
+            <Pane fx:id="menupane" layoutY="248.0" prefHeight="446.0" prefWidth="252.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
                <children>
                   <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
                   <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
@@ -52,17 +52,17 @@
                   <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
                </children>
             </Pane>
-            <Pane fx:id="headerpane" layoutY="1.0" prefHeight="96.0" prefWidth="1080.0">
+            <Pane fx:id="headerpane" layoutY="1.0" prefHeight="97.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
+                  <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="39.0" prefWidth="123.0" text="Living+ Home" textFill="#100b0b">
                      <font>
                         <Font name="Britannic Bold" size="15.0" />
                      </font>
                   </Hyperlink>
                   <TextField fx:id="SearchTextField" layoutX="465.0" layoutY="41.0" text="Area" />
                   <Button fx:id="SearchButton" layoutX="632.0" layoutY="38.0" mnemonicParsing="false" onAction="#SearchButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Search" />
-                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="HomeLogo" fitHeight="91.0" fitWidth="119.0" layoutX="23.0" layoutY="9.0" onMouseClicked="#homeLogo_Clicked" pickOnBounds="true" preserveRatio="true" styleClass="home-img" />
+                  <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" styleClass="dashboard-img" />
                </children>
             </Pane>
          </children></AnchorPane>
