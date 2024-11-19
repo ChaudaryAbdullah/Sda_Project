@@ -9,15 +9,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="mainscene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="corner-side" stylesheets="@mainCSSFile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RegisterHostelController">
+<AnchorPane fx:id="mainscene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.RegisterHostelController">
    <children>
-      <Pane fx:id="menupane" layoutY="262.0" prefHeight="458.0" prefWidth="254.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
+      <Pane fx:id="menupane" layoutY="274.0" prefHeight="446.0" prefWidth="252.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
          <children>
-            <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
+            <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" text="Menu" />
             <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
             <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
             <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
@@ -27,7 +26,7 @@
             <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
          </children>
       </Pane>
-      <Pane fx:id="mainpane" layoutX="252.0" layoutY="102.0" prefHeight="619.0" prefWidth="830.0" stylesheets="@mainCSSFile.css">
+      <Pane fx:id="mainpane" layoutX="252.0" layoutY="115.0" prefHeight="606.0" prefWidth="823.0">
          <children>
             <Label layoutX="45.0" layoutY="40.0" text="Register A Hostel">
                <font>
@@ -87,9 +86,9 @@
             <Font name="Eras Bold ITC" size="20.0" />
          </font>
       </Text>
-      <Pane fx:id="headerpane" layoutX="-5.0" layoutY="-4.0" prefHeight="111.0" prefWidth="1086.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
+      <Pane fx:id="headerpane" prefHeight="109.0" prefWidth="1080.0" styleClass="custom-border-pane" stylesheets="@mainCSSFile.css">
          <children>
-
+            <Hyperlink fx:id="HomeUrl1" layoutX="860.0" layoutY="29.0" onAction="#HomeUrl_Clicked" prefHeight="38.0" prefWidth="101.0" text="Living+ Home" textFill="#100b0b">
                <font>
                   <Font name="Britannic Bold" size="15.0" />
                </font>
@@ -100,8 +99,5 @@
             <ImageView fx:id="DashbordLogo" fitHeight="86.0" fitWidth="80.0" layoutX="979.0" layoutY="6.0" onMouseClicked="#DashbordLogo_clicked" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="118.0" layoutY="110.0" startX="-114.99999237060547" startY="-7.62939453125E-6" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
-      <Line endX="-100.0" endY="605.867919921875" layoutX="356.0" layoutY="113.0" startX="-100.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
-      <Line endX="100.0" layoutX="156.0" layoutY="259.0" startX="-152.99998474121094" startY="-1.52587890625E-5" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
    </children>
 </AnchorPane>

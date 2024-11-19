@@ -4,21 +4,21 @@ import java.util.List;
 
 public abstract class User {
     private String ID;
-    private String name;
-    private String contactInfo;
-    private String applicationStatus;
-    private String applicationDate;
-    private String preferences;
-
-    private List<Notification> notifications;
-
-    public User(String applicantID, String name, String contactInfo, String applicationStatus, String applicationDate, String preferences) {
-        this.ID = applicantID;
-        this.name = name;
-        this.contactInfo = contactInfo;
-        this.applicationStatus = applicationStatus;
-        this.applicationDate = applicationDate;
-        this.preferences = preferences;
+    private String username;
+    private String firstname;
+    private String lastname;
+    private String address;
+    private String password;
+    private String dob;
+    
+    public User(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
+        this.ID = ID;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dob = dob;
+        this.password = password;
+        this.address=address;
     }
 
     public void displayRentals() {

@@ -87,7 +87,7 @@ public class RegisterHostelController {
     @FXML
     private TextField totalRoomsTextField;
 
-     @FXML
+    @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
     }
@@ -104,7 +104,7 @@ public class RegisterHostelController {
 
     @FXML
     void MenuUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("addMenu");
+        App.setRoot("addmenu");
     }
 
     @FXML
@@ -154,7 +154,7 @@ public class RegisterHostelController {
 
     @FXML
     void maintainanceUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("MaintainanceOwner");
+    App.setRoot("MaintainanceOwner");
     }
 
     @FXML
@@ -164,12 +164,12 @@ public class RegisterHostelController {
 
     @FXML
     void parkingUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("AllocateParking");
+    App.setRoot("AllocateParking");
     }
 
     @FXML
     void registerUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("RegisterHostel");
+    App.setRoot("RegisterHostel");
     }
 
     @FXML

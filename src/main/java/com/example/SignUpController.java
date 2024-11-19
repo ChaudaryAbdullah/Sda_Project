@@ -10,11 +10,18 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 public class SignUpController {
 
-    @FXML
+      @FXML
     private Button SignUpButton;
+
+    @FXML
+    private TextField addressTextField;
+
+    @FXML
+    private AnchorPane backgroundpane;
 
     @FXML
     private TextField dobTextField;
@@ -32,21 +39,21 @@ public class SignUpController {
     private TextField passwordTextField;
 
     @FXML
-    private TextField phoneNoTextField;
+    private TextField userNameTextField;
 
     @FXML
     void SignUpButton_Clicked(ActionEvent event) {
         // Collect data from text fields
-        String userName = phoneNoTextField.getText();
+        String userName = userNameTextField.getText();
         String firstName = firstNameTextField.getText();
         String lastName = lastNameTextField.getText();
         String dob = dobTextField.getText();
         String password = passwordTextField.getText();
-        String address = "Sample Address"; // You can add another text field for the address
+        String address = addressTextField.toString(); 
 
         // Validation
-        if (userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || dob.isEmpty() || password.isEmpty()) {
-            System.out.println("All fields are required!");
+        if (userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || dob.isEmpty() || password.isEmpty() || address.isEmpty()) {
+            System.err.println("All fields are required!");
             return;
         }
 
