@@ -57,23 +57,13 @@ public class SignUpController {
             return;
         }
 
-        // Create Owner object
-        Owner owner = new Owner();
-        owner.setUsername(userName);
-        owner.setFirstname(firstName);
-        owner.setLastname(lastName);
-        owner.setDob(dob);
-        owner.setPassword(password);
-        owner.setAddress(address);
-
-        // Pass Owner object to DAO for insertion
         Utility util = new Utility();
-        boolean isInserted = util.addUser(userName, firstName, lastName, dob, password, address);
-
-        if (isInserted) {
+        if(util.addUser(userName, firstName, lastName, dob, password, address)){
             System.out.println("Sign-up successful!");
-        } else {
-            System.out.println("Sign-up failed!");
+        }
+        else {
+            Error err=new Error("Sign-up failed!");
+            throw err;
         }
     
     }
