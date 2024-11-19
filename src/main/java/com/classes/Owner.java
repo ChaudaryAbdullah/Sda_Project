@@ -7,7 +7,10 @@ public class Owner extends User{
     public Owner(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
         super(ID, username, firstname, lastname, address, dob, password);
     }
+    
+    public Owner(){
 
+    }
 
     public List<Applicant> viewApplicants(String rentalID) {
        
