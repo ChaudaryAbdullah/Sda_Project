@@ -59,16 +59,6 @@ public class Utility {
             e.printStackTrace();
         }
         }
-        
-         // Create Owner object
-                // Owner owner = new Owner();
-                // owner.setID(query);//add query
-                // owner.setUsername(userName);
-                // owner.setFirstname(firstName);
-                // owner.setLastname(lastName);
-                // owner.setDob(dob);
-                // owner.setPassword(pass);
-                // owner.setAddress(address);
         return isInserted;
     }
 	
