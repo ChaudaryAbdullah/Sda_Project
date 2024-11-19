@@ -20,17 +20,17 @@
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="601.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <Text layoutX="599.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" textOrigin="CENTER" wrappingWidth="148.0136375427246">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <Button fx:id="SignUpButton" layoutX="713.0" layoutY="477.0" mnemonicParsing="false" onAction="#SignUpButton_Clicked" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: blue; -fx-cursor: HAND;" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Sign Up" textFill="WHITE">
+            <Button fx:id="SignUpButton" layoutX="713.0" layoutY="513.0" mnemonicParsing="false" onAction="#SignUpButton_Clicked" prefHeight="41.0" prefWidth="139.0" style="-fx-background-color: blue; -fx-cursor: HAND;" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Sign Up" textFill="WHITE">
                <font>
                   <Font name="Eras Bold ITC" size="16.0" />
                </font>
             </Button>
-            <TextField fx:id="passwordTextField" layoutX="733.0" layoutY="419.0" prefHeight="28.0" prefWidth="235.0" />
+            <TextField fx:id="dobTextField" layoutX="733.0" layoutY="422.0" prefHeight="28.0" prefWidth="235.0" promptText="YYYY-MM-DD" />
             <Text layoutX="731.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textOrigin="CENTER" wrappingWidth="148.0136375427246">
                <font>
                   <Font name="Eras Bold ITC" size="30.0" />
@@ -41,12 +41,12 @@
                   <Font name="Eras Demi ITC" size="12.0" />
                </font>
             </Text>
-            <Text layoutX="691.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?">
+            <Text layoutX="691.0" layoutY="575.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?">
                <font>
                   <Font name="Eras Demi ITC" size="12.0" />
                </font>
             </Text>
-            <Hyperlink fx:id="loginLink" layoutX="837.0" layoutY="544.0" onAction="#loginLink_Clicked" text="Login">
+            <Hyperlink fx:id="loginLink" layoutX="837.0" layoutY="562.0" onAction="#loginLink_Clicked" text="Login">
                <font>
                   <Font name="Eras Bold ITC" size="12.0" />
                </font>
@@ -57,18 +57,24 @@
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="phoneNoTextField" layoutX="755.0" layoutY="348.0" prefHeight="25.0" prefWidth="216.0" />
-            <Text layoutX="603.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number" textOrigin="CENTER" wrappingWidth="156.1646385192871">
+            <TextField fx:id="userNameTextField" layoutX="735.0" layoutY="348.0" prefHeight="25.0" prefWidth="236.0" />
+            <Text layoutX="603.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" textOrigin="CENTER" wrappingWidth="156.1646385192871">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="602.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <Text layoutX="602.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" textOrigin="CENTER" wrappingWidth="148.0136375427246">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="dobTextField" layoutX="734.0" layoutY="386.0" prefHeight="28.0" prefWidth="235.0" />
+            <TextField fx:id="addressTextField" layoutX="734.0" layoutY="386.0" prefHeight="28.0" prefWidth="235.0" />
+            <Text layoutX="601.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="passwordTextField" layoutX="733.0" layoutY="462.0" prefHeight="28.0" prefWidth="235.0" />
          </children>
     </AnchorPane>
   </content>

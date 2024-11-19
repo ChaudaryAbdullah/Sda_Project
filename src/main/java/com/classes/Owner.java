@@ -2,17 +2,10 @@ package com.classes;
 
 import java.util.List;
 
-public class Owner {
-    private String ownerID;
-    private String name;
-    private String contactInfo;
-
-    private List<HostelRental> properties;
-
-    public Owner(String ownerID, String name, String contactInfo) {
-        this.ownerID = ownerID;
-        this.name = name;
-        this.contactInfo = contactInfo;
+public class Owner extends User{
+  
+    public Owner(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
+        super(ID, username, firstname, lastname, address, dob, password);
     }
 
 

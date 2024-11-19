@@ -2,30 +2,10 @@ package com.classes;
 
 import java.util.List;
 
-public class Tenant {
-    private String tenantID;
-    private String name;
-    private String roomNumber;
-    private double rentAmount;
-    private String paymentStatus;
-    private double fines;
-    private String moveInDate;
-    private String preferences;
+public class Tenant extends User{
 
-    private Rent rent;
-    private List<MaintenanceRequest> maintenanceRequests;
-    private List<Feedback> feedbacks;
-    private Notification notification;
-
-    public Tenant(String tenantID, String name, String roomNumber, double rentAmount, String paymentStatus, double fines, String moveInDate, String preferences) {
-        this.tenantID = tenantID;
-        this.name = name;
-        this.roomNumber = roomNumber;
-        this.rentAmount = rentAmount;
-        this.paymentStatus = paymentStatus;
-        this.fines = fines;
-        this.moveInDate = moveInDate;
-        this.preferences = preferences;
+    Tenant(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
+        super(ID, username, firstname, lastname, address, dob, password);
     }
 
     
