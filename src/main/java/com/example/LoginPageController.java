@@ -37,12 +37,13 @@ public class LoginPageController {
     @FXML
     void loginButton_Clicked(ActionEvent event) throws IOException {
         Utility util=new Utility();
-        boolean state=util.getUser(userNameTextField.getText(),passwordTextField.getText());
-        if(state){
+        User state=util.getUser(userNameTextField.getText(),passwordTextField.getText());
+        if(state!=null){
         App.setRoot("HomePage");
         }
         else{
-            System.err.println("Wrong credentials");
+             Error err=new Error("Wrong credentials");
+             throw err;
         }
     }
 

@@ -3,7 +3,7 @@ package com.classes;
 import java.util.List;
 
 public abstract class User {
-    private String ID;
+    private int ID;
     private String username;
     private String firstname;
     private String lastname;
@@ -11,7 +11,7 @@ public abstract class User {
     private String password;
     private String dob;
     
-    public User(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
+    public User(int ID, String username, String firstname, String lastname, String address, String dob, String password) {
         this.ID = ID;
         this.username = username;
         this.firstname = firstname;
@@ -23,11 +23,11 @@ public abstract class User {
 
     public User(){}
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 

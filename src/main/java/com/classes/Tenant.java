@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Tenant extends User{
 
-    Tenant(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
+    Tenant(int ID, String username, String firstname, String lastname, String address, String dob, String password) {
         super(ID, username, firstname, lastname, address, dob, password);
     }
 

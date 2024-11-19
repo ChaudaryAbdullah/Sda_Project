@@ -5,7 +5,7 @@ import java.util.List;
 public class Applicant extends User {
   
 
-    public Applicant(String ID, String username, String firstname, String lastname, String address, String dob, String password) {
+    public Applicant(int ID, String username, String firstname, String lastname, String address, String dob, String password) {
         super(ID, username, firstname, lastname, address, dob, password);
     }
 
