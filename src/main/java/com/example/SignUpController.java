@@ -58,13 +58,13 @@ public class SignUpController {
         }
 
         // Create Owner object
-        // Owner owner = new Owner();
-        // owner.setUserName(userName);
-        // owner.setFirstName(firstName);
-        // owner.setLastName(lastName);
-        // owner.setDob(dob);
-        // owner.setPassword(password);
-        // owner.setAddress(address);
+        Owner owner = new Owner();
+        owner.setUsername(userName);
+        owner.setFirstname(firstName);
+        owner.setLastname(lastName);
+        owner.setDob(dob);
+        owner.setPassword(password);
+        owner.setAddress(address);
 
         // Pass Owner object to DAO for insertion
         Utility util = new Utility();

@@ -132,6 +132,17 @@ public class Utility {
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("User added successfully!");
+
+                // Create Owner object
+                Owner owner = new Owner();
+                owner.setID(query);//add query
+                owner.setUsername(userName);
+                owner.setFirstname(firstName);
+                owner.setLastname(lastName);
+                owner.setDob(dob);
+                owner.setPassword(password);
+                owner.setAddress(address);
+
                 isInserted = true;
             } else {
                 System.out.println("Failed to add user.");
