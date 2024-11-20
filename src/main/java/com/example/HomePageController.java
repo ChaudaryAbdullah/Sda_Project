@@ -22,7 +22,7 @@ public class HomePageController {
     private ImageView HomeLogo;
 
     @FXML
-    public TableView<?> HomeTable;
+    public TableView<String> HomeTable;
     
     @FXML
     private Hyperlink HomeUrl1;
@@ -65,14 +65,8 @@ public class HomePageController {
 
     @FXML
     public void initialize() {
-        Utility util=new Utility();
-        System.out.println("HomeTable: " + HomeTable); // Debugging
-        if (HomeTable == null) {
-            System.out.println("HomeTable is not linked to FXML.");
-        } else {
-           // loadHomeData();
-            HomeTable=util.loadHomeData(HomeTable);
-        }
+        Utility util=new Utility();        
+        HomeTable=util.loadHomeData(HomeTable);
     }
 
     @FXML
