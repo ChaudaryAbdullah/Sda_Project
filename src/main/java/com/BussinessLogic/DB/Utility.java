@@ -87,27 +87,8 @@ public class Utility {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
     
-            // Add columns dynamically
-            for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                final int colIndex = i - 1;
-                TableColumn<ObservableList<Object>, String> column = new TableColumn<>(rs.getMetaData().getColumnName(i));
-                column.setCellValueFactory(param -> {
-                    Object value = param.getValue().get(colIndex);
-                    return new SimpleStringProperty(value != null ? value.toString() : "null");
-                });
-                HomeTable.getColumns().add(column);
-            }
-    
-            // Add rows dynamically
-            ObservableList<ObservableList<Object>> data = FXCollections.observableArrayList();
-            while (rs.next()) {
-                ObservableList<Object> row = FXCollections.observableArrayList();
-                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    row.add(rs.getObject(i));
-                }
-                data.add(row);
-            }
-            HomeTable.setItems(data);
+            TableAssistant table=new TableAssistant();
+            table.createTable(HomeTable, rs);
     
         } catch (Exception e) {
             e.printStackTrace();
