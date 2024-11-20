@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -66,7 +68,7 @@ public class OwnedControllor {
     private Pane menupane;
 
     @FXML
-    private TableView<?> ownedTable;
+    private TableView<String> ownedTable;
 
     @FXML
     private Hyperlink parkingUrl;
@@ -80,6 +82,12 @@ public class OwnedControllor {
         user = u;
     }
     
+     public void initialize() {
+        LoadData util=new LoadData();        
+        ownedTable=util.loadOwnerData(ownedTable,user.getID());
+
+    }
+
      @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");

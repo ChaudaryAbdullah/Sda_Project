@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -72,7 +73,7 @@ public class MaintainanceOwnerController {
     private Hyperlink maintainanceUrl;
 
     @FXML
-    private TableView<?> maintaincetable;
+    private TableView<String> maintaincetable;
 
     @FXML
     private Pane menupane;
@@ -110,6 +111,9 @@ public class MaintainanceOwnerController {
             "Completed",
             "Ongoing"
         );
+
+        LoadData util=new LoadData();        
+        maintaincetable=util.loadMaintainanceData(maintaincetable,user.getID());
 
     }
     

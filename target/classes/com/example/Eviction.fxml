@@ -42,13 +42,13 @@
             </Label>
             <Button fx:id="returnButton1" layoutX="729.0" layoutY="537.0" mnemonicParsing="false" onAction="#returnButton1Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Return" />
             <ComboBox layoutX="130.0" layoutY="185.0" prefWidth="150.0" />
-            <TableView layoutX="113.0" layoutY="280.0" prefHeight="313.0" prefWidth="586.0">
+            <TableView fx:id="evictionTable" layoutX="113.0" layoutY="280.0" onSort="#evictionTable_sort" prefHeight="313.0" prefWidth="586.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <Label layoutX="101.0" layoutY="249.0" text="View Fines">
+            <Label layoutX="101.0" layoutY="249.0" text="View Evictions">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>

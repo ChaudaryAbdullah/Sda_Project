@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -69,14 +70,21 @@ public class rentedController {
     private Hyperlink registerUrl;
 
     @FXML
-    private TableView<?> rentedTable;
+    private TableView<String> rentedTable;
 
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
     }
-    
+
+    public void initialize() {
+        //add the applicants after merged
+
+        LoadData util=new LoadData();        
+        rentedTable=util.loadRenterData(rentedTable,user.getID());
+
+    }
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
