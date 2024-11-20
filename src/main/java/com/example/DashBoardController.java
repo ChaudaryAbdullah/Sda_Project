@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.classes.User;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 public class DashBoardController {
 
@@ -45,6 +48,29 @@ public class DashBoardController {
 
     @FXML
     private Hyperlink rentedurl;
+
+    @FXML
+    private Text dobText;
+    
+    @FXML
+    private Text nameText;
+    
+    @FXML
+    private Text usernameText;
+
+    public static User user = null;
+
+    public static void setUser(User u){
+        user = u;
+    }
+
+    @FXML
+    public void initialize() {
+       
+        nameText.setText(user.getFirstname()+' '+user.getLastname());
+        dobText.setText(user.getDob());
+        usernameText.setText(user.getUsername());
+    }
 
      @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {

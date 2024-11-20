@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.classes.User;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -81,6 +83,12 @@ public class ApproveApplicantsController {
 
     @FXML
     private TableView<?> viewApllicantsTable;
+    
+    public static User user = null;
+
+    public static void setUser(User u){
+        user = u;
+    }
 
     @FXML
     void AllocateRoomcombobox(ActionEvent event) {

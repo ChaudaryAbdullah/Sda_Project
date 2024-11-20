@@ -2,8 +2,8 @@ package com.example;
 
 import java.io.IOException;
 
-import com.classes.Owner;
-import com.classes.Utility;
+import com.BussinessLogic.DB.Utility;
+import com.BussinessLogic.classes.Owner;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
