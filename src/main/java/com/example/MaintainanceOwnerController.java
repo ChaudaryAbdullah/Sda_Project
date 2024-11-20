@@ -6,6 +6,8 @@ import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
@@ -40,7 +42,7 @@ public class MaintainanceOwnerController {
     private TextField SearchTextField;
 
     @FXML
-    private ComboBox<?> changestatuscombobox;
+    private ComboBox<String> changestatuscombobox;
 
     @FXML
     private TextField costfield;
@@ -52,7 +54,7 @@ public class MaintainanceOwnerController {
     private Hyperlink feedbackUrl;
 
     @FXML
-    private TextField fineamountfield;
+    private TextField maintainceDescription;
 
     @FXML
     private Hyperlink finesUrl;
@@ -85,15 +87,30 @@ public class MaintainanceOwnerController {
     private Button returnButton1;
 
     @FXML
-    private ComboBox<?> selectmaintainanceComboBox;
+    private ComboBox<String> selectmaintainanceComboBox;
 
     @FXML
-    private ComboBox<?> selectrentalComboBox;
+    private ComboBox<String> selectrentalComboBox;
+
+    @FXML
+    private Button RegisterNew;
+
+    @FXML
+    private Button updateStatus;
 
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
+    }
+
+    public void initialize() {
+        //add the applicants after merged
+        changestatuscombobox.getItems().addAll(
+            "Completed",
+            "Ongoing"
+        );
+
     }
     
     @FXML
@@ -109,6 +126,73 @@ public class MaintainanceOwnerController {
     @FXML
     void MealUrl_Clicked(ActionEvent event) throws IOException {
         App.setRoot("");
+    }
+
+    @FXML
+    void RegisterNewClicked(ActionEvent event) {
+        String selectedData = (String) selectmaintainanceComboBox.getSelectionModel().getSelectedItem();
+        String maintainceString = maintainceDescription.getText();
+        int rentalId =0;
+        if (selectedData != null) {
+            try {
+                rentalId = Integer.parseInt(selectedData.split(" ")[0]);
+                System.out.println("Selected Hostel ID: " + rentalId);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The selected data does not start with a valid number.");
+            }
+        } 
+        else{
+            System.out.println("No hostel selected.");
+        }
+
+        if (maintainceString.isEmpty()) {
+            System.err.println("All fields are required!");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Incomplete Input");
+            alert.setContentText("Please dont leave any fields empty.");
+            alert.showAndWait();
+            return;
+        }
+
+    }
+
+    @FXML
+    void updateStatusClicked(ActionEvent event) {
+        String selectedData = (String) selectmaintainanceComboBox.getSelectionModel().getSelectedItem();
+        String maintainceString = maintainceDescription.getText();
+        int maintainceId = 0;
+        int amount = 0;
+        if (selectedData != null) {
+            try {
+                maintainceId = Integer.parseInt(selectedData.split(" ")[0]);
+                System.out.println("Selected Hostel ID: " + maintainceId);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The selected data does not start with a valid number.");
+            }
+        } 
+        else{
+            System.out.println("No hostel selected.");
+        }
+        try {
+            amount = Integer.parseInt(costfield.getText());
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Number");
+            alert.setContentText("Please enter a valid numeric value in the Price field.");
+            alert.showAndWait();
+        }
+
+        if (maintainceString.isEmpty()) {
+            System.err.println("All fields are required!");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Incomplete Input");
+            alert.setContentText("Please dont leave any fields empty.");
+            alert.showAndWait();
+            return;
+        }
     }
 
     @FXML
@@ -142,7 +226,7 @@ public class MaintainanceOwnerController {
     }
 
     @FXML
-    void fineamountfieldClicked(ActionEvent event) {
+    void maintainceDescriptionClicked(ActionEvent event) {
 
     }
 
@@ -165,6 +249,8 @@ public class MaintainanceOwnerController {
     void maintaincetableSort(ActionEvent event) {
 
     }
+
+    
 
     @FXML
     void parkingUrl_Clicked(ActionEvent event) throws IOException {

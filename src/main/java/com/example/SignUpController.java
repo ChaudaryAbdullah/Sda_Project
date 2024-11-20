@@ -49,7 +49,7 @@ public class SignUpController {
         String lastName = lastNameTextField.getText();
         String dob = dobTextField.getText();
         String password = passwordTextField.getText();
-        String address = addressTextField.toString(); 
+        String address = addressTextField.getText(); 
 
         // Validation
         if (userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || dob.isEmpty() || password.isEmpty() || address.isEmpty()) {
