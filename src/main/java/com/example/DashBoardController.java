@@ -66,7 +66,6 @@ public class DashBoardController {
 
     @FXML
     public void initialize() {
-       
         nameText.setText(user.getFirstname()+' '+user.getLastname());
         dobText.setText(user.getDob());
         usernameText.setText(user.getUsername());
