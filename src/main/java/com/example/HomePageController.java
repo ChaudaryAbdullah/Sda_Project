@@ -1,13 +1,13 @@
 package com.example;
 
 import java.io.IOException;
-
+import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -21,6 +21,9 @@ public class HomePageController {
     @FXML
     private ImageView HomeLogo;
 
+    @FXML
+    public TableView<?> HomeTable;
+    
     @FXML
     private Hyperlink HomeUrl1;
 
@@ -57,7 +60,21 @@ public class HomePageController {
         RequestParkingController.setUser(u);
         ReviewFeedbackController.setUser(u);
         selectMenuController.setUser(u);
+       
     }
+
+    @FXML
+    public void initialize() {
+        Utility util=new Utility();
+        System.out.println("HomeTable: " + HomeTable); // Debugging
+        if (HomeTable == null) {
+            System.out.println("HomeTable is not linked to FXML.");
+        } else {
+           // loadHomeData();
+            HomeTable=util.loadHomeData(HomeTable);
+        }
+    }
+
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
