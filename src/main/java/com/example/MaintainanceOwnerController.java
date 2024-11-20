@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.classes.User;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -88,6 +90,12 @@ public class MaintainanceOwnerController {
     @FXML
     private ComboBox<?> selectrentalComboBox;
 
+    public static User user = null;
+
+    public static void setUser(User u){
+        user = u;
+    }
+    
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
