@@ -65,6 +65,7 @@
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Label>
+            <Button fx:id="confirmbtn" layoutX="525.0" layoutY="419.0" mnemonicParsing="false" onAction="#confirmbtnClicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Confirm" />
          </children>
       </Pane>
       <Text layoutX="86.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">

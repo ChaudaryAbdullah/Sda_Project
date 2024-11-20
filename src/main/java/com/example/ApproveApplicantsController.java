@@ -6,6 +6,8 @@ import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
@@ -19,7 +21,7 @@ import javafx.scene.layout.Pane;
 public class ApproveApplicantsController {
 
     @FXML
-    private ComboBox<?> AllocateRoomcombobox;
+    private ComboBox<String> AllocateRoomcombobox;
 
     @FXML
     private ImageView DashbordLogo;
@@ -43,7 +45,7 @@ public class ApproveApplicantsController {
     private TextField SearchTextField;
 
     @FXML
-    private ComboBox<?> approveComboBox;
+    private ComboBox<String> approveComboBox;
 
     @FXML
     private Hyperlink evictionUrl;
@@ -76,10 +78,13 @@ public class ApproveApplicantsController {
     private Hyperlink registerUrl;
 
     @FXML
+    private Button confirmbtn;
+
+    @FXML
     private Button returnButton1;
 
     @FXML
-    private ComboBox<?> selectapplicantComboBox;
+    private ComboBox<String> selectapplicantComboBox;
 
     @FXML
     private TableView<?> viewApllicantsTable;
@@ -88,6 +93,15 @@ public class ApproveApplicantsController {
 
     public static void setUser(User u){
         user = u;
+    }
+
+    public void initialize() {
+        //add the applicants after merged
+        approveComboBox.getItems().addAll(
+            "Approve",
+            "Reject"
+        );
+
     }
 
     @FXML
@@ -122,6 +136,39 @@ public class ApproveApplicantsController {
 
     @FXML
     void approveComboBoxClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void confirmbtnClicked(ActionEvent event) {
+        String selectedData = (String) selectapplicantComboBox.getSelectionModel().getSelectedItem();
+        String approveString = (String) approveComboBox.getSelectionModel().getSelectedItem();
+        int applicantId = 0;
+
+        if (selectedData != null) {
+            try {
+                applicantId = Integer.parseInt(selectedData.split(" ")[0]);
+                System.out.println("Selected Hostel ID: " + applicantId);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The selected data does not start with a valid number.");
+            }
+        } else {
+            System.out.println("No hostel selected.");
+        }
+
+        if("approve".equalsIgnoreCase(approveString)) {
+            //execute approve query
+        }
+        else if("reject".equalsIgnoreCase(approveString)) {
+            //execute Reject Query
+        }
+        else{
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Option");
+            alert.setHeaderText("Error: Invalid Option");
+            alert.setContentText("Please enter a valid option.");
+            alert.showAndWait();
+        }
 
     }
 

@@ -14,13 +14,13 @@
     <AnchorPane fx:id="backgroundpane" minHeight="686.0" minWidth="1065.0" prefHeight="686.0" prefWidth="1074.0" styleClass="login-pages" stylesheets="@mainCSSFile.css">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="502.0" layoutX="583.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="403.0" />
-            <TextField fx:id="firstNameTextField" layoutX="735.0" layoutY="268.0" prefHeight="28.0" prefWidth="235.0" />
-            <Text layoutX="603.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <TextField fx:id="firstNameTextField" layoutX="735.0" layoutY="241.0" prefHeight="28.0" prefWidth="235.0" />
+            <Text layoutX="603.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" textOrigin="CENTER" wrappingWidth="117.01363754272461">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="599.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <Text layoutX="598.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" textOrigin="CENTER" wrappingWidth="130.0136375427246">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
@@ -30,7 +30,7 @@
                   <Font name="Eras Bold ITC" size="16.0" />
                </font>
             </Button>
-            <TextField fx:id="dobTextField" layoutX="733.0" layoutY="422.0" prefHeight="28.0" prefWidth="235.0" promptText="YYYY-MM-DD" />
+            <TextField fx:id="dobTextField" layoutX="733.0" layoutY="419.0" prefHeight="28.0" prefWidth="235.0" promptText="YYYY-MM-DD" />
             <Text layoutX="731.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" textOrigin="CENTER" wrappingWidth="148.0136375427246">
                <font>
                   <Font name="Eras Bold ITC" size="30.0" />
@@ -51,25 +51,25 @@
                   <Font name="Eras Bold ITC" size="12.0" />
                </font>
             </Hyperlink>
-            <TextField fx:id="lastNameTextField" layoutX="735.0" layoutY="308.0" prefHeight="28.0" prefWidth="235.0" />
-            <Text layoutX="603.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <TextField fx:id="lastNameTextField" layoutX="735.0" layoutY="283.0" prefHeight="28.0" prefWidth="235.0" />
+            <Text layoutX="602.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" textOrigin="CENTER" wrappingWidth="119.01363754272461">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="userNameTextField" layoutX="735.0" layoutY="348.0" prefHeight="25.0" prefWidth="236.0" />
-            <Text layoutX="603.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" textOrigin="CENTER" wrappingWidth="156.1646385192871">
+            <TextField fx:id="userNameTextField" layoutX="735.0" layoutY="328.0" prefHeight="25.0" prefWidth="236.0" />
+            <Text layoutX="599.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" textOrigin="CENTER" wrappingWidth="113.16463851928711">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="602.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <Text layoutX="603.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" textOrigin="CENTER" wrappingWidth="105.01363754272461">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
             </Text>
-            <TextField fx:id="addressTextField" layoutX="734.0" layoutY="386.0" prefHeight="28.0" prefWidth="235.0" />
-            <Text layoutX="601.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textOrigin="CENTER" wrappingWidth="148.0136375427246">
+            <TextField fx:id="addressTextField" layoutX="734.0" layoutY="373.0" prefHeight="28.0" prefWidth="235.0" />
+            <Text layoutX="601.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" textOrigin="CENTER" wrappingWidth="108.01363754272461">
                <font>
                   <Font name="Eras Bold ITC" size="20.0" />
                </font>
