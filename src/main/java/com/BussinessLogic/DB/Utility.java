@@ -75,25 +75,4 @@ public class Utility {
     }
 	
 
-	public TableView loadHomeData(TableView HomeTable) {
-        jdbc javaJdbc=new jdbc();
-        String query = "SELECT r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities, " +
-                       "CONCAT(o.firstName, ' ', o.lastName) AS ownerName " +
-                       "FROM rental r " +
-                       "JOIN owns own ON r.rentalId = own.rentalId " +
-                       "JOIN owner o ON own.ownerId = o.ownerId";
-    
-        try (Connection conn = javaJdbc.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-    
-            TableAssistant table=new TableAssistant();
-            table.createTable(HomeTable, rs);
-    
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return HomeTable;
-    }
-    
-}
+	}

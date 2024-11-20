@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -87,7 +89,7 @@ public class ApproveApplicantsController {
     private ComboBox<String> selectapplicantComboBox;
 
     @FXML
-    private TableView<?> viewApllicantsTable;
+    private TableView<String> viewApllicantsTable;
     
     public static User user = null;
 
@@ -101,8 +103,11 @@ public class ApproveApplicantsController {
             "Approve",
             "Reject"
         );
+        LoadData util=new LoadData();        
+        viewApllicantsTable=util.loadApproveApplicantData(viewApllicantsTable,user.getID());
 
     }
+    
 
     @FXML
     void AllocateRoomcombobox(ActionEvent event) {

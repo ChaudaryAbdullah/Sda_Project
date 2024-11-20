@@ -1,6 +1,8 @@
 package com.example;
 
 import java.io.IOException;
+
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 import javafx.event.ActionEvent;
@@ -65,7 +67,7 @@ public class HomePageController {
 
     @FXML
     public void initialize() {
-        Utility util=new Utility();        
+        LoadData util=new LoadData();        
         HomeTable=util.loadHomeData(HomeTable);
     }
 

@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -9,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -63,6 +65,9 @@ public class EvictionController {
 
     @FXML
     private Pane menupane;
+    
+    @FXML
+    private TableView<String> evictionTable;
 
     @FXML
     private Hyperlink parkingUrl;
@@ -77,6 +82,10 @@ public class EvictionController {
 
     public static void setUser(User u){
         user = u;
+    }
+     public void initialize() {
+        LoadData util=new LoadData();        
+        evictionTable=util.loadEvictionData(evictionTable,user.getID());
     }
     
     @FXML
@@ -101,6 +110,11 @@ public class EvictionController {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void evictionTable_sort(ActionEvent event) {
 
     }
 
