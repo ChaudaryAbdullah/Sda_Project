@@ -75,7 +75,7 @@ public class Utility {
     }
 	
 
-	public TableView loadHomeData(@SuppressWarnings("rawtypes") TableView HomeTable) {
+	public TableView loadHomeData(TableView HomeTable) {
         jdbc javaJdbc=new jdbc();
         String query = "SELECT r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities, " +
                        "CONCAT(o.firstName, ' ', o.lastName) AS ownerName " +
