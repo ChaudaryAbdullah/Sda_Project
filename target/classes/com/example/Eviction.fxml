@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
@@ -40,14 +41,16 @@
                </font>
             </Label>
             <Button fx:id="returnButton1" layoutX="729.0" layoutY="537.0" mnemonicParsing="false" onAction="#returnButton1Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Return" />
-            <ComboBox layoutX="130.0" layoutY="185.0" prefWidth="150.0" />
+            <ComboBox fx:id="selectTenantCombobox" layoutX="130.0" layoutY="185.0" onAction="#selectTenantCombobox_Clicked" prefWidth="150.0" />
             <TableView fx:id="evictionTable" layoutX="113.0" layoutY="280.0" onSort="#evictionTable_sort" prefHeight="313.0" prefWidth="586.0" />
             <Label layoutX="101.0" layoutY="249.0" text="View Evictions">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="evictiButton" layoutX="360.0" layoutY="197.0" mnemonicParsing="false" onAction="#evictiButton_Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Evict" />
+            <Button fx:id="evictiButton" layoutX="704.0" layoutY="229.0" mnemonicParsing="false" onAction="#evictiButton_Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Evict" />
+            <TextField fx:id="reasonTextField" layoutX="519.0" layoutY="185.0" onAction="#reasonTextField_Clicked" prefHeight="25.0" prefWidth="254.0" />
+            <DatePicker fx:id="selectDate" layoutX="312.0" layoutY="185.0" onAction="#selectDate_Clicked" />
          </children>
       </Pane>
       <Text layoutX="93.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">

@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 
@@ -119,6 +120,8 @@ public class RegisterHostelController {
 
     public void initialize() {
         //add the hostel of the owners in the combobox
+        LoadData util=new LoadData();
+        selectHostel = util.loadRentalDataComboBox(selectHostel, user.getID());
     }
 
     
@@ -213,6 +216,7 @@ public class RegisterHostelController {
         String Address = addressTextField.getText();
         String name = HostelNameTextField.getText();
         String facilities = facilitiesTxtField.getText();
+        Utility uti = new Utility();
         int availableRooms = 0;
         int totalRooms =0;
         try {
@@ -248,7 +252,7 @@ public class RegisterHostelController {
             System.out.println("Hostel Register successful!");
         }
         else {
-            Utility uti = new Utility();
+            
             uti.clearTextFields(mainpane);
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Invalid Input");
@@ -258,7 +262,8 @@ public class RegisterHostelController {
             Error err=new Error("Hostel Register failed!");
             throw err;
         }
-        //complete this when it is merged later
+        uti.clearTextFields(mainpane);
+        
     }
 
     @FXML
@@ -269,6 +274,7 @@ public class RegisterHostelController {
         int price =0;
         String imgPath = roomImageTextField.getText();
         int hostelId = 0;
+        Utility uti = new Utility();
 
         if (selectedData != null) {
             try {
@@ -305,7 +311,6 @@ public class RegisterHostelController {
             System.out.println("Room added successful!");
         }
         else {
-            Utility uti = new Utility();
             uti.clearTextFields(mainpane);
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Invalid Input");
@@ -315,8 +320,7 @@ public class RegisterHostelController {
             Error err=new Error("Room add failed!");
             throw err;
         }
-
-
+        uti.clearTextFields(mainpane);
     }
 
     @FXML

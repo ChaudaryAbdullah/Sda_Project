@@ -3,11 +3,17 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.Utility;
+import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -80,13 +86,25 @@ public class EvictionController {
 
     public static User user = null;
 
+    @FXML
+    private DatePicker selectDate;
+
+    @FXML
+    private ComboBox<String> selectTenantCombobox;
+
+    
+    @FXML
+    private TextField reasonTextField;
+
     public static void setUser(User u){
         user = u;
     }
 
-     public void initialize() {
+    public void initialize() {
         LoadData util=new LoadData();        
         evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
+        selectTenantCombobox = util.loadTenantDataComboBox(selectTenantCombobox, user.getID());
+        
     }
     
     @FXML
@@ -121,6 +139,44 @@ public class EvictionController {
 
     @FXML
     void evictiButton_Clicked(ActionEvent event) {
+        String selectedData = (String) selectTenantCombobox.getSelectionModel().getSelectedItem();
+        int tenantId=0;
+        String evictionDate;
+        String reason = reasonTextField.getText();
+        Utility util = new Utility();
+        String todayDate = util.getTodayDate();
+        if (selectedData != null) {
+            try {
+                tenantId = Integer.parseInt(selectedData.split(" ")[0]);
+                System.out.println("Selected tenant ID: " + tenantId);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The selected data does not start with a valid number.");
+            }
+        } else {
+            System.out.println("No tenant selected.");
+        }
+        evictionDate = util.getFormattedDateForMySQL(selectDate);
+
+        HostelRental host = util.getRentalfromTenant(tenantId);
+
+        String rentalIDString = host.getPropertyID();
+        int rentalid = Integer.parseInt(rentalIDString); 
+
+
+        if(util.addEviction(todayDate, evictionDate, tenantId, user.getID(), rentalid, reason)){
+            System.out.println("Room added successful!");
+        }
+        else {
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("Room add failed!");
+            throw err;
+        }
+        util.clearTextFields(mainpane);
 
     }
 
@@ -161,6 +217,21 @@ public class EvictionController {
 
     @FXML
     void returnButton1Clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void reasonTextField_Clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void selectDate_Clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void selectTenantCombobox_Clicked(ActionEvent event) {
 
     }
 

@@ -105,6 +105,47 @@ public class jdbc {
             
         }
     }
+    public HostelRental getRentalIdForTenant(PreparedStatement preparedStatement) throws SQLException {
+        ResultSet resultSet = preparedStatement.executeQuery();
+ 
+        // Process results
+        if (resultSet.next()) {
+            int id = resultSet.getInt("rentalId");
+            String name = resultSet.getString("rentalName");
+            String address = resultSet.getString("address");
+            String facilities = resultSet.getString("facilities");
+            int totalRooms = resultSet.getInt("totalRooms");
+            int availableRooms = resultSet.getInt("availableRooms");
+
+            String IdString = String.valueOf(id);
+            System.out.println("User Details:");
+            System.out.println("ID: " + id);
+            System.out.println("Name: " + name);
+            System.out.println("UserName: " + address);
+            HostelRental hos =new HostelRental(IdString,address,totalRooms,availableRooms,facilities);
+            return hos;
+        } else {
+           return null;
+        }
+    }
+
+    public void insertEvictionInDatabase(PreparedStatement preparedStatement, String todayDate, String evictionDate, String rentalIdString, String tenantIdString, String ownerIDString, String reason) throws SQLException{
+        preparedStatement.setString(1, todayDate);
+        preparedStatement.setString(2, evictionDate);
+        preparedStatement.setString(3, tenantIdString);
+        preparedStatement.setString(4, ownerIDString);
+        preparedStatement.setString(5, reason);
+
+        // Execute update
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Rental added successfully!");
+        } else {
+            Error err=new Error("Failed to add Rental.");
+            throw err;
+            
+        }
+    }
 
    
 

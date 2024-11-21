@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import com.BussinessLogic.classes.*;
@@ -14,6 +16,7 @@ import com.BussinessLogic.classes.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -86,6 +89,27 @@ public class Utility {
         System.out.println("All text fields have been cleared.");
     }
 
+    public String getFormattedDateForMySQL(DatePicker selectDate) {
+        // Retrieve the date from the DatePicker
+        LocalDate date = selectDate.getValue();
+        if (date != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            return date.format(formatter);
+        }
+        return "0000-00-00";
+    }
+
+    public String getTodayDate() {
+        // Get today's date
+        LocalDate today = LocalDate.now();
+
+        // Define the format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        // Return the formatted date as a string
+        return today.format(formatter);
+    }
+
     public boolean addRental(String name, String address, String facilities, int Totalrooms, int availableRooms){
         jdbc javaJdbc=new jdbc();
         String query = "INSERT INTO rental (rentalName, address, facilities, totalRooms, availableRooms) VALUES (?, ?, ?, ?, ?)";
@@ -117,6 +141,58 @@ public class Utility {
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             javaJdbc.insertRoomInDatabase(preparedStatement, roomType, roomStatus, descrip, priceString, rentalIdString, imagePath);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+        
+    }
+    public HostelRental getRentalfromTenant(int ID){
+        String rentalId = null;
+        String query = "SELECT r.rentalId, r.rentalName, r.address, r.facilities, r.totalRooms, r.availableRooms " +
+                       "FROM rental r " +
+                       "JOIN owns o ON r.rentalId = o.rentalId " +
+                       "JOIN rent ren ON o.rentalId = ren.rentalId " +
+                       "WHERE ren.tenantId = ?";
+        jdbc javaJdbc=new jdbc();
+        String IdString = String.valueOf(ID);
+        try (Connection connection = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, IdString);
+
+            if(javaJdbc.getRentalIdForTenant(preparedStatement)!= null)
+            {
+              HostelRental hos = javaJdbc.getRentalIdForTenant(preparedStatement);
+              connection.close();  
+              return hos;
+            }
+            else{ 
+                connection.close(); 
+                return null;
+            }
+            
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean addEviction(String todayDate, String evictionDate, int  tenantId, int ownerID, int  rentalid, String reason){
+        jdbc javaJdbc=new jdbc();
+        String query = "INSERT INTO eviction (issueDate, evictionDate, tenantId, ownerId, reason) \r\n" + //
+                        "VALUES (?, ?, ?, ?, ?);";
+        boolean isInserted = false;
+        String rentalIdString = String.valueOf(rentalid);
+        String tenantIdString = String.valueOf(tenantId);
+        String ownerIDString = String.valueOf(ownerID);
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.insertEvictionInDatabase(preparedStatement, todayDate, evictionDate, rentalIdString, tenantIdString, ownerIDString, reason);
             isInserted=true;
         } catch (Exception e) {
             e.printStackTrace();
