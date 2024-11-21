@@ -60,7 +60,7 @@ public class jdbc {
             System.out.println("ID: " + id);
             System.out.println("Name: " + firstname);
             System.out.println("UserName: " + userName);
-            User user=new Owner(id,firstname,lastname,userName,address,dob,passwordString);
+            User user=new Owner(id,userName,firstname,lastname,address,dob,passwordString);
             return user;
         } else {
            return null;
