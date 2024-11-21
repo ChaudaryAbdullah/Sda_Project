@@ -7,6 +7,7 @@ import com.BussinessLogic.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -60,8 +61,11 @@ public class selectMenuController {
     private Hyperlink maintainanceUrl;
 
     @FXML
-    private TableView<?> menuTable;
+    private ComboBox<?> menuComboBox;
 
+    @FXML
+    private TableView<?> menuTable;
+    
     @FXML
     private Pane menupane;
 

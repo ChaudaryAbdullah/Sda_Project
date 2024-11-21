@@ -7,6 +7,7 @@ import com.BussinessLogic.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -46,6 +47,9 @@ public class GiveFeedbackController {
     @FXML
     private Hyperlink feedbackUrl;
 
+    @FXML
+    private ComboBox<?> feedbackCombobox;
+    
     @FXML
     private Hyperlink finesUrl;
 

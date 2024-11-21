@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.ImageView?>
@@ -37,6 +39,13 @@
                   </Text>
                   <TextField layoutX="132.0" layoutY="491.0" prefHeight="95.0" prefWidth="347.0" />
                   <Button fx:id="submitbutton" layoutX="563.0" layoutY="539.0" mnemonicParsing="false" onAction="#submitbutton_Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Submit" />
+                  <TableView layoutX="34.0" layoutY="35.0" prefHeight="384.0" prefWidth="762.0" />
+                  <ComboBox fx:id="feedbackCombobox" layoutX="584.0" layoutY="454.0" prefWidth="150.0" />
+                  <Text layoutX="512.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rental" wrappingWidth="63.2669677734375">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
                </children></Pane>
             <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented" wrappingWidth="80.9753532409668">
                <font>
