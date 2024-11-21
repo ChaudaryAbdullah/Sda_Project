@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -45,7 +46,7 @@ public class ReviewFeedbackController {
     private Hyperlink evictionUrl;
 
     @FXML
-    private TableView<?> feedbackTable;
+    private TableView<String> feedbackTable;
 
     @FXML
     private Hyperlink feedbackUrl;
@@ -75,6 +76,11 @@ public class ReviewFeedbackController {
 
     public static void setUser(User u){
         user = u;
+    }
+
+    public void initialize() {
+        LoadData util=new LoadData();        
+        feedbackTable=util.loadReviewFeedbackData(feedbackTable,user.getID());
     }
     
     @FXML

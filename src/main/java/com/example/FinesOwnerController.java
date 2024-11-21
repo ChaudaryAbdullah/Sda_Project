@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -75,13 +77,22 @@ public class FinesOwnerController {
     private Button returnButton1;
 
     @FXML
-    private ComboBox<?> selectTenant;
+    private ComboBox<String> selectTenant;
+
+    @FXML
+    private TableView<String> FinesTable;
 
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
     }
+
+     public void initialize() {
+        LoadData util=new LoadData();        
+        FinesTable=util.loadFineOwnerData(FinesTable,user.getID());
+    }
+    
     
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
@@ -118,6 +129,11 @@ public class FinesOwnerController {
         App.setRoot("ReviewFeedback");
     }
 
+    @FXML
+    void FinesTable_sort(ActionEvent event) {
+
+    }
+    
     @FXML
     void fineamountfieldClicked(ActionEvent event) {
 
