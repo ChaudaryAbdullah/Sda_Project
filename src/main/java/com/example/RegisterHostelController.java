@@ -244,6 +244,20 @@ public class RegisterHostelController {
             return;
         }
         Utility util = new Utility();
+        if(util.addRental(name, Address, facilities, totalRooms, availableRooms)){
+            System.out.println("Hostel Register successful!");
+        }
+        else {
+            Utility uti = new Utility();
+            uti.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid username & password.");
+            alert.showAndWait();
+            Error err=new Error("Hostel Register failed!");
+            throw err;
+        }
         //complete this when it is merged later
     }
 
@@ -286,7 +300,21 @@ public class RegisterHostelController {
             return;
         }
         //add to database after merge
-
+        Utility util = new Utility();
+        if(util.addRooms(hostelId, roomType, roomDescrip, price, imgPath)){
+            System.out.println("Room added successful!");
+        }
+        else {
+            Utility uti = new Utility();
+            uti.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("Room add failed!");
+            throw err;
+        }
 
 
     }

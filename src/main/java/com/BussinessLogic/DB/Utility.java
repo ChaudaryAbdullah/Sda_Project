@@ -85,7 +85,47 @@ public class Utility {
         }
         System.out.println("All text fields have been cleared.");
     }
+
+    public boolean addRental(String name, String address, String facilities, int Totalrooms, int availableRooms){
+        jdbc javaJdbc=new jdbc();
+        String query = "INSERT INTO rental (rentalName, address, facilities, totalRooms, availableRooms) VALUES (?, ?, ?, ?, ?)";
+        boolean isInserted = false;
+        String totalRoomsStr = String.valueOf(Totalrooms);
+        String availableRoomsStr = String.valueOf(availableRooms);
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.insertRentalInDatabase(preparedStatement, name, address, facilities, totalRoomsStr, availableRoomsStr);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
+
+    public boolean addRooms(int rentalId, String roomType, String descrip, int price, String imagePath){
+        jdbc javaJdbc=new jdbc();
+        String query = "INSERT INTO room (rtype, status, descript, price, rentalId, picture) VALUES (?, ?, ?, ?, ?, ?)";
+        boolean isInserted = false;
+        String rentalIdString = String.valueOf(rentalId);
+        String priceString = String.valueOf(price);
+        String roomStatus = "0";
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.insertRoomInDatabase(preparedStatement, roomType, roomStatus, descrip, priceString, rentalIdString, imagePath);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+        
+    }
     
 	
 
-	}
+}
