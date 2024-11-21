@@ -4,67 +4,40 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
+
 import javafx.scene.control.TableView;
 
 public class LoadData {
-    public TableView loadHomeData(TableView HomeTable) {
-        jdbc javaJdbc=new jdbc();
+    public TableView loadHomeData(TableView Table) {
         String query = "SELECT r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities, " +
                        "CONCAT(o.firstName, ' ', o.lastName) AS ownerName " +
                        "FROM rental r " +
                        "JOIN owns own ON r.rentalId = own.rentalId " +
                        "JOIN owner o ON own.ownerId = o.ownerId";
     
-        try (Connection conn = javaJdbc.getConnection();
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
-             ResultSet rs = preparedStatement.executeQuery(query)) {
-    
-            TableAssistant table=new TableAssistant();
-            table.createTable(HomeTable, rs);
-    
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return HomeTable;
+                       TableAssistant table= new TableAssistant();
+                       return table.runZeroParameterquery(query, Table);
     }
 
-    public TableView loadHomeNotificationData(TableView HomeTable,int ID) {
-        jdbc javaJdbc=new jdbc();
+    public TableView loadHomeNotificationData(TableView Table,int ID) {
         String query = "select n.dateTime,n.description from notification n\n" + //
                         "inner join sendnotificationtenant t on t.id = n.id\n" + //
                         "inner join sendnotificationowner o  on o.Id=n.id\n" + //
                         "where o.ownerId=? || t.tenantid=?";
     
-        try (Connection conn = javaJdbc.getConnection();
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
-             ResultSet rs = preparedStatement.executeQuery(query)) {
-                preparedStatement.setInt(1, ID);
-                preparedStatement.setInt(2, ID);
-            TableAssistant table=new TableAssistant();
-            table.createTable(HomeTable, rs);
-    
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return HomeTable;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
 
     public TableView loadApproveApplicantData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
+        
         String query = "select a.userName, a.firstName, a.lastName, a.address, a.dob from applyRental rent \n" + //
                         "join applicant a on rent.applicantid=a.applicantId\n" + //
                         "join owns o on o.rentalId=rent.rentalId where o.ownerId=?";
     
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
     
     public TableView loadOwnerData(TableView Table,int ID) {
@@ -73,16 +46,8 @@ public class LoadData {
                         "join owns on r.rentalId=owns.rentalId \n" + //
                         "where owns.ownerId=?";
     
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
 
     public TableView loadRenterData(TableView Table,int ID) {
@@ -92,16 +57,8 @@ public class LoadData {
                         "join room on r.rentalId=room.rentalId \n" + //
                         "where rent.tenantId=?";
     
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
     
     public TableView loadMaintainanceData(TableView Table,int ID) {
@@ -111,16 +68,8 @@ public class LoadData {
                         "join owns on owns.rentalId=m.rentalId\n" + //
                         "where m.status=0 and owns.ownerId=?";
     
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
 
     public TableView loadEvictionOwnerData(TableView Table,int ID) {
@@ -129,16 +78,8 @@ public class LoadData {
                         "join tenant t on e.tenantId=t.tenantId \n" + //
                         "where ownerId=?";
     
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
 
     public TableView loadFineOwnerData(TableView Table,int ID) {
@@ -150,16 +91,8 @@ public class LoadData {
                         "join owns on re.rentalId=owns.rentalId\n" + //
                         "where ownerId=?";
                         
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
 
     public TableView loadReviewFeedbackData(TableView Table,int ID) {
@@ -169,15 +102,23 @@ public class LoadData {
                         "inner join owns o on o.rentalId=r.rentalId\n" + //
                         "where o.ownerId=?";
                         
-        try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
-            preparedStatement.setInt(1, ID);
-            ResultSet rs = preparedStatement.executeQuery();
-            TableAssistant table=new TableAssistant();
-            table.createTable(Table, rs);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-                return Table;
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
     }
+
+    public TableView loadAllocateParkingData(TableView Table,int ID)throws Error {
+        jdbc javaJdbc=new jdbc();
+        String query = "select pr.slotId, t.firstName, t.lastName, t.username, r.rentalName,r.address from parkingrequest pr \n" + //
+                        "join tenant t on pr.tenantId=t.tenantId\n" + //
+                        "join parkingslot p on p.slotId=pr.slotId\n" + //
+                        "join rental r on r.rentalId=p.rentalId\n" + //
+                        "join owns o on o.rentalId=r.rentalId\n" + //
+                        "where o.ownerId=?";
+                        
+        TableAssistant table= new TableAssistant();
+        return table.runOneParameterquery(query, Table, ID);
+        
+    }
+
+
 }

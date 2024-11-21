@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -75,12 +76,18 @@ public class AllocateParkingController {
     private Button rejectbtn;
 
     @FXML
-    private TableView<?> parkingtable;
+    private TableView<String> parkingtable;
 
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
+    }
+
+     @FXML
+    public void initialize() {
+        LoadData util=new LoadData();        
+        parkingtable=util.loadAllocateParkingData(parkingtable,user.getID());
     }
 
     @FXML
