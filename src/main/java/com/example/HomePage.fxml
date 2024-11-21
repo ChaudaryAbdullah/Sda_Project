@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Home" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.HomePageController">
   <content>
@@ -17,7 +18,20 @@
          <children>
             <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="115.0" layoutY="100.0" startX="-114.99999237060547" startY="-7.62939453125E-6" />
             <Line endX="-100.0" endY="605.867919921875" layoutX="786.0" layoutY="99.0" startX="-100.0" />
-            <Pane fx:id="mappane" layoutX="688.0" layoutY="103.0" prefHeight="602.0" prefWidth="392.0" styleClass="corner-side" stylesheets="@mainCSSFile.css" />
+            <Pane fx:id="mappane" layoutX="688.0" layoutY="103.0" prefHeight="602.0" prefWidth="392.0" styleClass="corner-side" stylesheets="@mainCSSFile.css">
+               <children>
+                  <TableView fx:id="NotificationTable" layoutX="7.0" layoutY="37.0" onSort="#NotificationTable_sort" prefHeight="526.0" prefWidth="378.0" />
+                  <Text layoutX="2.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" textAlignment="CENTER" wrappingWidth="391.633544921875">
+                     <font>
+                        <Font name="Britannic Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="logOutButton" layoutX="173.0" layoutY="571.0" mnemonicParsing="false" onAction="#logOutButton_clicked" text="Log out">
+                     <font>
+                        <Font name="Britannic Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
             <Pane fx:id="mainpane" layoutY="100.0" prefHeight="602.0" prefWidth="685.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
                <children>
                   <TableView fx:id="HomeTable" layoutX="10.0" layoutY="10.0" prefHeight="581.0" prefWidth="663.0" />

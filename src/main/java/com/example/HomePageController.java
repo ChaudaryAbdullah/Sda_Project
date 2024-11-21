@@ -25,12 +25,18 @@ public class HomePageController {
 
     @FXML
     public TableView<String> HomeTable;
+
+    @FXML
+    private TableView<String> NotificationTable;
     
     @FXML
     private Hyperlink HomeUrl1;
 
     @FXML
     private Button SearchButton;
+
+    @FXML
+    private Button logOutButton;
 
     @FXML
     private TextField SearchTextField;
@@ -69,6 +75,7 @@ public class HomePageController {
     public void initialize() {
         LoadData util=new LoadData();        
         HomeTable=util.loadHomeData(HomeTable);
+        NotificationTable=util.loadHomeNotificationData(NotificationTable,user.getID());
     }
 
     @FXML
@@ -87,8 +94,19 @@ public class HomePageController {
     }
 
     @FXML
+    void NotificationTable_sort(ActionEvent event) {
+
+    }
+
+    @FXML
     void homeLogo_Clicked(MouseEvent event) throws IOException {
         App.setRoot("HomePage");
+    }
+
+    
+    @FXML
+    void logOutButton_clicked(ActionEvent event) {
+
     }
 
 }

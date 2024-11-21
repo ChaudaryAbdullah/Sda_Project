@@ -28,6 +28,27 @@ public class LoadData {
                 return HomeTable;
     }
 
+    public TableView loadHomeNotificationData(TableView HomeTable,int ID) {
+        jdbc javaJdbc=new jdbc();
+        String query = "select n.dateTime,n.description from notification n\n" + //
+                        "inner join sendnotificationtenant t on t.id = n.id\n" + //
+                        "inner join sendnotificationowner o  on o.Id=n.id\n" + //
+                        "where o.ownerId=? || t.tenantid=?";
+    
+        try (Connection conn = javaJdbc.getConnection();
+            PreparedStatement preparedStatement = conn.prepareStatement(query);
+             ResultSet rs = preparedStatement.executeQuery(query)) {
+                preparedStatement.setInt(1, ID);
+                preparedStatement.setInt(2, ID);
+            TableAssistant table=new TableAssistant();
+            table.createTable(HomeTable, rs);
+    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+                return HomeTable;
+    }
+
     public TableView loadApproveApplicantData(TableView Table,int ID) {
         jdbc javaJdbc=new jdbc();
         String query = "select a.userName, a.firstName, a.lastName, a.address, a.dob from applyRental rent \n" + //
