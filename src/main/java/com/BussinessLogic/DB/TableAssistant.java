@@ -1,5 +1,7 @@
 package com.BussinessLogic.DB;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -33,6 +35,55 @@ public class TableAssistant {
             }
             Table.setItems(data);
             return Table;
+    }
+
+    TableView runZeroParameterquery(String query,TableView Table)
+     {
+        jdbc javaJdbc=new jdbc();
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+         ResultSet rs = preparedStatement.executeQuery(query)) {
+
+        TableAssistant table=new TableAssistant();
+        table.createTable(Table, rs);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+            return Table;
+    }
+
+    TableView runOneParameterquery(String query,TableView Table,int ID)
+     {
+        jdbc javaJdbc=new jdbc();
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            TableAssistant table=new TableAssistant();
+            table.createTable(Table, rs);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Table;
+    }
+
+    TableView runTwoParameterquery(String query,TableView Table,int ID)
+     {
+        jdbc javaJdbc=new jdbc();
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+            preparedStatement.setInt(1, ID);
+            preparedStatement.setInt(2, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            TableAssistant table=new TableAssistant();
+            table.createTable(Table, rs);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Table;
     }
     
 }
