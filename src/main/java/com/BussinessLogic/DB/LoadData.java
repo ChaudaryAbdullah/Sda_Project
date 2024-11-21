@@ -41,7 +41,6 @@ public class LoadData {
     }
     
     public TableView loadOwnerData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
         String query = "select r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities from rental r \n" + //
                         "join owns on r.rentalId=owns.rentalId \n" + //
                         "where owns.ownerId=?";
@@ -51,7 +50,6 @@ public class LoadData {
     }
 
     public TableView loadRenterData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
         String query = "select room.rtype, room.descript,room.price, r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities from rental r \n" + //
                         "join rent on r.rentalId=rent.rentalId \n" + //
                         "join room on r.rentalId=room.rentalId \n" + //
@@ -62,7 +60,6 @@ public class LoadData {
     }
     
     public TableView loadMaintainanceData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
         String query = "select m.description, r.rentalName,r.address,r.facilities from maintainance m\n" + //
                         "join rental r on m.rentalId=r.rentalId \n" + //
                         "join owns on owns.rentalId=m.rentalId\n" + //
@@ -73,7 +70,6 @@ public class LoadData {
     }
 
     public TableView loadEvictionOwnerData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
         String query = "select e.issueDate, e.evictionDate, e.reason, t.username, concat(t.firstname,' ',t.lastname)as FullName from eviction e \n" + //
                         "join tenant t on e.tenantId=t.tenantId \n" + //
                         "where ownerId=?";
@@ -83,7 +79,6 @@ public class LoadData {
     }
 
     public TableView loadFineOwnerData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
         String query = "select t.username,t.firstname,t.lastName,t.dob, re.rentalName, room.rtype, room.descript, room.price from tenant t \n" + //
                         "join rent r on  r.tenantId=t.tenantId\n" + //
                         "join room on r.roomId=room.roomId\n" + //
@@ -96,7 +91,6 @@ public class LoadData {
     }
 
     public TableView loadReviewFeedbackData(TableView Table,int ID) {
-        jdbc javaJdbc=new jdbc();
         String query = "select f.rating, f.description, r.rentalName, r.address, r.facilities from feedback f \n" + //
                         "inner join rental r on r.rentalId=f.rentalId\n" + //
                         "inner join owns o on o.rentalId=r.rentalId\n" + //
@@ -106,8 +100,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
-    public TableView loadAllocateParkingData(TableView Table,int ID)throws Error {
-        jdbc javaJdbc=new jdbc();
+    public TableView loadAllocateParkingData(TableView Table,int ID) {
         String query = "select pr.slotId, t.firstName, t.lastName, t.username, r.rentalName,r.address from parkingrequest pr \n" + //
                         "join tenant t on pr.tenantId=t.tenantId\n" + //
                         "join parkingslot p on p.slotId=pr.slotId\n" + //
