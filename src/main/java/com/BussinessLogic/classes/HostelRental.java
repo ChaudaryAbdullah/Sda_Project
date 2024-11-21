@@ -28,4 +28,46 @@ public class HostelRental {
     public List<Tenant> displayTenants() {
         return null;
     }
+    public String getPropertyID() {
+        return propertyID;
+    }
+
+    public void setPropertyID(String propertyID) {
+        this.propertyID = propertyID;
+    }
+    // Getter and Setter for address
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    // Getter and Setter for totalRooms
+    public int getTotalRooms() {
+        return totalRooms;
+    }
+
+    public void setTotalRooms(int totalRooms) {
+        this.totalRooms = totalRooms;
+    }
+
+    // Getter and Setter for availableRooms
+    public int getAvailableRooms() {
+        return availableRooms;
+    }
+
+    public void setAvailableRooms(int availableRooms) {
+        this.availableRooms = availableRooms;
+    }
+
+    // Getter and Setter for facilities
+    public String getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(String facilities) {
+        this.facilities = facilities;
+    }
 }

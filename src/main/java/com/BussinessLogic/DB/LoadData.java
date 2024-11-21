@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-
-
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 
 public class LoadData {
@@ -111,6 +110,55 @@ public class LoadData {
         TableAssistant table= new TableAssistant();
         return table.runOneParameterquery(query, Table, ID);
         
+    }
+
+    public ComboBox<String> loadRentalDataComboBox(ComboBox<String> combo, int ID) {
+        jdbc javaJdbc = new jdbc();
+        String query = "select r.rentalId, r.rentalName from rental r " +
+                       "join owns on r.rentalId = owns.rentalId " +
+                       "where owns.ownerId = ?";
+        
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("rentalId") + " " + rs.getString("rentalName"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return combo;
+    }
+
+    public ComboBox<String> loadTenantDataComboBox(ComboBox<String> combo, int ID) {
+        jdbc javaJdbc = new jdbc();
+        String query =  "SELECT t.tenantId, t.userName, t.firstName, t.lastName, t.address, t.dob " + 
+                        "FROM tenant t " +
+                        "JOIN rent r ON t.tenantId = r.tenantId " +
+                        "JOIN rental ren ON r.rentalId = ren.rentalId " +
+                        "JOIN owns o ON ren.rentalId = o.rentalId " +
+                        "WHERE o.ownerId = ?";
+        
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            System.out.println("yankee");
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("tenantId") + " " + rs.getString("firstName")+ " " + rs.getString("lastName"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return combo;
     }
 
 
