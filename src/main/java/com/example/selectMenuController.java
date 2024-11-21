@@ -107,7 +107,7 @@ public class selectMenuController {
 
     @FXML
     void evictionUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("Eviction");
+        App.setRoot("EvictionTenant");
     }
 
     @FXML
@@ -117,7 +117,7 @@ public class selectMenuController {
 
     @FXML
     void finesUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("FinesOwner");
+        App.setRoot("FinesTenant");
     }
 
     @FXML
@@ -127,7 +127,7 @@ public class selectMenuController {
 
     @FXML
     void maintainanceUrl_Clicked(ActionEvent event) throws IOException {
-    App.setRoot("MaintainanceOwner");
+    App.setRoot("MaintainanceTenant");
     }
 
     @FXML

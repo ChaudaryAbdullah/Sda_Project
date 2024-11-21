@@ -16,6 +16,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 public class Utility {
     
@@ -35,9 +38,8 @@ public class Utility {
               return user1;
             }
             else{ 
-                Error err=new Error("No user found with Username: " + user);
                 connection.close(); 
-                throw err;
+                return null;
             }
             
         }
@@ -73,6 +75,17 @@ public class Utility {
         }
         return isInserted;
     }
+    public void clearTextFields(Pane parentPane) {
+        for (var node : parentPane.getChildren()) {
+            if (node instanceof TextField) {
+                ((TextField) node).clear();
+            } else if (node instanceof Pane) {
+                clearTextFields((Pane) node); // Recurse for nested panes
+            }
+        }
+        System.out.println("All text fields have been cleared.");
+    }
+    
 	
 
 	}

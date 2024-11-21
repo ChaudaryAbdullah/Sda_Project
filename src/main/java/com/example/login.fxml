@@ -14,7 +14,7 @@
   <content>
     <AnchorPane fx:id="backgroundpane" cacheShape="false" centerShape="false" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" scaleShape="false" styleClass="login-pages" stylesheets="@mainCSSFile.css" visible="false">
       <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="502.0" layoutX="586.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="401.0" />
+            <Rectangle fx:id="mainPane" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="502.0" layoutX="586.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="401.0" />
         <TextField fx:id="userNameTextField" layoutX="735.0" layoutY="268.0" prefHeight="28.0" prefWidth="235.0" />
         <Text layoutX="603.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name" textOrigin="CENTER" wrappingWidth="148.0">
           <font>

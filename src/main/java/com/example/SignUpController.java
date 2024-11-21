@@ -7,6 +7,8 @@ import com.BussinessLogic.classes.Owner;
 
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
@@ -54,6 +56,13 @@ public class SignUpController {
         // Validation
         if (userName.isEmpty() || firstName.isEmpty() || lastName.isEmpty() || dob.isEmpty() || password.isEmpty() || address.isEmpty()) {
             System.err.println("All fields are required!");
+            Utility uti = new Utility();
+            uti.clearTextFields(backgroundpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid input.");
+            alert.showAndWait();
             return;
         }
 
@@ -62,6 +71,13 @@ public class SignUpController {
             System.out.println("Sign-up successful!");
         }
         else {
+            Utility uti = new Utility();
+            uti.clearTextFields(backgroundpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid username & password.");
+            alert.showAndWait();
             Error err=new Error("Sign-up failed!");
             throw err;
         }
