@@ -2,19 +2,22 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class GiveFeedbackController {
+public class MaintainanceTenantController {
 
     @FXML
     private ImageView DashbordLogo;
@@ -32,13 +35,13 @@ public class GiveFeedbackController {
     private Hyperlink MenuUrl;
 
     @FXML
+    private Button RegisterNew;
+
+    @FXML
     private Button SearchButton;
 
     @FXML
     private TextField SearchTextField;
-
-    @FXML
-    private AnchorPane backgroundpane;
 
     @FXML
     private Hyperlink evictionUrl;
@@ -50,6 +53,9 @@ public class GiveFeedbackController {
     private Hyperlink finesUrl;
 
     @FXML
+    private Label fineslabel;
+
+    @FXML
     private Pane headerpane;
 
     @FXML
@@ -57,6 +63,12 @@ public class GiveFeedbackController {
 
     @FXML
     private Hyperlink maintainanceUrl;
+
+    @FXML
+    private TextField maintainceDescription;
+
+    @FXML
+    private TableView<?> maintaincetable;
 
     @FXML
     private Pane menupane;
@@ -68,14 +80,24 @@ public class GiveFeedbackController {
     private Hyperlink registerUrl;
 
     @FXML
-    private Button submitbutton;
+    private Button returnButton1;
 
-    public static User user = null;
+    @FXML
+    private ComboBox<?> selectrentalComboBox;
+
+   public static User user = null;
 
     public static void setUser(User u){
         user = u;
     }
-    
+
+    public void initialize() {
+        //add the applicants after merged
+
+        LoadData util=new LoadData();        
+        //rentedTable=util.loadRenterData(rentedTable,user.getID());
+
+    }
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
@@ -97,8 +119,13 @@ public class GiveFeedbackController {
     }
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+    void RegisterNewClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void SearchButton_clicked(ActionEvent event) {
+
     }
 
     @FXML
@@ -123,21 +150,36 @@ public class GiveFeedbackController {
 
     @FXML
     void maintainanceUrl_Clicked(ActionEvent event) throws IOException {
-    App.setRoot("MaintainanceTenant");
+        App.setRoot("MaintainanceTenant");
     }
 
-      @FXML
+    @FXML
+    void maintainceDescriptionClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void maintaincetableSort(ActionEvent event) {
+
+    }
+
+    @FXML
     void parkingUrl_Clicked(ActionEvent event) throws IOException {
-    App.setRoot("RequestParking");
+        App.setRoot("RequestParking");
     }
 
     @FXML
     void registerUrl_Clicked(ActionEvent event) throws IOException {
-    App.setRoot("ChooseRental");
+        App.setRoot("ChooseRental");
     }
 
     @FXML
-    void submitbutton_Clicked(ActionEvent event) {
+    void returnButton1Clicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void selectrentalComboBoxClicked(ActionEvent event) {
 
     }
 
