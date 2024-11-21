@@ -66,4 +66,47 @@ public class jdbc {
            return null;
         }
     }
+
+    void insertRentalInDatabase(PreparedStatement preparedStatement, String name, String address, String  facilities, String totalRoomsStr, String availableRoomsStr) throws SQLException
+    {
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, address);
+        preparedStatement.setString(3, facilities);
+        preparedStatement.setString(4, totalRoomsStr);
+        preparedStatement.setString(5, availableRoomsStr);
+
+        // Execute update
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Rental added successfully!");
+        } else {
+            Error err=new Error("Failed to add Rental.");
+            throw err;
+            
+        }
+    }
+
+    void insertRoomInDatabase(PreparedStatement preparedStatement, String roomType, String roomStatus, String  descrip, String priceString, String rentalIdString, String imagePath) throws SQLException
+    {
+        preparedStatement.setString(1, roomType);
+        preparedStatement.setString(2, roomStatus);
+        preparedStatement.setString(3, descrip);
+        preparedStatement.setString(4, priceString);
+        preparedStatement.setString(5, rentalIdString);
+        preparedStatement.setString(6, imagePath);
+
+        // Execute update
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Room added successfully!");
+        } else {
+            Error err=new Error("Failed to add Room.");
+            throw err;
+            
+        }
+    }
+
+   
+
+    
 }
