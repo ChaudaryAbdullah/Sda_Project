@@ -102,12 +102,52 @@ public class LoadData {
                 return Table;
     }
 
-    public TableView loadEvictionData(TableView Table,int ID) {
+    public TableView loadEvictionOwnerData(TableView Table,int ID) {
         jdbc javaJdbc=new jdbc();
         String query = "select e.issueDate, e.evictionDate, e.reason, t.username, concat(t.firstname,' ',t.lastname)as FullName from eviction e \n" + //
                         "join tenant t on e.tenantId=t.tenantId \n" + //
                         "where ownerId=?";
     
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            TableAssistant table=new TableAssistant();
+            table.createTable(Table, rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+                return Table;
+    }
+
+    public TableView loadFineOwnerData(TableView Table,int ID) {
+        jdbc javaJdbc=new jdbc();
+        String query = "select t.username,t.firstname,t.lastName,t.dob, re.rentalName, room.rtype, room.descript, room.price from tenant t \n" + //
+                        "join rent r on  r.tenantId=t.tenantId\n" + //
+                        "join room on r.roomId=room.roomId\n" + //
+                        "join rental re on re.rentalId=r.rentalId\n" + //
+                        "join owns on re.rentalId=owns.rentalId\n" + //
+                        "where ownerId=?";
+                        
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            TableAssistant table=new TableAssistant();
+            table.createTable(Table, rs);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+                return Table;
+    }
+
+    public TableView loadReviewFeedbackData(TableView Table,int ID) {
+        jdbc javaJdbc=new jdbc();
+        String query = "select f.rating, f.description, r.rentalName, r.address, r.facilities from feedback f \n" + //
+                        "inner join rental r on r.rentalId=f.rentalId\n" + //
+                        "inner join owns o on o.rentalId=r.rentalId\n" + //
+                        "where o.ownerId=?";
+                        
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             preparedStatement.setInt(1, ID);

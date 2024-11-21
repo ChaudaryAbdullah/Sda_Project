@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
@@ -42,12 +41,7 @@
             </Label>
             <Button fx:id="returnButton1" layoutX="729.0" layoutY="537.0" mnemonicParsing="false" onAction="#returnButton1Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Return" />
             <ComboBox layoutX="130.0" layoutY="185.0" prefWidth="150.0" />
-            <TableView layoutX="113.0" layoutY="280.0" prefHeight="313.0" prefWidth="586.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
-            </TableView>
+            <TableView fx:id="FinesTable" layoutX="113.0" layoutY="280.0" onSort="#FinesTable_sort" prefHeight="313.0" prefWidth="586.0" />
             <Label layoutX="101.0" layoutY="249.0" text="View Fines">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />

@@ -83,9 +83,10 @@ public class EvictionController {
     public static void setUser(User u){
         user = u;
     }
+
      public void initialize() {
         LoadData util=new LoadData();        
-        evictionTable=util.loadEvictionData(evictionTable,user.getID());
+        evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
     }
     
     @FXML
