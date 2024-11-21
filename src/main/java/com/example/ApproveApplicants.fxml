@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
@@ -42,12 +41,7 @@
             </Label>
             <Button fx:id="returnButton1" layoutX="729.0" layoutY="537.0" mnemonicParsing="false" onAction="#returnButton1Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Return" />
             <ComboBox fx:id="selectapplicantComboBox" layoutX="130.0" layoutY="185.0" onAction="#selectapplicantComboBoxClicked" prefWidth="150.0" />
-            <TableView fx:id="viewApllicantsTable" layoutX="119.0" layoutY="264.0" onSort="#viewApllicantsTableSort" prefHeight="67.0" prefWidth="586.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
-            </TableView>
+            <TableView fx:id="viewApllicantsTable" layoutX="119.0" layoutY="264.0" onSort="#viewApllicantsTableSort" prefHeight="67.0" prefWidth="586.0" />
             <Label layoutX="101.0" layoutY="238.0" text="View Applicant Details">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />

@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,6 +17,9 @@ import javafx.scene.text.Text;
 
 public class DashBoardController {
 
+    @FXML
+    private TableView<?> DashboardTable;
+    
     @FXML
     private ImageView DashbordLogo;
 
@@ -30,6 +34,9 @@ public class DashBoardController {
 
     @FXML
     private TextField SearchTextField;
+
+    @FXML
+    private Button paymentButton;
 
     @FXML
     private Pane backgroundpane;
@@ -74,6 +81,11 @@ public class DashBoardController {
      @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
+    }
+    
+    @FXML
+    void DashboardTable_sort(ActionEvent event) {
+
     }
 
     @FXML

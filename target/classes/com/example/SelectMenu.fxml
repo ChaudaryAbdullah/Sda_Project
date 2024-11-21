@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -37,6 +38,7 @@
                       <TableColumn prefWidth="75.0" text="C2" />
                     </columns>
                   </TableView>
+                  <ComboBox fx:id="menuComboBox" layoutX="87.0" layoutY="525.0" prefWidth="150.0" />
                </children></Pane>
             <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" text="Rented" wrappingWidth="80.9753532409668">
                <font>
