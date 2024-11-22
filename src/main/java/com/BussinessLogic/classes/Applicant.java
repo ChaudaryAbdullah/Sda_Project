@@ -1,7 +1,5 @@
 package com.BussinessLogic.classes;
 
-import java.util.List;
-
 public class Applicant extends User {
   
 

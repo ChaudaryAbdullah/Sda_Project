@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.AllocateParkingHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -60,9 +61,15 @@ public class AllocateParkingController {
 
     @FXML
     private Pane mainpane;
-     
+    
     @FXML
-    private ComboBox<?> parkingCombobox;
+    private Button createButton;
+    
+    @FXML
+    private ComboBox<String> rentalCombobox;
+
+    @FXML
+    private ComboBox<String> parkingCombobox;
 
     @FXML
     private Hyperlink maintainanceUrl;
@@ -74,6 +81,9 @@ public class AllocateParkingController {
     private Hyperlink parkingUrl;
 
     @FXML
+    private TextField amountTextfeild;
+
+    @FXML
     private Hyperlink registerUrl;
 
     @FXML
@@ -82,16 +92,21 @@ public class AllocateParkingController {
     @FXML
     private TableView<String> parkingtable;
 
+    @SuppressWarnings("exports")
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
     }
 
-     @FXML
+     @SuppressWarnings("unchecked")
+    @FXML
     public void initialize() {
-        LoadData util=new LoadData();        
-        parkingtable=util.loadAllocateParkingData(parkingtable,user.getID());
+        // LoadData util=new LoadData();        
+        // parkingtable=util.loadAllocateParkingData(parkingtable,user.getID());
+        
+        AllocateParkingHandler handle=new AllocateParkingHandler();
+        handle.addRental(user.getID());
     }
 
     @FXML
@@ -128,7 +143,6 @@ public class AllocateParkingController {
     void feedbackUrl_Clicked(ActionEvent event) throws IOException {
         App.setRoot("ReviewFeedback");
     }
-
 
     @FXML
     void finesUrl_Clicked(ActionEvent event) throws IOException {
@@ -167,6 +181,11 @@ public class AllocateParkingController {
 
     @FXML
     void parkingtable_sort(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void createButton_clicked(ActionEvent event) {
 
     }
 
