@@ -102,16 +102,11 @@ public class EvictionController {
     }
 
     public void initialize() {
-<<<<<<< HEAD
-        // LoadData util=new LoadData();        
-        // evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
-        // selectTenantCombobox = util.loadTenantDataComboBox(selectTenantCombobox, user.getID());
-=======
-        LoadData util=new LoadData();
-        LoadComboData cData = new LoadComboData();        
-        //evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
-        selectTenantCombobox = cData.loadTenantDataComboBox(selectTenantCombobox, user.getID());
->>>>>>> b3ce248115086fdd57c43376493d315e093ea0b1
+
+         LoadData util=new LoadData();        
+         evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
+        selectTenantCombobox = util.loadTenantDataComboBox(selectTenantCombobox, user.getID());
+
         
     }
     
