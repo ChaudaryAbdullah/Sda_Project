@@ -55,6 +55,9 @@ public abstract class User {
         this.lastname = lastname;
     }
 
+    public String getFullname() {
+        return firstname+" "+lastname;
+    }
     public String getAddress() {
         return address;
     }

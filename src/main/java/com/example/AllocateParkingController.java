@@ -106,8 +106,10 @@ public class AllocateParkingController {
     public void initialize() {
         handle.addRental(user.getID());
         handle.addParking(user.getID());
-        handle.HandleComboBox(rentalCombobox, user.getID());
+        handle.addUser(user.getID());
+        handle.HandleRentalComboBox(rentalCombobox, user.getID());
         handle.HandleTable(parkingtable, user.getID());
+        handle.HandleParkingComboBox(parkingCombobox, user.getID());
     }
 
     @FXML
