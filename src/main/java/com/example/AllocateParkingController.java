@@ -174,12 +174,12 @@ public class AllocateParkingController {
 
     @FXML
     void rejectbtn_clikcked(ActionEvent event) {
-
+        handle.rejectParking(parkingCombobox.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void acceptbtn_clikcked(ActionEvent event) {
-
+        handle.acceptParking(parkingCombobox.getSelectionModel().getSelectedItem());
     }
 
     @FXML

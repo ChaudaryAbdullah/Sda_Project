@@ -21,11 +21,14 @@ import javafx.scene.control.TableView;
 public class AllocateParkingHandler {
     private List<Rental> rentals;
     private List<parking> park;
+    private List<parking> Requestpark;
     private List<User> users;
 
     public AllocateParkingHandler(){
         rentals=new ArrayList<>();
         park=new ArrayList<>();
+        users=new ArrayList<>();
+        Requestpark=new ArrayList<>();
     }
 
     public void addUser(int ID){
@@ -44,6 +47,9 @@ public class AllocateParkingHandler {
             while(rs.next()){
                 User u=new Tenant(rs.getInt("tenantId"),rs.getString("userName"), rs.getString("FirstName"), rs.getString("lastName"),rs.getString("address"),rs.getString("dob"),rs.getString("password"));
                 users.add(u);
+                parking p=new parking();
+                p.Parking(rs.getInt("slotId"), rs.getBoolean("is_occupied"),   rs.getInt("rentalId"));
+                Requestpark.add(p);
                 System.err.println(u.getID());
             }
         } catch (Exception e) {
@@ -113,11 +119,11 @@ public class AllocateParkingHandler {
 
     public ComboBox HandleParkingComboBox(ComboBox combo, int ID){    
         // Directly populate the ComboBox
-        if (users==null) {
+        if (users==null||Requestpark==null) {
             return combo;
         }
-        for (User u : users) {
-            combo.getItems().add(u.getUsername()+" : "+u.getFullname());
+        for (int i = 0; i < users.size(); i++) {
+            combo.getItems().add(Requestpark.get(i).getSlotId()+" : "+users.get(i).getUsername()+" : "+users.get(i).getFullname());
         }
     return combo;
     
@@ -149,6 +155,58 @@ public class AllocateParkingHandler {
         }
     }
 
+    public void acceptParking(String data){
+        int slotId=Integer.parseInt(data.split(" : ")[0]);
+        String userName=data.split(" : ")[1];
+        int userid=0;
+        
+        for (User user : users) {
+            if (user.getUsername().matches(userName)) {
+                userid=user.getID();
+                break;
+            }
+        }
+        
+        String query="INSERT INTO parkingAllocation (slotId, tenantId) VALUES (?,?)";
+        jdbc javaJdbc=new jdbc();
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query)){
+        javaJdbc.insertAllocationInDatabase(preparedStatement,userid,slotId);   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        query="DELETE FROM parkingRequest\n" + //
+                        "WHERE slotId = ? AND tenantId = ?";
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query)){
+            javaJdbc.removeRequestFromDatabase(preparedStatement,slotId,userid);   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }                        
+    }
+    
+    public void rejectParking(String data){
+        int slotId=Integer.parseInt(data.split(" : ")[0]);
+        String userName=data.split(" : ")[1];
+        int userid=0;
+        
+        for (User user : users) {
+            if (user.getUsername().matches(userName)) {
+                userid=user.getID();
+                break;
+            }
+        }
+        jdbc javaJdbc=new jdbc();
+        String query="DELETE FROM parkingRequest\n" + //
+                        "WHERE slotId = ? AND tenantId = ?";
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query)){
+            javaJdbc.removeRequestFromDatabase(preparedStatement,slotId,userid);   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }   
+    }
     
     
 }
