@@ -259,6 +259,55 @@ public class Utility {
 
         return isInserted;
     }
-	
+	public boolean addTenantRental(int tenantId, int rentalId){
+        jdbc javaJdbc=new jdbc();
+        String query = "INSERT INTO rent (tenantId, rentalId) VALUES (?, ?)";
+        boolean isInserted = false;
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.insertRentInDatabase(preparedStatement, tenantId, rentalId);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
+
+    public boolean deleteRent(int applicantId){
+        jdbc javaJdbc=new jdbc();
+        String query = "DELETE FROM applyRental WHERE applicantId = ?";
+        boolean isInserted = false;
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.deleteRentInDatabase(preparedStatement, applicantId);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
+    
+    public boolean UpdateTenantRental(int tenantId, int room, int rent){
+        jdbc javaJdbc=new jdbc();
+        String query = "DELETE FROM applyRental WHERE applicantId = ?";
+        boolean isInserted = false;
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            //javaJdbc.deleteRentInDatabase(preparedStatement, tenantId);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
 
 }

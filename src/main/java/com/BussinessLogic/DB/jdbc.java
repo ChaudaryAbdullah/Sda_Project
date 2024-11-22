@@ -196,6 +196,30 @@ public class jdbc {
             
         }
     }
+    public void insertRentInDatabase(PreparedStatement preparedStatement, int tenantId, int rentalId) throws SQLException{
+        preparedStatement.setInt(1, tenantId);
+        preparedStatement.setInt(2, rentalId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Rent added successfully!");
+        } else {
+            Error err=new Error("Failed to add Rent.");
+            throw err;
+            
+        }
+    }
+
+    public void deleteRentInDatabase(PreparedStatement preparedStatement, int applicantId) throws SQLException{
+        preparedStatement.setInt(1, applicantId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Rent deleted successfully!");
+        } else {
+            Error err=new Error("Failed to delete Rent.");
+            throw err;
+            
+        }
+    }
 
    
 

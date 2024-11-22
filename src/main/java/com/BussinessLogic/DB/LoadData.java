@@ -209,6 +209,55 @@ public class LoadData {
         return combo;
     }
 
+    public ComboBox<String> loadApplicantsComboBox(ComboBox<String> combo, int ID) {
+        jdbc javaJdbc = new jdbc();
+        String query = "SELECT a.applicantId, a.firstName, a.lastName, ar.rentalId\n" + //
+                        "FROM owns o JOIN applyRental ar \n" + //
+                        "ON o.rentalId = ar.rentalId\n" + //
+                        "JOIN applicant a \n" + //
+                        "ON ar.applicantId = a.applicantId\n" + //
+                        "WHERE o.ownerId = ?";
+
+        
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("applicantId") + " " + rs.getString("firstName") + " " + rs.getString("lastName")+ " " + rs.getString("rentalId"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return combo;
+    }
+
+    public ComboBox<String> loadNULLRents(ComboBox<String> combo, int ID){
+        jdbc javaJdbc = new jdbc();
+        String query = "SELECT r.tenantId, r.rentalId FROM rent r JOIN owns o ON r.rentalId = o.rentalId WHERE o.ownerId = ? AND r.roomId IS NULL";
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("tenantId") + " " + rs.getString("rentalId"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        return combo;
+    }
+
 
 
 }
