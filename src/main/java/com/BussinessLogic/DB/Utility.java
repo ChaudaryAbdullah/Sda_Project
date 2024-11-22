@@ -309,5 +309,21 @@ public class Utility {
 
         return isInserted;
     }
+    public boolean UpdateRoomStatus(int roomId){
+        jdbc javaJdbc=new jdbc();
+        String query = "UPDATE room SET status = '1' WHERE roomId = ?";
+        boolean isInserted = false;
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.UpdateRoomInDatabase(preparedStatement, roomId);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
 
 }
