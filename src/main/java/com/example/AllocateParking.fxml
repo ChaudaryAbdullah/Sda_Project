@@ -36,8 +36,13 @@
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Button>
-                  <TableView fx:id="parkingtable" layoutX="90.0" layoutY="84.0" onSort="#parkingtable_sort" prefHeight="395.0" prefWidth="644.0" />
+                  <TableView fx:id="parkingtable" layoutX="9.0" layoutY="171.0" onSort="#parkingtable_sort" prefHeight="308.0" prefWidth="804.0" />
                   <ComboBox fx:id="parkingCombobox" layoutX="122.0" layoutY="525.0" prefWidth="150.0" />
+                  <ComboBox fx:id="rentalCombobox" layoutX="190.0" layoutY="50.0" prefWidth="150.0" />
+                  <Text layoutX="52.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount of new parking" />
+                  <TextField fx:id="amountTextfeild" layoutX="189.0" layoutY="96.0" />
+                  <Text layoutX="108.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Rental" />
+                  <Button fx:id="createButton" layoutX="398.0" layoutY="102.0" mnemonicParsing="false" onAction="#createButton_clicked" text="Create " />
                </children></Pane>
             <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">
                <font>

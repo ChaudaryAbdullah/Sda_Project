@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import com.BussinessLogic.classes.*;
 
 public class jdbc {
-    Connection getConnection() throws SQLException
+    public Connection getConnection() throws SQLException
     {
         String url = "jdbc:mysql://localhost:3306/sda_project";
 		String username = "root";
@@ -221,6 +221,16 @@ public class jdbc {
         }
     }
 
+    public void insertSlotInDatabase(PreparedStatement preparedStatement,int rentalId) throws SQLException{
+        preparedStatement.setInt(1, rentalId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Parking added successfully!");
+        } else {
+            Error err=new Error("Couldn't add parking.");
+            throw err;
+        }
+    }
    
 
     
