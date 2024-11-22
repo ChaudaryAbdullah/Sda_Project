@@ -231,6 +231,30 @@ public class jdbc {
             throw err;
         }
     }
+
+    public void insertAllocationInDatabase(PreparedStatement preparedStatement,int rentalId,int parkingId) throws SQLException{
+        preparedStatement.setInt(2, rentalId);
+        preparedStatement.setInt(1, parkingId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Allocation made successfully!");
+        } else {
+            Error err=new Error("Couldn't allocate parking.");
+            throw err;
+        }
+    }
+
+    public void removeRequestFromDatabase(PreparedStatement preparedStatement,int slot, int user) throws SQLException{
+        preparedStatement.setInt(2, user);
+        preparedStatement.setInt(1, slot);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("deletion done successfully!");
+        } else {
+            Error err=new Error("Couldn't delete request.");
+            throw err;
+        }
+    }
     public void UpdateRentInDatabase(PreparedStatement preparedStatement, int room, int rent, int tenantId) throws SQLException{
         preparedStatement.setInt(1, room);
         preparedStatement.setInt(2, rent);
