@@ -27,7 +27,7 @@
             <Hyperlink fx:id="maintainanceUrl" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="372.0" onAction="#maintainanceUrl_Clicked" prefHeight="25.0" prefWidth="256.0" stylesheets="@mainCSSFile.css" text="Maintainace" />
          </children>
       </Pane>
-      <Pane fx:id="mainpane" layoutX="252.0" layoutY="108.0" prefHeight="613.0" prefWidth="833.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
+      <Pane fx:id="mainpane" layoutX="255.0" layoutY="112.0" prefHeight="613.0" prefWidth="833.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
          <children>
             <Label fx:id="fineslabel" layoutX="45.0" layoutY="40.0" text="Approve Applicants">
                <font>
@@ -47,19 +47,26 @@
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="98.0" layoutY="344.0" text="Approve/Reject">
+            <Label layoutX="317.0" layoutY="149.0" text="Approve/Reject">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="approveComboBox" layoutX="101.0" layoutY="376.0" onAction="#approveComboBoxClicked" prefWidth="150.0" />
-            <ComboBox fx:id="AllocateRoomcombobox" layoutX="358.0" layoutY="376.0" onAction="#AllocateRoomcombobox" prefWidth="150.0" />
-            <Label layoutX="326.0" layoutY="345.0" text="Allocate Room">
+            <ComboBox fx:id="approveComboBox" layoutX="320.0" layoutY="181.0" onAction="#approveComboBoxClicked" prefWidth="150.0" />
+            <ComboBox fx:id="AllocateRoomcombobox" layoutX="320.0" layoutY="453.0" onAction="#AllocateRoomcombobox" prefWidth="150.0" />
+            <Label layoutX="320.0" layoutY="419.0" text="Allocate Room">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="confirmbtn" layoutX="525.0" layoutY="419.0" mnemonicParsing="false" onAction="#confirmbtnClicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Confirm" />
+            <Button fx:id="confirmbtn" layoutX="511.0" layoutY="165.0" mnemonicParsing="false" onAction="#confirmbtnClicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Confirm" />
+            <Label layoutX="101.0" layoutY="419.0" text="Select Tenant">
+               <font>
+                  <Font name="SansSerif Bold" size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="selectapplicantRoomComboBox1" layoutX="130.0" layoutY="452.0" onAction="#selectapplicantRoomComboBoxClicked" prefWidth="150.0" />
+            <Button fx:id="confirmbtnRoom" layoutX="511.0" layoutY="446.0" mnemonicParsing="false" onAction="#confirmbtnRoomClicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Confirm" />
          </children>
       </Pane>
       <Text layoutX="86.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">
