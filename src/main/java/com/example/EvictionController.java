@@ -6,6 +6,7 @@ import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
+import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -101,9 +102,10 @@ public class EvictionController {
     }
 
     public void initialize() {
-        LoadData util=new LoadData();        
+        LoadData util=new LoadData();
+        LoadComboData cData = new LoadComboData();        
         //evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
-        selectTenantCombobox = util.loadTenantDataComboBox(selectTenantCombobox, user.getID());
+        selectTenantCombobox = cData.loadTenantDataComboBox(selectTenantCombobox, user.getID());
         
     }
     

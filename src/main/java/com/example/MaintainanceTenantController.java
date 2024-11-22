@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
+import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,9 +97,10 @@ public class MaintainanceTenantController {
 
     public void initialize() {
         //add the applicants after merged
-        LoadData util=new LoadData();        
+        LoadData util=new LoadData();  
+        LoadComboData cData = new LoadComboData();      
         maintaincetable = util.loadMaintainanceData(maintaincetable,user.getID());
-        selectrentalComboBox = util.loadRentalDataTenantComboBox(selectrentalComboBox, user.getID());
+        selectrentalComboBox = cData.loadRentalDataTenantComboBox(selectrentalComboBox, user.getID());
     }
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
