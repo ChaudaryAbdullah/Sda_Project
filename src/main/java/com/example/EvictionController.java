@@ -103,11 +103,10 @@ public class EvictionController {
 
     public void initialize() {
 
-         LoadData util=new LoadData();        
-         evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
-        selectTenantCombobox = util.loadTenantDataComboBox(selectTenantCombobox, user.getID());
-
-        
+        LoadData util=new LoadData();
+        LoadComboData cData = new LoadComboData();        
+        //evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
+        selectTenantCombobox = cData.loadTenantDataComboBox(selectTenantCombobox, user.getID());        
     }
     
     @FXML
