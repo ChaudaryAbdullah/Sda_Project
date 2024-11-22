@@ -231,6 +231,31 @@ public class jdbc {
             throw err;
         }
     }
+    public void UpdateRentInDatabase(PreparedStatement preparedStatement, int room, int rent, int tenantId) throws SQLException{
+        preparedStatement.setInt(1, room);
+        preparedStatement.setInt(2, rent);
+        preparedStatement.setInt(3, tenantId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Rent deleted successfully!");
+        } else {
+            Error err=new Error("Failed to delete Rent.");
+            throw err;
+            
+        }
+    }
+    public void UpdateRoomInDatabase(PreparedStatement preparedStatement, int roomId) throws SQLException{
+        preparedStatement.setInt(1, roomId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Rent deleted successfully!");
+        } else {
+            Error err=new Error("Failed to delete Rent.");
+            throw err;
+            
+        }
+    }
+
    
 
     

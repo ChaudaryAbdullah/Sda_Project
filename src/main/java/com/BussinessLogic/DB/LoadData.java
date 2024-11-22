@@ -257,7 +257,26 @@ public class LoadData {
         
         return combo;
     }
+    public ComboBox<String> loadRoomsData(ComboBox<String> combo, int RentalID){
+        jdbc javaJdbc = new jdbc();
+        String query = "SELECT roomId, rtype, status, descript, price FROM room WHERE rentalId = ? AND status = '0'";
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, RentalID);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("roomId") + " " + rs.getString("price") + " " + rs.getString("descript"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+        return combo;
+    }
 
 
 }
