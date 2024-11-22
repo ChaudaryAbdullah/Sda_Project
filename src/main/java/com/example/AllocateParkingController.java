@@ -3,6 +3,7 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.AllocateParkingHandler;
 
@@ -98,15 +99,15 @@ public class AllocateParkingController {
     public static void setUser(User u){
         user = u;
     }
+    AllocateParkingHandler handle=new AllocateParkingHandler();
 
      @SuppressWarnings("unchecked")
     @FXML
     public void initialize() {
-        // LoadData util=new LoadData();        
-        // parkingtable=util.loadAllocateParkingData(parkingtable,user.getID());
-        
-        AllocateParkingHandler handle=new AllocateParkingHandler();
         handle.addRental(user.getID());
+        handle.addParking(user.getID());
+        handle.HandleComboBox(rentalCombobox, user.getID());
+        handle.HandleTable(parkingtable, user.getID());
     }
 
     @FXML
@@ -186,6 +187,8 @@ public class AllocateParkingController {
     
     @FXML
     void createButton_clicked(ActionEvent event) {
+
+        handle.newParking(rentalCombobox.getSelectionModel().getSelectedItem(), Integer.parseInt(amountTextfeild.getText()));
 
     }
 

@@ -13,6 +13,7 @@ import com.BussinessLogic.classes.User;
 import com.BussinessLogic.classes.parking;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableView;
 
 public class AllocateParkingHandler {
     private List<Rental> rentals;
@@ -47,7 +48,7 @@ public class AllocateParkingHandler {
         String query="select * from parkingslot p \n" + //
                         "inner join rental r on r.rentalId=p.rentalId\n" + //
                         "inner join owns o on o.rentalId=r.rentalId\n" + //
-                        "where o.ownerId=1";
+                        "where o.ownerId=?";
          try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             preparedStatement.setInt(1, ID);
@@ -56,15 +57,15 @@ public class AllocateParkingHandler {
                 parking p=new parking();
                 p.Parking(rs.getInt("slotId"), rs.getBoolean("is_occupied"),   rs.getInt("rentalId"));
                 park.add(p);
+
+                for (Rental rent : rentals) {
+                    if(rent.getId()==p.getRental()){
+                        rent.addparking(p);
+                    }
+            }
             }
 
-            for (Rental rent : rentals) {
-                for (parking parking : park) {
-                    if(rent.getId()==parking.getRental()){
-                        rent.addparking(parking);
-                    }
-                }  
-            }
+           
             
         } catch (Exception e) {
             
@@ -72,8 +73,51 @@ public class AllocateParkingHandler {
         }
     }
 
-    public void HandleComboBox(ComboBox combo, User user){
-        LoadData util=new LoadData();
-        combo=util.loadRentalDataComboBox(combo, user.getID());
+    public ComboBox HandleComboBox(ComboBox combo, int ID){    
+            // Directly populate the ComboBox
+            for (Rental rent : rentals) {
+                combo.getItems().add(rent.getName() + " : " + rent.getAddress());
+            }
+        return combo;
+        
     }
+
+    public TableView HandleTable(TableView table,int ID){
+        LoadData util=new LoadData();        
+        return util.loadAllocateParkingData(table,ID);
+    }
+    
+    public void newParking(String data,int amountOfParking){
+            
+        String name=data.split(" : ")[0];
+        String address=data.split(" : ")[1];
+        int id=0;
+
+        for (Rental rent : rentals) {
+            if(rent.getAddress()==address&&rent.getName()==name)
+            {
+                id=rent.getId();
+                break;
+            }
+        }
+        System.err.println(id);
+        String query="INSERT INTO parkingslot (is_occupied, rentalId) VALUES (0,?)";
+        jdbc javaJdbc=new jdbc();
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement =conn.prepareStatement(query)){
+
+            for (int i = 0; i < amountOfParking; i++) {
+                javaJdbc.insertSlotInDatabase(preparedStatement, id);   
+            }
+
+            System.out.println(name);
+            System.out.println(address);
+            System.out.println(amountOfParking);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            // TODO: handle exception
+        }
+    }
+    
 }

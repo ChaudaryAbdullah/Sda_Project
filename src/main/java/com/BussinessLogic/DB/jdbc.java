@@ -197,6 +197,16 @@ public class jdbc {
         }
     }
 
+    public void insertSlotInDatabase(PreparedStatement preparedStatement,int rentalId) throws SQLException{
+        preparedStatement.setInt(1, rentalId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Parking added successfully!");
+        } else {
+            Error err=new Error("Couldn't add parking.");
+            throw err;
+        }
+    }
    
 
     
