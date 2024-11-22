@@ -58,14 +58,8 @@
                      </font>
                   </Button>
                   <TableView fx:id="menuTable" layoutX="60.0" layoutY="78.0" onSort="#table_sort" prefHeight="402.0" prefWidth="661.0" />
-                  <ComboBox fx:id="rentalComboBox" layoutX="120.0" layoutY="517.0" prefWidth="150.0" />
-                  <Text layoutX="32.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Rental" wrappingWidth="117.20173263549805">
-                     <font>
-                        <Font name="Eras Bold ITC" size="17.0" />
-                     </font>
-                  </Text>
-                  <ComboBox fx:id="roomComboBox" layoutX="118.0" layoutY="565.0" prefWidth="150.0" />
-                  <Text layoutX="30.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Room" wrappingWidth="117.20173263549805">
+                  <ComboBox fx:id="rentalComboBox" layoutX="120.0" layoutY="523.0" prefWidth="150.0" />
+                  <Text layoutX="32.0" layoutY="531.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Rental" wrappingWidth="117.20173263549805">
                      <font>
                         <Font name="Eras Bold ITC" size="17.0" />
                      </font>

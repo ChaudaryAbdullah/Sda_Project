@@ -132,10 +132,11 @@ public class LoadData {
     }
 
     public TableView loadChoseRentalData(TableView Table,int ID) {
-        String query = "select f.rating, f.description, r.rentalName, r.address, r.facilities from feedback f \n" + //
-                        "inner join rental r on r.rentalId=f.rentalId\n" + //
-                        "inner join owns o on o.rentalId=r.rentalId\n" + //
-                        "where o.ownerId=?";
+        String query = "select room.roomid,room.rtype, room.descript,room.price, r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities from rental r \n" + //
+                        "join rent on r.rentalId=rent.rentalId \n" + //
+                        "join room on r.rentalId=room.rentalId \n" + //
+                        "join owns o on o.rentalId=r.rentalId\n" + //
+                        "where o.ownerid!=?";
                         
                         TableAssistant table= new TableAssistant();
                         return table.runOneParameterquery(query, Table, ID);
