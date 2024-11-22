@@ -114,7 +114,7 @@ public class LoadData {
 
     public ComboBox<String> loadRentalDataComboBox(ComboBox<String> combo, int ID) {
         jdbc javaJdbc = new jdbc();
-        String query = "select r.rentalId, r.rentalName from rental r " +
+        String query = "select r.rentalId, r.rentalName, r.address from rental r " +
                        "join owns on r.rentalId = owns.rentalId " +
                        "where owns.ownerId = ?";
         
@@ -127,7 +127,7 @@ public class LoadData {
             
             // Directly populate the ComboBox
             while (rs.next()) {
-                combo.getItems().add(rs.getString("rentalId") + " " + rs.getString("rentalName"));
+                combo.getItems().add(rs.getString("rentalName") + " " + rs.getString("address"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -153,7 +153,7 @@ public class LoadData {
             System.out.println("yankee");
             // Directly populate the ComboBox
             while (rs.next()) {
-                combo.getItems().add(rs.getString("tenantId") + " " + rs.getString("firstName")+ " " + rs.getString("lastName"));
+                combo.getItems().add(rs.getString("userName") + " " + rs.getString("firstName")+ " " + rs.getString("lastName"));
             }
         } catch (Exception e) {
             e.printStackTrace();
