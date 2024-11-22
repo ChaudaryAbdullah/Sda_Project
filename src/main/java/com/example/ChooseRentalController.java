@@ -39,7 +39,10 @@ public class ChooseRentalController {
     private TextField SearchTextField;
 
     @FXML
-    private ComboBox<?> rentalComboBox;
+    private ComboBox<String> rentalComboBox;
+
+    @FXML
+    private ComboBox<String> roomComboBox;
 
     @FXML
     private Hyperlink evictionUrl;

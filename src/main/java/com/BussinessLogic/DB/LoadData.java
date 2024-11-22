@@ -69,7 +69,14 @@ public class LoadData {
     }
 
     public TableView loadEvictionOwnerData(TableView Table,int ID) {
-        String query = "select e.issueDate, e.evictionDate, e.reason, t.username, concat(t.firstname,' ',t.lastname)as FullName from eviction e \n" + //
+        String query = "select e.issueDate, e.evictionDate, e.reason from eviction e where e.tenantId=?";
+    
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
+    }
+
+    public TableView loadEvictionTenantData(TableView Table,int ID) {
+        String query = "select e.issueDate, e.evictionDate, e.reason from eviction e \n" + //
                         "join tenant t on e.tenantId=t.tenantId \n" + //
                         "where ownerId=?";
     
@@ -124,4 +131,20 @@ public class LoadData {
         
     }
 
+    public TableView loadChoseRentalData(TableView Table,int ID) {
+        String query = "select f.rating, f.description, r.rentalName, r.address, r.facilities from feedback f \n" + //
+                        "inner join rental r on r.rentalId=f.rentalId\n" + //
+                        "inner join owns o on o.rentalId=r.rentalId\n" + //
+                        "where o.ownerId=?";
+                        
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
+    }
+
+    public TableView loadFineTenantData(TableView Table,int ID) {
+        String query = "select issueDate, reason,amount from fine where tenantId=?";
+                        
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
+    }
 }
