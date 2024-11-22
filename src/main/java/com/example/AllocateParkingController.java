@@ -175,11 +175,13 @@ public class AllocateParkingController {
     @FXML
     void rejectbtn_clikcked(ActionEvent event) {
         handle.rejectParking(parkingCombobox.getSelectionModel().getSelectedItem());
+        handle.HandleTable(parkingtable, user.getID());
     }
 
     @FXML
     void acceptbtn_clikcked(ActionEvent event) {
         handle.acceptParking(parkingCombobox.getSelectionModel().getSelectedItem());
+        handle.HandleTable(parkingtable, user.getID());
     }
 
     @FXML
@@ -191,7 +193,6 @@ public class AllocateParkingController {
     void createButton_clicked(ActionEvent event) {
 
         handle.newParking(rentalCombobox.getSelectionModel().getSelectedItem(), Integer.parseInt(amountTextfeild.getText()));
-
     }
 
 }
