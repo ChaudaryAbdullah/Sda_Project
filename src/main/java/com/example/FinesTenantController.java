@@ -22,7 +22,7 @@ public class FinesTenantController {
     private ImageView DashbordLogo;
 
     @FXML
-    private TableView<?> FinesTable;
+    private TableView<String> FinesTable;
 
     @FXML
     private ImageView HomeLogo;
@@ -85,7 +85,7 @@ public class FinesTenantController {
         //add the applicants after merged
 
         LoadData util=new LoadData();        
-        //rentedTable=util.loadRenterData(rentedTable,user.getID());
+        util.loadFineTenantData(FinesTable,user.getID());
 
     }
     @FXML

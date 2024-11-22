@@ -40,7 +40,7 @@ public class EvictionTenantController {
     private TextField SearchTextField;
 
     @FXML
-    private TableView<?> evictionTable;
+    private TableView<String> evictionTable;
 
     @FXML
     private Hyperlink evictionUrl;
@@ -85,7 +85,7 @@ public class EvictionTenantController {
         //add the applicants after merged
 
         LoadData util=new LoadData();        
-        //rentedTable=util.loadRenterData(rentedTable,user.getID());
+        util.loadEvictionTenantData(evictionTable,user.getID());
 
     }
     @FXML
