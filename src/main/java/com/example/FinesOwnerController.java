@@ -3,10 +3,14 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.Utility;
+import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
@@ -82,15 +86,58 @@ public class FinesOwnerController {
     @FXML
     private TableView<String> FinesTable;
 
+    @FXML
+    private TextField reasonTextField;
+
+    @FXML
+    private Button confirmButton;
+
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
     }
 
-     public void initialize() {
+    public void initialize() {
         LoadData util=new LoadData();        
         FinesTable=util.loadFineOwnerData(FinesTable,user.getID());
+        selectTenant = util.loadTenantDataComboBox(selectTenant, user.getID());
+    }
+
+    @FXML
+    void confirmButton_Clicked(ActionEvent event) {
+        String selectedData = (String) selectTenant.getSelectionModel().getSelectedItem();
+        int tenantId=0;
+        String fineString = fineamountfield.getText();
+        Utility util = new Utility();
+        String reasonString = reasonTextField.getText();
+        String todayDate = util.getTodayDate();
+        if (selectedData != null) {
+            try {
+                tenantId = Integer.parseInt(selectedData.split(" ")[0]);
+                System.out.println("Selected tenant ID: " + tenantId);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The selected data does not start with a valid number.");
+            }
+        } else {
+            System.out.println("No tenant selected.");
+        }
+        int fineAmount = Integer.parseInt(fineString); 
+        if(util.addFine(todayDate, reasonString, fineAmount, user.getID(), tenantId)){
+            System.out.println("Fine added successful!");
+        }
+        else {
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("Fine add failed!");
+            throw err;
+        }
+        util.clearTextFields(mainpane);
+        initialize();
     }
     
     
