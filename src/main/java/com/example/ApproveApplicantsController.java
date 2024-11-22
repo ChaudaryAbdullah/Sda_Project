@@ -96,6 +96,8 @@ public class ApproveApplicantsController {
 
     @FXML
     private Button confirmbtnRoom;
+
+    public int RentalID;
     
     public static User user = null;
 
@@ -176,7 +178,7 @@ public class ApproveApplicantsController {
         } else {
             System.out.println("No item selected.");
         }
-
+        
         if("approve".equalsIgnoreCase(approveString)) {
             //execute approve query
             
@@ -213,8 +215,8 @@ public class ApproveApplicantsController {
 
     @FXML
     void confirmbtnRoomClicked(ActionEvent event) {
-        String selectedData = (String) selectapplicantComboBox.getSelectionModel().getSelectedItem();
-        String approveString = (String) approveComboBox.getSelectionModel().getSelectedItem();
+        String selectedData = (String) selectapplicantRoomComboBox1.getSelectionModel().getSelectedItem();
+        String room = (String) AllocateRoomcombobox.getSelectionModel().getSelectedItem();
         int tenantId = 0;
         int rentalId = 0;
         Utility util = new Utility();
@@ -235,8 +237,26 @@ public class ApproveApplicantsController {
         } else {
             System.out.println("No item selected.");
         }
-        /*if(util.UpdateTenantRental(tenantId, rentalId)){
-            System.out.println("Room added successful!");
+        int roomId=0;
+        int price=0;
+        if (room != null) {
+            try {
+                // Split the string by space to extract individual parts
+                String[] parts = room.split(" ");
+                
+                roomId = Integer.parseInt(parts[0]);
+                price = Integer.parseInt(parts[1]);
+                
+                System.out.println("Selected room ID: " + roomId);
+                System.out.println("Selected price ID: " + price);
+            } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+                System.out.println("Error: Unable to parse the selected data. Please ensure the format is correct.");
+            }
+        } else {
+            System.out.println("No item selected.");
+        }
+        if(util.UpdateTenantRental(tenantId, roomId, price)){
+            System.out.println("Room Allocation successful!");
         }
         else {
             util.clearTextFields(mainpane);
@@ -245,10 +265,23 @@ public class ApproveApplicantsController {
             alert.setHeaderText("Error: Invalid Input");
             alert.setContentText("Please enter a valid information.");
             alert.showAndWait();
-            Error err=new Error("Rent add failed!");
+            Error err=new Error("Room Alocation failed!");
             throw err;
         }
-        util.clearTextFields(mainpane);*/
+        if(util.UpdateRoomStatus(roomId)){
+            System.out.println("Room Status Updated successful!");
+        }
+        else {
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("Room Update failed!");
+            throw err;
+        }
+        util.clearTextFields(mainpane);
 
     }
 
@@ -294,12 +327,33 @@ public class ApproveApplicantsController {
 
     @FXML
     void selectapplicantComboBoxClicked(ActionEvent event) {
-
+        
     }
 
     @FXML
     void selectapplicantRoomComboBoxClicked(ActionEvent event) {
-
+        String selectedData = (String) selectapplicantRoomComboBox1.getSelectionModel().getSelectedItem();
+        int tenantId=0;
+        int rentalId=0;
+        if (selectedData != null) {
+            try {
+                // Split the string by space to extract individual parts
+                String[] parts = selectedData.split(" ");
+                
+                tenantId = Integer.parseInt(parts[0]);
+                rentalId = Integer.parseInt(parts[1]);
+                
+                System.out.println("Selected applicant ID: " + tenantId);
+                System.out.println("Selected tenant ID: " + rentalId);
+            } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+                System.out.println("Error: Unable to parse the selected data. Please ensure the format is correct.");
+            }
+        } else {
+            System.out.println("No item selected.");
+        }
+        RentalID = rentalId;
+        LoadData util = new LoadData();
+        AllocateRoomcombobox = util.loadRoomsData(AllocateRoomcombobox, RentalID);
     }
 
     @FXML
