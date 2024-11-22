@@ -2,7 +2,9 @@ package com.example;
 
 import java.io.IOException;
 
+import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.chooseRentalHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,9 +44,6 @@ public class ChooseRentalController {
     private ComboBox<String> rentalComboBox;
 
     @FXML
-    private ComboBox<String> roomComboBox;
-
-    @FXML
     private Hyperlink evictionUrl;
 
     @FXML
@@ -63,7 +62,7 @@ public class ChooseRentalController {
     private Hyperlink maintainanceUrl;
 
     @FXML
-    private TableView<?> menuTable;
+    private TableView<String> menuTable;
 
     @FXML
     private Pane menupane;
@@ -76,11 +75,20 @@ public class ChooseRentalController {
 
     @FXML
     private Button selectbtn;
-
+    
+    chooseRentalHandler handle=new chooseRentalHandler();
+    
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
+    }
+
+
+     public void initialize() {
+        handle.tableHandler(menuTable, user.getID());
+        handle.addRentalandrooms(user.getID());
+        handle.HandleComboBox(rentalComboBox);
     }
 
     @FXML
@@ -145,7 +153,7 @@ public class ChooseRentalController {
 
     @FXML
     void selectbtn_clicked(ActionEvent event) {
-
+        handle.ChooseRental(rentalComboBox.getSelectionModel().getSelectedItem(),user.getID());
     }
 
     @FXML

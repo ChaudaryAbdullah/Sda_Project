@@ -82,12 +82,11 @@ public class EvictionTenantController {
     }
 
     public void initialize() {
-        //add the applicants after merged
-
         LoadData util=new LoadData();        
         util.loadEvictionTenantData(evictionTable,user.getID());
 
     }
+
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");

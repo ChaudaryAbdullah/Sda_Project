@@ -1,8 +1,10 @@
 package com.example;
 
 import java.io.IOException;
+import java.util.logging.Handler;
 
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.SelectMenuHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,10 +63,10 @@ public class selectMenuController {
     private Hyperlink maintainanceUrl;
 
     @FXML
-    private ComboBox<?> menuComboBox;
+    private ComboBox<String> menuComboBox;
 
     @FXML
-    private TableView<?> menuTable;
+    private TableView<String> menuTable;
     
     @FXML
     private Pane menupane;
@@ -84,6 +86,14 @@ public class selectMenuController {
         user = u;
     }
     
+    SelectMenuHandler handle=new SelectMenuHandler();
+
+    public void initialize() {
+        handle.tableHandler(menuTable);
+        handle.addMenu();
+        handle.HandleComboBox(menuComboBox);
+    }
+
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
@@ -146,7 +156,7 @@ public class selectMenuController {
 
     @FXML
     void selectbtn_clicked(ActionEvent event) {
-
+        handle.ChooseMenu(menuComboBox.getSelectionModel().getSelectedItem(), user.getID());
     }
 
     @FXML
