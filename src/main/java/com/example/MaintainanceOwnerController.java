@@ -3,6 +3,7 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
@@ -114,6 +115,8 @@ public class MaintainanceOwnerController {
 
         LoadData util=new LoadData();        
         maintaincetable=util.loadMaintainanceData(maintaincetable,user.getID());
+        selectrentalComboBox = util.loadRentalDataComboBox(selectrentalComboBox, user.getID());
+        selectmaintainanceComboBox = util.loadMaintainanceComboBox(selectmaintainanceComboBox, user.getID());
 
     }
     
@@ -134,9 +137,11 @@ public class MaintainanceOwnerController {
 
     @FXML
     void RegisterNewClicked(ActionEvent event) {
-        String selectedData = (String) selectmaintainanceComboBox.getSelectionModel().getSelectedItem();
+        String selectedData = (String) selectrentalComboBox.getSelectionModel().getSelectedItem();
         String maintainceString = maintainceDescription.getText();
         int rentalId =0;
+        Utility util = new Utility();
+        String todayDate = util.getTodayDate();
         if (selectedData != null) {
             try {
                 rentalId = Integer.parseInt(selectedData.split(" ")[0]);
@@ -159,14 +164,33 @@ public class MaintainanceOwnerController {
             return;
         }
 
+        
+        if(util.addNewMaintaince(maintainceString, rentalId, todayDate)){
+            System.out.println("Hostel Register successful!");
+        }
+        else {
+            
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("Maintaince Add failed!");
+            throw err;
+        }
+        util.clearTextFields(mainpane);
+        initialize();
     }
 
     @FXML
     void updateStatusClicked(ActionEvent event) {
         String selectedData = (String) selectmaintainanceComboBox.getSelectionModel().getSelectedItem();
-        String maintainceString = maintainceDescription.getText();
+        String changestatus = (String) changestatuscombobox.getSelectionModel().getSelectedItem();
         int maintainceId = 0;
         int amount = 0;
+        Utility util = new Utility();
+        String todayDate = util.getTodayDate();
         if (selectedData != null) {
             try {
                 maintainceId = Integer.parseInt(selectedData.split(" ")[0]);
@@ -188,15 +212,23 @@ public class MaintainanceOwnerController {
             alert.showAndWait();
         }
 
-        if (maintainceString.isEmpty()) {
-            System.err.println("All fields are required!");
+
+        if(util.UpdateMaintaince(changestatus, maintainceId, todayDate)){
+            System.out.println("Hostel Register successful!");
+        }
+        else {
+            
+            util.clearTextFields(mainpane);
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Invalid Input");
-            alert.setHeaderText("Error: Incomplete Input");
-            alert.setContentText("Please dont leave any fields empty.");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid username & password.");
             alert.showAndWait();
-            return;
+            Error err=new Error("Hostel Register failed!");
+            throw err;
         }
+        util.clearTextFields(mainpane);
+        initialize();
     }
 
     @FXML
@@ -267,8 +299,8 @@ public class MaintainanceOwnerController {
     }
 
     @FXML
-    void returnButton1Clicked(ActionEvent event) {
-
+    void returnButton1Clicked(ActionEvent event) throws IOException {
+        App.setRoot("Dashboard");
     }
 
     @FXML
