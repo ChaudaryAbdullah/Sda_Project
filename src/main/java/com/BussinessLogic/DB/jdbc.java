@@ -244,6 +244,21 @@ public class jdbc {
         }
     }
 
+    public void insertMenuInDatabase(PreparedStatement preparedStatement,int breakfastId,int lunchId,int dinnerId,String desc,int ownerId) throws SQLException{
+        preparedStatement.setInt(1, breakfastId);
+        preparedStatement.setInt(2 , lunchId);
+        preparedStatement.setInt(3, dinnerId);
+        preparedStatement.setString(4, desc);
+        preparedStatement.setInt(5, ownerId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Menu added successfully!");
+        } else {
+            Error err=new Error("Couldn't add menu.");
+            throw err;
+        }
+    }
+
     public void removeRequestFromDatabase(PreparedStatement preparedStatement,int slot, int user) throws SQLException{
         preparedStatement.setInt(2, user);
         preparedStatement.setInt(1, slot);

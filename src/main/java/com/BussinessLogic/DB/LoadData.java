@@ -112,6 +112,18 @@ public class LoadData {
         
     }
 
+    public TableView loadAddMenuData(TableView Table) {
+        String query = "SELECT menu.menuId, breakfast.name as BreakFastName,\n" + //
+                        "lunch.name as LunchName,dinner.name as DinnerName,menu.description FROM menu\n" + //
+                        "LEFT JOIN meals AS breakfast ON menu.breakfast = breakfast.mealId\n" + //
+                        "LEFT JOIN meals AS lunch ON menu.lunch = lunch.mealId\n" + //
+                        "LEFT JOIN meals AS dinner ON menu.dinner = dinner.mealId;";
+                        
+        TableAssistant table= new TableAssistant();
+        return table.runZeroParameterquery(query, Table);
+        
+    }
+
     public ComboBox<String> loadRentalDataComboBox(ComboBox<String> combo, int ID) {
         jdbc javaJdbc = new jdbc();
         String query = "select r.rentalId, r.rentalName from rental r " +

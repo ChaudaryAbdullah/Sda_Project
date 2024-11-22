@@ -3,6 +3,7 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.AddMenuHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,13 +48,13 @@ public class AddMenuController {
     private AnchorPane backgroundpane;
 
     @FXML
-    private ComboBox<?> breakfastTextFeild;
+    private ComboBox<String> breakfastTextFeild;
 
     @FXML
     private TextField descriptionTextFeild;
 
     @FXML
-    private ComboBox<?> dinnerTextFeild;
+    private ComboBox<String> dinnerTextFeild;
 
     @FXML
     private Hyperlink evictionUrl;
@@ -68,7 +69,7 @@ public class AddMenuController {
     private Pane headerpane;
 
     @FXML
-    private ComboBox<?> lunchtTextFeild;
+    private ComboBox<String> lunchtTextFeild;
 
     @FXML
     private Pane mainpane;
@@ -86,13 +87,24 @@ public class AddMenuController {
     private Hyperlink registerUrl;
 
     @FXML
-    private TableView<?> menuTable;
+    private TableView<String> menuTable;
 
+    AddMenuHandler handle=new AddMenuHandler();
     
     public static User user = null;
 
     public static void setUser(User u){
         user = u;
+    }
+
+    @FXML
+    public void initialize() {
+        handle.HandleTable(menuTable);
+        handle.addMeal();
+        handle.addMenu();
+        handle.HandleComboBox(breakfastTextFeild);
+        handle.HandleComboBox(lunchtTextFeild);
+        handle.HandleComboBox(dinnerTextFeild);
     }
 
     @FXML
@@ -122,7 +134,8 @@ public class AddMenuController {
 
     @FXML
     void addBtn_clicked(ActionEvent event) throws IOException {
-        
+        handle.addNewMenu(breakfastTextFeild.getSelectionModel().getSelectedItem(),lunchtTextFeild.getSelectionModel().getSelectedItem(),dinnerTextFeild.getSelectionModel().getSelectedItem(),descriptionTextFeild.getText(),user.getID());
+        handle.HandleTable(menuTable);
     }
 
     @FXML
