@@ -3,6 +3,7 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.LoadComboData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 
@@ -111,10 +112,11 @@ public class ApproveApplicantsController {
             "Approve",
             "Reject"
         );
-        LoadData util=new LoadData();        
+        LoadData util=new LoadData();
+        LoadComboData cData = new LoadComboData();        
         viewApllicantsTable=util.loadApproveApplicantData(viewApllicantsTable,user.getID());
-        selectapplicantComboBox = util.loadApplicantsComboBox(selectapplicantComboBox, user.getID());
-        selectapplicantRoomComboBox1 = util.loadNULLRents(selectapplicantRoomComboBox1, user.getID());
+        selectapplicantComboBox = cData.loadApplicantsComboBox(selectapplicantComboBox, user.getID());
+        selectapplicantRoomComboBox1 = cData.loadNULLRents(selectapplicantRoomComboBox1, user.getID());
 
     }
     
@@ -352,8 +354,8 @@ public class ApproveApplicantsController {
             System.out.println("No item selected.");
         }
         RentalID = rentalId;
-        LoadData util = new LoadData();
-        AllocateRoomcombobox = util.loadRoomsData(AllocateRoomcombobox, RentalID);
+        LoadComboData cData = new LoadComboData();
+        AllocateRoomcombobox = cData.loadRoomsData(AllocateRoomcombobox, RentalID);
     }
 
     @FXML

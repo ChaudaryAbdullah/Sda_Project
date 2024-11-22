@@ -6,6 +6,7 @@ import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
+import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -99,9 +100,10 @@ public class FinesOwnerController {
     }
 
     public void initialize() {
-        LoadData util=new LoadData();        
+        LoadData util=new LoadData();
+        LoadComboData cData = new LoadComboData();        
         FinesTable=util.loadFineOwnerData(FinesTable,user.getID());
-        selectTenant = util.loadTenantDataComboBox(selectTenant, user.getID());
+        selectTenant = cData.loadTenantDataComboBox(selectTenant, user.getID());
     }
 
     @FXML

@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
+import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -113,10 +114,11 @@ public class MaintainanceOwnerController {
             "Ongoing"
         );
 
-        LoadData util=new LoadData();        
+        LoadData util=new LoadData();
+        LoadComboData cData = new LoadComboData();        
         maintaincetable=util.loadMaintainanceData(maintaincetable,user.getID());
-        selectrentalComboBox = util.loadRentalDataComboBox(selectrentalComboBox, user.getID());
-        selectmaintainanceComboBox = util.loadMaintainanceComboBox(selectmaintainanceComboBox, user.getID());
+        selectrentalComboBox = cData.loadRentalDataComboBox(selectrentalComboBox, user.getID());
+        selectmaintainanceComboBox = cData.loadMaintainanceComboBox(selectmaintainanceComboBox, user.getID());
 
     }
     
