@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import com.BussinessLogic.classes.*;
 
 public class jdbc {
-    Connection getConnection() throws SQLException
+    public Connection getConnection() throws SQLException
     {
         String url = "jdbc:mysql://localhost:3306/sda_project";
 		String username = "root";
