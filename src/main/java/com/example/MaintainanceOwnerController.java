@@ -211,9 +211,16 @@ public class MaintainanceOwnerController {
             alert.setContentText("Please enter a valid numeric value in the Price field.");
             alert.showAndWait();
         }
+        boolean status=false;
+        if(changestatus == "Completed"){
+            status = true;
+        }
+        else if(changestatus == "Ongoing"){
+            status = false;
+        }
 
 
-        if(util.UpdateMaintaince(changestatus, maintainceId, todayDate)){
+        if(util.UpdateMaintaince(status, maintainceId, todayDate)){
             System.out.println("Hostel Register successful!");
         }
         else {

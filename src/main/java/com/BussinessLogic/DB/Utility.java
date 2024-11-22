@@ -222,7 +222,7 @@ public class Utility {
 
         return isInserted;
     }
-    public boolean UpdateMaintaince(String status, int maintainceId, String todayDate){
+    public boolean UpdateMaintaince(Boolean status, int maintainceId, String todayDate){
         jdbc javaJdbc=new jdbc();
         String query = "UPDATE maintainance SET status = ?, completionDate = ? WHERE maintananceId = ?";
         boolean isInserted = false;
@@ -239,7 +239,26 @@ public class Utility {
 
         return isInserted;
     }
-    
+    public boolean addFine(String todayDate, String reasonString, int fineAmount, int ownerId, int tenantId){
+        jdbc javaJdbc=new jdbc();
+        String query = "INSERT INTO fine (issueDate, reason, amount, ownerId, tenantId) \r\n" + //
+                        "VALUES (?, ?, ?, ?, ?)";
+        boolean isInserted = false;
+        String tenantID = String.valueOf(tenantId);
+        String ownerIdString = String.valueOf(ownerId);
+        String fine = String.valueOf(fineAmount);
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.insertFineInDatabase(preparedStatement, todayDate, reasonString, fine, ownerIdString, tenantID);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
 	
 
 }
