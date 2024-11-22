@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
+import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -121,7 +122,8 @@ public class RegisterHostelController {
     public void initialize() {
         //add the hostel of the owners in the combobox
         LoadData util=new LoadData();
-        selectHostel = util.loadRentalDataComboBox(selectHostel, user.getID());
+        LoadComboData cData = new LoadComboData();
+        selectHostel = cData.loadRentalDataComboBox(selectHostel, user.getID());
     }
 
     
