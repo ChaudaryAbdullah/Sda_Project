@@ -161,5 +161,54 @@ public class LoadData {
         return combo;
     }
 
+    public ComboBox<String> loadRentalDataTenantComboBox(ComboBox<String> combo, int ID) {
+        jdbc javaJdbc = new jdbc();
+        String query = "SELECT rental.rentalId, rental.rentalName " +
+               "FROM rental " +
+               "JOIN rent ON rental.rentalId = rent.rentalId " +
+               "JOIN tenant ON rent.tenantId = tenant.tenantId " +
+               "WHERE tenant.tenantId = ?";
+
+        
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("rentalId") + " " + rs.getString("rentalName"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return combo;
+    }
+
+    public ComboBox<String> loadMaintainanceComboBox(ComboBox<String> combo, int ID) {
+        jdbc javaJdbc = new jdbc();
+        String query = "SELECT maintainance.maintananceId, maintainance.description FROM maintainance JOIN rental ON maintainance.rentalId = rental.rentalId JOIN owns ON rental.rentalId = owns.rentalId WHERE owns.ownerId = ?;";
+
+        
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                combo.getItems().add(rs.getString("maintananceId") + " " + rs.getString("description"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return combo;
+    }
+
+
 
 }

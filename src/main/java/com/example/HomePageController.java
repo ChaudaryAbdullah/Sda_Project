@@ -68,6 +68,10 @@ public class HomePageController {
         RequestParkingController.setUser(u);
         ReviewFeedbackController.setUser(u);
         selectMenuController.setUser(u);
+        MaintainanceTenantController.setUser(u);
+        EvictionTenantController.setUser(u);
+        FinesTenantController.setUser(u);
+        
        
     }
 

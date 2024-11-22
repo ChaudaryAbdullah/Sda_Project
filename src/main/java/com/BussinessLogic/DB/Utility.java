@@ -201,6 +201,44 @@ public class Utility {
         return isInserted;
         
     }
+    public boolean addNewMaintaince(String maintainceString, int rentalId, String todayDate){
+        jdbc javaJdbc=new jdbc();
+        String query = "INSERT INTO maintainance (description, status, requestDate, rentalId) VALUES (?, ?, ?, ?)";
+        boolean isInserted = false;
+        String rentalIdString = String.valueOf(rentalId);
+        String description = String.valueOf(maintainceString);
+        String date = String.valueOf(todayDate);
+        String status = "0";
+        String completion = " ";
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.insertMaintainceInDatabase(preparedStatement, description, status, date, rentalIdString);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
+    public boolean UpdateMaintaince(String status, int maintainceId, String todayDate){
+        jdbc javaJdbc=new jdbc();
+        String query = "UPDATE maintainance SET status = ?, completionDate = ? WHERE maintananceId = ?";
+        boolean isInserted = false;
+        String maintainceString = String.valueOf(maintainceId);
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            javaJdbc.UpdateMaintainceInDatabase(preparedStatement, status, todayDate, maintainceString);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
+    }
     
 	
 

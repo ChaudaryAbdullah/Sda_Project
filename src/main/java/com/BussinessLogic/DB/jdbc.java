@@ -139,9 +139,42 @@ public class jdbc {
         // Execute update
         int rowsAffected = preparedStatement.executeUpdate();
         if (rowsAffected > 0) {
-            System.out.println("Rental added successfully!");
+            System.out.println("Eviction added successfully!");
         } else {
-            Error err=new Error("Failed to add Rental.");
+            Error err=new Error("Failed to add Eviction.");
+            throw err;
+            
+        }
+    }
+
+    public void insertMaintainceInDatabase(PreparedStatement preparedStatement, String description, String status, String date, String rentalId) throws SQLException{
+        preparedStatement.setString(1, description);
+        preparedStatement.setString(2, status);
+        preparedStatement.setString(3, date);
+        preparedStatement.setString(4, rentalId);
+
+        // Execute update
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Maintaince added successfully!");
+        } else {
+            Error err=new Error("Failed to add Maintaince.");
+            throw err;
+            
+        }
+       
+    }
+    public void UpdateMaintainceInDatabase(PreparedStatement preparedStatement, String status, String todayDate, String maintainceString) throws SQLException{
+        preparedStatement.setString(1, status);
+        preparedStatement.setString(2, todayDate);
+        preparedStatement.setString(3, maintainceString);
+
+        // Execute update
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Maintaince added successfully!");
+        } else {
+            Error err=new Error("Failed to add Maintaince.");
             throw err;
             
         }

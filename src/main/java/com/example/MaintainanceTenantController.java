@@ -3,10 +3,13 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
@@ -68,7 +71,7 @@ public class MaintainanceTenantController {
     private TextField maintainceDescription;
 
     @FXML
-    private TableView<?> maintaincetable;
+    private TableView<String> maintaincetable;
 
     @FXML
     private Pane menupane;
@@ -83,7 +86,7 @@ public class MaintainanceTenantController {
     private Button returnButton1;
 
     @FXML
-    private ComboBox<?> selectrentalComboBox;
+    private ComboBox<String> selectrentalComboBox;
 
    public static User user = null;
 
@@ -93,10 +96,9 @@ public class MaintainanceTenantController {
 
     public void initialize() {
         //add the applicants after merged
-
         LoadData util=new LoadData();        
-        //rentedTable=util.loadRenterData(rentedTable,user.getID());
-
+        maintaincetable = util.loadMaintainanceData(maintaincetable,user.getID());
+        selectrentalComboBox = util.loadRentalDataTenantComboBox(selectrentalComboBox, user.getID());
     }
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
@@ -120,7 +122,50 @@ public class MaintainanceTenantController {
 
     @FXML
     void RegisterNewClicked(ActionEvent event) {
+        String selectedData = (String) selectrentalComboBox.getSelectionModel().getSelectedItem();
+        String maintainceString = maintainceDescription.getText();
+        int rentalId =0;
+        Utility util = new Utility();
+        String todayDate = util.getTodayDate();
+        if (selectedData != null) {
+            try {
+                rentalId = Integer.parseInt(selectedData.split(" ")[0]);
+                System.out.println("Selected Hostel ID: " + rentalId);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: The selected data does not start with a valid number.");
+            }
+        } 
+        else{
+            System.out.println("No hostel selected.");
+        }
 
+        if (maintainceString.isEmpty()) {
+            System.err.println("All fields are required!");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Incomplete Input");
+            alert.setContentText("Please dont leave any fields empty.");
+            alert.showAndWait();
+            return;
+        }
+
+        
+        if(util.addNewMaintaince(maintainceString, rentalId, todayDate)){
+            System.out.println("Hostel Register successful!");
+        }
+        else {
+            
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid username & password.");
+            alert.showAndWait();
+            Error err=new Error("Hostel Register failed!");
+            throw err;
+        }
+        util.clearTextFields(mainpane);
+        initialize();
     }
 
     @FXML

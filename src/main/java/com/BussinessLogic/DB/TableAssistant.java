@@ -70,7 +70,7 @@ public class TableAssistant {
     }
 
     TableView runTwoParameterquery(String query,TableView Table,int ID)
-     {
+    {
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
