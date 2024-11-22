@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import com.BussinessLogic.classes.*;
 
 public class jdbc {
-    public Connection getConnection() throws SQLException
+    Connection getConnection() throws SQLException
     {
         String url = "jdbc:mysql://localhost:3306/sda_project";
 		String username = "root";
@@ -164,8 +164,8 @@ public class jdbc {
         }
        
     }
-    public void UpdateMaintainceInDatabase(PreparedStatement preparedStatement, String status, String todayDate, String maintainceString) throws SQLException{
-        preparedStatement.setString(1, status);
+    public void UpdateMaintainceInDatabase(PreparedStatement preparedStatement, Boolean status, String todayDate, String maintainceString) throws SQLException{
+        preparedStatement.setBoolean(1, status);
         preparedStatement.setString(2, todayDate);
         preparedStatement.setString(3, maintainceString);
 
@@ -175,6 +175,23 @@ public class jdbc {
             System.out.println("Maintaince added successfully!");
         } else {
             Error err=new Error("Failed to add Maintaince.");
+            throw err;
+            
+        }
+    }
+
+    public void insertFineInDatabase(PreparedStatement preparedStatement, String todayDate, String reasonString, String fine, String ownerIdString, String tenantID) throws SQLException{
+        preparedStatement.setString(1, todayDate);
+        preparedStatement.setString(2, reasonString);
+        preparedStatement.setString(3, fine);
+        preparedStatement.setString(4, ownerIdString);
+        preparedStatement.setString(5, tenantID);
+        // Execute update
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Fine added successfully!");
+        } else {
+            Error err=new Error("Failed to add Fine.");
             throw err;
             
         }
