@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.TableAssistant;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Rental;

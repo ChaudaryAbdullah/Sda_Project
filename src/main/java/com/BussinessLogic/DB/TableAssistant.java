@@ -37,7 +37,7 @@ public class TableAssistant {
             return Table;
     }
 
-    TableView runZeroParameterquery(String query,TableView Table)
+    public TableView runZeroParameterquery(String query,TableView Table)
      {
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();
@@ -78,7 +78,7 @@ public class TableAssistant {
         return data;
     }
     
-    TableView runOneParameterquery(String query,TableView Table,int ID)
+    public TableView runOneParameterquery(String query,TableView Table,int ID)
      {
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();

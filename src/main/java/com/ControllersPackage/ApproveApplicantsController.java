@@ -2,8 +2,8 @@ package com.ControllersPackage;
 
 import java.io.IOException;
 
-import com.BussinessLogic.DB.LoadData;
-import com.BussinessLogic.DB.LoadComboData;
+import com.BussinessLogic.loadDataPackage.LoadData;
+import com.BussinessLogic.loadDataPackage.LoadComboData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.NotificationHandler;

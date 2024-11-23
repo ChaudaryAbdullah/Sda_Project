@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.jdbc;
-import com.BussinessLogic.DB.loadNotificationData;
+import com.BussinessLogic.loadDataPackage.loadNotificationData;
 import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Room;
 import com.BussinessLogic.classes.parking;
