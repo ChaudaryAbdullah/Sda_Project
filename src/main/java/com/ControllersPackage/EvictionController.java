@@ -3,7 +3,7 @@ package com.ControllersPackage;
 import java.io.IOException;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
-import com.BussinessLogic.DB.Utility;
+import com.BussinessLogic.FacadePackage.Utility;
 import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.NotificationHandler;
@@ -133,8 +133,9 @@ public class EvictionController {
     }
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) {
-
+    void SearchButton_clicked(ActionEvent event) throws IOException {
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

@@ -2,7 +2,7 @@ package com.ControllersPackage;
 
 import java.io.IOException;
 
-import com.BussinessLogic.DB.Utility;
+import com.BussinessLogic.FacadePackage.Utility;
 import com.example.App;
 
 import javafx.fxml.FXML;
@@ -66,7 +66,7 @@ public class SignUpController {
             return;
         }
 
-        if (password.length()<8) {
+        else if (password.length()<8) {
             System.err.println("Password too short!");
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Invalid Input");

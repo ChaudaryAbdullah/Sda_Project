@@ -21,6 +21,17 @@ public class LoadData {
                        return table.runZeroParameterquery(query, Table);
     }
 
+    @SuppressWarnings("rawtypes")
+    public TableView loadSearchData(TableView Table,String data) {
+        String query = "SELECT r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities, CONCAT(o.firstName, ' ', o.lastName) AS ownerName FROM rental r\n" + //
+                        "JOIN owns own ON r.rentalId = own.rentalId\n" + //
+                        "JOIN owner o ON own.ownerId = o.ownerId\n" + //
+                        "WHERE r.address LIKE CONCAT('%', ? , '%');";
+    
+                       TableAssistant table= new TableAssistant();
+                       return table.runOneParameterquery(query, Table, data);
+    }
+
    @SuppressWarnings({ "unchecked", "rawtypes" })
 public TableView loadHomeNotificationData(TableView Table, int ID) {
     String query1 = "select n.dateTime, n.description from notification n \n" +

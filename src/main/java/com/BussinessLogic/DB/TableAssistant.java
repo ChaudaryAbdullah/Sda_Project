@@ -98,6 +98,23 @@ public class TableAssistant {
     }
 
     @SuppressWarnings("rawtypes")
+    public TableView runOneParameterquery(String query,TableView Table,String data)
+     {
+        jdbc javaJdbc=new jdbc();
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+            preparedStatement.setString(1, data);
+            ResultSet rs = preparedStatement.executeQuery();
+            TableAssistant table=new TableAssistant();
+            table.createTable(Table, rs);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Table;
+    }
+
+    @SuppressWarnings("rawtypes")
     TableView runTwoParameterquery(String query,TableView Table,int ID)
     {
         jdbc javaJdbc=new jdbc();

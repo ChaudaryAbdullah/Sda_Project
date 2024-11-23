@@ -1,4 +1,4 @@
-package com.BussinessLogic.DB;
+package com.BussinessLogic.FacadePackage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.*;
 
 import javafx.scene.control.DatePicker;

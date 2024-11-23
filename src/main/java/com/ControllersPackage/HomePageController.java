@@ -76,12 +76,24 @@ public class HomePageController {
         
        
     }
+    private static String Searchdata=null;
+
+    public static String setSearchData;
+    public static void setSearchData(String search){
+        Searchdata=search;
+    }
 
     @SuppressWarnings("unchecked")
     @FXML
     public void initialize() {
-        LoadData util=new LoadData();        
-        HomeTable=util.loadHomeData(HomeTable);
+        LoadData util=new LoadData();  
+        if(Searchdata==null)      
+        {
+            HomeTable=util.loadHomeData(HomeTable);
+        }
+        else{
+            new SearchController().searchRental(HomeTable, SearchTextField.getText());
+        }
         NotificationTable=util.loadHomeNotificationData(NotificationTable,user.getID());
     }
 
@@ -96,8 +108,8 @@ public class HomePageController {
     }
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) {
-
+    void SearchButton_clicked(ActionEvent event) throws IOException {
+        new SearchController().searchRental(HomeTable, SearchTextField.getText());
     }
 
     @FXML
@@ -112,8 +124,8 @@ public class HomePageController {
 
     
     @FXML
-    void logOutButton_clicked(ActionEvent event) {
-
+    void logOutButton_clicked(ActionEvent event) throws IOException {
+        App.setRoot("login");
     }
 
 }

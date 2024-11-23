@@ -1,5 +1,9 @@
 package com.ControllersPackage;
 
+import java.io.IOException;
+
+import com.example.App;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -88,8 +92,9 @@ public class FollowRentalController {
     }
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) {
-
+    void SearchButton_clicked(ActionEvent event) throws IOException {
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML
