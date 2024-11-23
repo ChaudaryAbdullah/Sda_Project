@@ -3,6 +3,7 @@ package com.ControllersPackage;
 import java.io.IOException;
 
 import com.BussinessLogic.classes.User;
+import com.BussinessLogic.loadDataPackage.LoadData;
 import com.example.App;
 
 import javafx.event.ActionEvent;
@@ -19,7 +20,7 @@ import javafx.scene.text.Text;
 public class DashBoardController {
 
     @FXML
-    private TableView<?> DashboardTable;
+    private TableView<String> DashboardTable;
     
     @FXML
     private ImageView DashbordLogo;
@@ -77,6 +78,7 @@ public class DashBoardController {
         nameText.setText(user.getFirstname()+' '+user.getLastname());
         dobText.setText(user.getDob());
         usernameText.setText(user.getUsername());
+        new LoadData().loadHomeNotificationData(DashboardTable,user.getID());
     }
 
      @FXML
@@ -87,6 +89,11 @@ public class DashBoardController {
     @FXML
     void DashboardTable_sort(ActionEvent event) {
 
+    }
+
+    @FXML
+    void paymentButton_clicked(ActionEvent event) throws IOException {
+        App.setRoot("payment");
     }
 
     @FXML

@@ -218,8 +218,8 @@ public class FinesOwnerController {
     }
 
     @FXML
-    void returnButton1Clicked(ActionEvent event) {
-
+    void returnButton1Clicked(ActionEvent event) throws IOException {
+        App.setRoot("owned");
     }
 
     @FXML

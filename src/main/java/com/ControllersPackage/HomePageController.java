@@ -114,7 +114,7 @@ public class HomePageController {
 
     @FXML
     void NotificationTable_sort(ActionEvent event) {
-
+        
     }
 
     @FXML
