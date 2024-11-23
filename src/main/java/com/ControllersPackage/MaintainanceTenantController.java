@@ -115,7 +115,7 @@ public class MaintainanceTenantController {
 
     @FXML
     void MealUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("");
+        App.setRoot("SelectMealsTenant");
     }
 
     @FXML

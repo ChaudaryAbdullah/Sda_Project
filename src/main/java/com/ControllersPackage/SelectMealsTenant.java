@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.AddMealHandler;
 import com.example.App;
 
 import javafx.event.ActionEvent;
@@ -87,6 +88,7 @@ public class SelectMealsTenant {
         user = u;
     }
 
+    AddMealHandler handle=new AddMealHandler();
 
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
@@ -149,4 +151,8 @@ public class SelectMealsTenant {
     App.setRoot("ChooseRental");
     }
 
+    @FXML
+    void addbuttonbtn_clicked(ActionEvent event) throws IOException {
+     handle.addNewMeal(NameTextFeild.getText(),DescriptionTextFeild.getText(),Integer.parseInt(PriceTextFeild.getText()));   
+    }
 }
