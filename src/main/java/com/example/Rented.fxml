@@ -26,6 +26,7 @@
                         <Font name="Eras Bold ITC" size="20.0" />
                      </font>
                   </Text>
+                  <Button fx:id="paymentButton" layoutX="677.0" layoutY="520.0" mnemonicParsing="false" onAction="#paymentButton_Clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Payment" />
                </children></Pane>
             <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented" wrappingWidth="80.9753532409668">
                <font>
