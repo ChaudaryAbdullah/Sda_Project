@@ -376,7 +376,44 @@ public class jdbc {
         }
     }
 
-   
+    public int insertNotificationInDatabase(PreparedStatement preparedStatement,String desc,String dateTime) throws SQLException{
+        preparedStatement.setString(2, dateTime);
+        preparedStatement.setString(1, desc);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Parking Request made successfully!");
+        } else {
+            Error err=new Error("Couldn't make parking parking.");
+            throw err;
+        }
+
+        try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                int notificationId = generatedKeys.getInt(1); // Assuming NotificationID is the first column
+                System.out.println("Generated NotificationID: " + notificationId);
+                return notificationId;
+            } else {
+                throw new SQLException("Failed to retrieve NotificationID.");
+            }
+        }
+
+     catch (Exception e) {
+        e.printStackTrace();
+    }
+        return -1;
+    }  
+
+    public void insertNotificationUserInDatabase(PreparedStatement preparedStatement,int userid,int notificationid) throws SQLException{
+        preparedStatement.setInt(2, notificationid);
+        preparedStatement.setInt(1, userid);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Parking Request made successfully!");
+        } else {
+            Error err=new Error("Couldn't make parking parking.");
+            throw err;
+        }
+    }  
 
     
 }

@@ -1,15 +1,15 @@
 package com.BussinessLogic.classes;
 
+import java.util.Date;
+
 public class Notification {
     private int id;
     private String dateTime;
     private String description;
 
-    private Applicant applicant;
-
-    public Notification(int id, String dateTime, String description) {
+    public Notification(int id, String description) {
         this.id = id;
-        this.dateTime = dateTime;
+        this.dateTime = (new Date()).toString() ;
         this.description = description;
     }
 
@@ -40,22 +40,12 @@ public class Notification {
         this.description = description;
     }
 
-    // Getter and Setter for applicant
-    public Applicant getApplicant() {
-        return applicant;
-    }
-
-    public void setApplicant(Applicant applicant) {
-        this.applicant = applicant;
-    }
-
+    
     @Override
     public String toString() {
         return "Notification{" +
-                "id=" + id +
-                ", dateTime='" + dateTime + '\'' +
+                "dateTime='" + dateTime + '\'' +
                 ", description='" + description + '\'' +
-                ", applicant=" + applicant +
                 '}';
     }
 }
