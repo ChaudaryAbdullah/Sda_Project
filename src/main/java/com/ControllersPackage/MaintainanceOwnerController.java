@@ -311,7 +311,7 @@ public class MaintainanceOwnerController {
 
     @FXML
     void returnButton1Clicked(ActionEvent event) throws IOException {
-        App.setRoot("Dashboard");
+        App.setRoot("owned");
     }
 
     @FXML
