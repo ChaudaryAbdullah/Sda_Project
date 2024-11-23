@@ -71,6 +71,7 @@ public class HomePageController {
         MaintainanceTenantController.setUser(u);
         EvictionTenantController.setUser(u);
         FinesTenantController.setUser(u);
+        PaymentController.setUser(u);
         
        
     }

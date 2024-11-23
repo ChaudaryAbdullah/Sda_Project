@@ -377,6 +377,19 @@ public class jdbc {
     }
 
    
-
+    public void insertPaymentInDatabase(PreparedStatement preparedStatement, String method, int total, boolean status, int tenantID) throws SQLException{
+        preparedStatement.setString(1, method);
+        preparedStatement.setInt(2, total);
+        preparedStatement.setBoolean(3, status);
+        preparedStatement.setInt(4, tenantID);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Payment updated successfully!");
+        } else {
+            Error err=new Error("Failed to update Payment.");
+            throw err;
+            
+        }
+    }
     
 }

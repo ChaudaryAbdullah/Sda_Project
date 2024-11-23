@@ -4,19 +4,20 @@ import java.io.IOException;
 
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.PaymentHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class rentedController {
+public class PaymentController {
 
     @FXML
     private ImageView DashbordLogo;
@@ -40,10 +41,13 @@ public class rentedController {
     private TextField SearchTextField;
 
     @FXML
-    private AnchorPane backgroundpane;
+    private Label amountHere;
 
     @FXML
     private Hyperlink evictionUrl;
+
+    @FXML
+    private Label evictionlabel;
 
     @FXML
     private Hyperlink feedbackUrl;
@@ -64,41 +68,45 @@ public class rentedController {
     private Pane menupane;
 
     @FXML
+    private ComboBox<String> methodComboBox;
+
+    @FXML
     private Hyperlink parkingUrl;
+
+    @FXML
+    private Button payButton;
 
     @FXML
     private Hyperlink registerUrl;
 
     @FXML
-    private TableView<String> rentedTable;
+    private Button returnButton1;
 
     public static User user = null;
-
-    
-    @FXML
-    private Button paymentButton;
 
     public static void setUser(User u){
         user = u;
     }
+    int amount;
 
     public void initialize() {
         //add the applicants after merged
-
-        LoadData util=new LoadData();        
-        rentedTable=util.loadRenterData(rentedTable,user.getID());
+        PaymentHandler pay = new PaymentHandler();
+        methodComboBox.getItems().addAll(
+            "Cash",
+            "Credit",
+            "Debit"
+        );
+        amount = pay.calculateRent(user.getID());
+        String numberString = String.valueOf(amount);
+        amountHere.setText(numberString);
 
     }
+
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
     }
-
-    @FXML
-    void paymentButton_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("payment");
-    }
-
 
     @FXML
     void HomeUrl_Clicked(ActionEvent event) throws IOException {
@@ -116,8 +124,8 @@ public class rentedController {
     }
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+    void SearchButton_clicked(ActionEvent event) {
+
     }
 
     @FXML
@@ -146,8 +154,22 @@ public class rentedController {
     }
 
     @FXML
+    void methodComboBox_Clicked(ActionEvent event) {
+
+    }
+
+    @FXML
     void parkingUrl_Clicked(ActionEvent event) throws IOException {
     App.setRoot("RequestParking");
+    }
+
+    @FXML
+    void payButton_Clicked(ActionEvent event) {
+        
+        int total = amount;
+        String method = (String) methodComboBox.getSelectionModel().getSelectedItem();
+        PaymentHandler pay = new PaymentHandler();
+        pay.processPayment(user.getID(), method, total);
     }
 
     @FXML
@@ -156,9 +178,8 @@ public class rentedController {
     }
 
     @FXML
-    void rentedTableSort(ActionEvent event) {
+    void returnButton1Clicked(ActionEvent event) {
 
     }
 
 }
-
