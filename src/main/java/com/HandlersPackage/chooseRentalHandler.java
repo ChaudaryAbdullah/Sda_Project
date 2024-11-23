@@ -68,11 +68,11 @@ public class chooseRentalHandler {
         int rentalId=Integer.parseInt(data.split(" : ")[3]);
         int roomId=Integer.parseInt(data.split(" : ")[0]);
         
-        String query="INSERT INTO applyrental(rentalId,applicantId) VALUES(?,?)";
+        String query="INSERT INTO applyrental(rentalId,roomId,applicantId) VALUES(?,?,?)";
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
-        javaJdbc.insertApplyRentalInDatabase(preparedStatement,rentalId,userid);   
+        javaJdbc.insertApplyRentalInDatabase(preparedStatement,roomId,rentalId,userid);   
         } catch (Exception e) {
             e.printStackTrace();
         }
