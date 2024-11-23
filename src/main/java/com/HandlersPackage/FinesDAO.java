@@ -9,7 +9,7 @@ public class FinesDAO {
     private final jdbc javaJdbc;
 
     FinesDAO(){
-        this.javaJdbc = new jdbc();
+        this.javaJdbc = jdbc.getInstance();
     }
 
     public boolean addFine(String todayDate, String reasonString, int fineAmount, int ownerId, int tenantId){
