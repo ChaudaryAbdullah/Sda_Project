@@ -59,7 +59,7 @@ public class chooseRentalHandler {
     public ComboBox HandleComboBox(ComboBox combo){    
         for (int i = 0; i < rooms.size(); i++) {
             for (Room room : rooms)
-            combo.getItems().add(rooms.get(i).getRoomId()+" : "+rooms.get(i).getRtype()+" : "+rooms.get(i).getPrice()+" : "+rentals.get(i).getId());
+            combo.getItems().add(rooms.get(i).getRoomId()+" : "+rooms.get(i).getRtype()+" : "+rooms.get(i).getPrice()+" : "+rooms.get(i).getRentalId());
         }
     return combo;
     
