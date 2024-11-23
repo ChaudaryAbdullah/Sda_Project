@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Dashboard" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.DashBoardController">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Dashboard" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ControllersPackage.DashBoardController">
   <content>
     <AnchorPane minHeight="690.0" minWidth="1070.0" prefHeight="690.0" prefWidth="1071.0" style="-fx-background-image: &quot;C:\Users\Chaudary Abdullah\Downloads\—Pngtree—2 5d buy a house_930567.jpg&quot;; -fx-background-color: pink;">
          <children>

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" stylesheets="@mainCSSFile.css" text="Add Meals" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" stylesheets="@mainCSSFile.css" text="Add Meals" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ControllersPackage.SelectMealsTenant">
   <content>
     <AnchorPane fx:id="backgroundpane" minHeight="696.0" minWidth="1076.0" prefHeight="696.0" prefWidth="1076.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css">
          <children>
@@ -44,7 +44,7 @@
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="NameTextFeild1" layoutX="156.0" layoutY="126.0">
+                  <TextField fx:id="DescriptionTextFeild" layoutX="156.0" layoutY="126.0">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="NameTextFeild2" layoutX="156.0" layoutY="174.0">
+                  <TextField fx:id="PriceTextFeild" layoutX="156.0" layoutY="174.0">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>

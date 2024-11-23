@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Login" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoginPageController">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="715.0" prefWidth="1080.0" text="Login" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ControllersPackage.LoginPageController">
   <content>
     <AnchorPane fx:id="backgroundpane" cacheShape="false" centerShape="false" minHeight="720.0" minWidth="1080.0" prefHeight="720.0" prefWidth="1080.0" scaleShape="false" styleClass="login-pages" stylesheets="@mainCSSFile.css" visible="false">
       <children>

@@ -14,7 +14,7 @@ import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Tenant;
 import com.BussinessLogic.classes.User;
 import com.BussinessLogic.classes.parking;
-import com.example.rentedController;
+import com.ControllersPackage.rentedController;
 import com.BussinessLogic.classes.MaintenanceRequest;
 
 import javafx.scene.control.ComboBox;
