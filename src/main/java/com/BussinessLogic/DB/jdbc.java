@@ -311,6 +311,20 @@ public class jdbc {
         }
     }
 
+    public void insertGiveFeedbackInDatabase(PreparedStatement preparedStatement,int rating,String desc,int rentalId,int tenantID) throws SQLException{
+        preparedStatement.setInt(1, rating);
+        preparedStatement.setString(2, desc);
+        preparedStatement.setInt(3, rentalId);
+        preparedStatement.setInt(4, tenantID);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Menu selected successfully!");
+        } else {
+            Error err=new Error("Couldn't select menu.");
+            throw err;
+        }
+    }
+
     public void removeRequestFromDatabase(PreparedStatement preparedStatement,int slot, int user) throws SQLException{
         preparedStatement.setInt(2, user);
         preparedStatement.setInt(1, slot);

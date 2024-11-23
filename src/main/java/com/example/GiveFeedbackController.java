@@ -3,6 +3,7 @@ package com.example;
 import java.io.IOException;
 
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.GiveFeedbackHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,9 @@ public class GiveFeedbackController {
 
     @FXML
     private ImageView DashbordLogo;
+
+    @FXML
+    private TextField DescriptionTextFeild;
 
     @FXML
     private ImageView HomeLogo;
@@ -48,8 +52,11 @@ public class GiveFeedbackController {
     private Hyperlink feedbackUrl;
 
     @FXML
-    private ComboBox<?> feedbackCombobox;
+    private ComboBox<String> feedbackCombobox;
     
+    @FXML
+    private TextField RatingTextFeild;
+
     @FXML
     private Hyperlink finesUrl;
 
@@ -76,10 +83,17 @@ public class GiveFeedbackController {
 
     public static User user = null;
 
+    GiveFeedbackHandler handle=new GiveFeedbackHandler();
+
     public static void setUser(User u){
         user = u;
     }
     
+    public void initialize() {
+        handle.addRental(user.getID());
+        handle.HandleComboBox(feedbackCombobox);
+    }
+
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
@@ -142,7 +156,7 @@ public class GiveFeedbackController {
 
     @FXML
     void submitbutton_Clicked(ActionEvent event) {
-
+        handle.newFeedback(feedbackCombobox.getSelectionModel().getSelectedItem(), user.getID(), DescriptionTextFeild.getText(), Integer.parseInt(RatingTextFeild.getText()));
     }
 
 }
