@@ -108,7 +108,7 @@ public class LoadComboData {
 
     public ComboBox<String> loadApplicantsComboBox(ComboBox<String> combo, int ID) {
         jdbc javaJdbc = new jdbc();
-        String query = "SELECT a.applicantId, a.firstName, a.lastName, ar.rentalId\n" + //
+        String query = "SELECT a.applicantId, a.firstName, a.lastName, ar.rentalId, ar.roomId\n" + //
                         "FROM owns o JOIN applyRental ar \n" + //
                         "ON o.rentalId = ar.rentalId\n" + //
                         "JOIN applicant a \n" + //
@@ -125,7 +125,7 @@ public class LoadComboData {
             
             // Directly populate the ComboBox
             while (rs.next()) {
-                combo.getItems().add(rs.getString("applicantId") + " " + rs.getString("firstName") + " " + rs.getString("lastName")+ " " + rs.getString("rentalId"));
+                combo.getItems().add(rs.getString("applicantId") + " " + rs.getString("firstName") + " " + rs.getString("lastName")+ " " + rs.getString("rentalId")+ " " + rs.getString("roomId"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -172,5 +172,26 @@ public class LoadComboData {
         }
 
         return combo;
+    }
+    public int getRoomPrice(int roomId){
+        jdbc javaJdbc = new jdbc();
+        int price=0;;
+        String query = "SELECT price FROM room WHERE roomId = ? ";
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query, 
+                 ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            
+            preparedStatement.setInt(1, roomId);
+            ResultSet rs = preparedStatement.executeQuery();
+            
+            // Directly populate the ComboBox
+            while (rs.next()) {
+                price = rs.getInt("roomId");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return price;
     }
 }

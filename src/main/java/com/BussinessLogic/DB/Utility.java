@@ -259,15 +259,15 @@ public class Utility {
 
         return isInserted;
     }
-	public boolean addTenantRental(int tenantId, int rentalId){
+	public boolean addTenantRental(int tenantId, int rentalId, int roomId, int price){
         jdbc javaJdbc=new jdbc();
-        String query = "INSERT INTO rent (tenantId, rentalId) VALUES (?, ?)";
+        String query = "INSERT INTO rent (tenantId, rentalId, roomId, amount) VALUES (?, ?, ?, ?)";
         boolean isInserted = false;
 
         try (Connection connection = javaJdbc.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            javaJdbc.insertRentInDatabase(preparedStatement, tenantId, rentalId);
+            javaJdbc.insertRentInDatabase(preparedStatement, tenantId, rentalId, roomId, price);
             isInserted=true;
         } catch (Exception e) {
             e.printStackTrace();

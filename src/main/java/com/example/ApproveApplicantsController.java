@@ -162,6 +162,7 @@ public class ApproveApplicantsController {
         String approveString = (String) approveComboBox.getSelectionModel().getSelectedItem();
         int applicantId = 0;
         int rentalId = 0;
+        int roomId=0;
         Utility util = new Utility();
 
         if (selectedData != null) {
@@ -171,20 +172,24 @@ public class ApproveApplicantsController {
                 
                 applicantId = Integer.parseInt(parts[0]);
                 rentalId = Integer.parseInt(parts[3]);
+                roomId = Integer.parseInt(parts[4]);
                 
                 System.out.println("Selected applicant ID: " + applicantId);
                 System.out.println("Selected tenant ID: " + rentalId);
+                System.out.println("Selected room ID: " + roomId);
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                 System.out.println("Error: Unable to parse the selected data. Please ensure the format is correct.");
             }
         } else {
             System.out.println("No item selected.");
         }
+        LoadComboData cData = new LoadComboData();
+        int price = cData.getRoomPrice(roomId);
         
         if("approve".equalsIgnoreCase(approveString)) {
             //execute approve query
             
-            if(util.addTenantRental(applicantId, rentalId)){
+            if(util.addTenantRental(applicantId, rentalId, roomId, price)){
                 System.out.println("Room added successful!");
                 util.deleteRent(applicantId);
             }

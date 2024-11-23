@@ -211,9 +211,11 @@ public class jdbc {
             
         }
     }
-    public void insertRentInDatabase(PreparedStatement preparedStatement, int tenantId, int rentalId) throws SQLException{
+    public void insertRentInDatabase(PreparedStatement preparedStatement, int tenantId, int rentalId, int roomId, int price) throws SQLException{
         preparedStatement.setInt(1, tenantId);
         preparedStatement.setInt(2, rentalId);
+        preparedStatement.setInt(3, roomId);
+        preparedStatement.setInt(4, price);
         int rowsAffected = preparedStatement.executeUpdate();
         if (rowsAffected > 0) {
             System.out.println("Rent added successfully!");
