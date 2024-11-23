@@ -217,6 +217,7 @@ public class ApproveApplicantsController {
             alert.setContentText("Please enter a valid option.");
             alert.showAndWait();
         }
+        initialize();
 
     }
 
@@ -289,6 +290,7 @@ public class ApproveApplicantsController {
             throw err;
         }
         util.clearTextFields(mainpane);
+        initialize();
 
     }
 

@@ -135,7 +135,7 @@ public class AddMenuController {
     @FXML
     void addBtn_clicked(ActionEvent event) throws IOException {
         handle.addNewMenu(breakfastTextFeild.getSelectionModel().getSelectedItem(),lunchtTextFeild.getSelectionModel().getSelectedItem(),dinnerTextFeild.getSelectionModel().getSelectedItem(),descriptionTextFeild.getText(),user.getID());
-        handle.HandleTable(menuTable);
+        initialize();
     }
 
     @FXML

@@ -157,6 +157,7 @@ public class GiveFeedbackController {
     @FXML
     void submitbutton_Clicked(ActionEvent event) {
         handle.newFeedback(feedbackCombobox.getSelectionModel().getSelectedItem(), user.getID(), DescriptionTextFeild.getText(), Integer.parseInt(RatingTextFeild.getText()));
+        initialize();
     }
 
 }

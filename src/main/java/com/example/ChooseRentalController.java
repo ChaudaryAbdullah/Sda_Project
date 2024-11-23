@@ -154,6 +154,7 @@ public class ChooseRentalController {
     @FXML
     void selectbtn_clicked(ActionEvent event) {
         handle.ChooseRental(rentalComboBox.getSelectionModel().getSelectedItem(),user.getID());
+        initialize();
     }
 
     @FXML

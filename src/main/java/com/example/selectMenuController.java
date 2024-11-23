@@ -157,6 +157,7 @@ public class selectMenuController {
     @FXML
     void selectbtn_clicked(ActionEvent event) {
         handle.ChooseMenu(menuComboBox.getSelectionModel().getSelectedItem(), user.getID());
+        initialize();
     }
 
     @FXML

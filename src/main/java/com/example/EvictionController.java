@@ -179,6 +179,7 @@ public class EvictionController {
             throw err;
         }
         util.clearTextFields(mainpane);
+        initialize();
 
     }
 

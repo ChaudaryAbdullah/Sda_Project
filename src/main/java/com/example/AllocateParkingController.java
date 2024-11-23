@@ -193,6 +193,7 @@ public class AllocateParkingController {
     void createButton_clicked(ActionEvent event) {
 
         handle.newParking(rentalCombobox.getSelectionModel().getSelectedItem(), Integer.parseInt(amountTextfeild.getText()));
+        initialize();
     }
 
 }

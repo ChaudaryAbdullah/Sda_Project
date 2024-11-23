@@ -175,6 +175,14 @@ public class AllocateParkingHandler {
             e.printStackTrace();
         }
 
+        query="update Parkingslot set is_occupied=1 where slotid=?";
+        try (Connection conn = javaJdbc.getConnection();
+        PreparedStatement preparedStatement = conn.prepareStatement(query)){
+            javaJdbc.UpdateParkingSlotInDatabase(preparedStatement,slotId);   
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+
         query="DELETE FROM parkingRequest\n" + //
                         "WHERE slotId = ? AND tenantId = ?";
         try (Connection conn = javaJdbc.getConnection();
