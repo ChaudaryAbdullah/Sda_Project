@@ -344,20 +344,33 @@ public class jdbc {
         preparedStatement.setInt(3, tenantId);
         int rowsAffected = preparedStatement.executeUpdate();
         if (rowsAffected > 0) {
-            System.out.println("Rent deleted successfully!");
+            System.out.println("Rent update successfully!");
         } else {
-            Error err=new Error("Failed to delete Rent.");
+            Error err=new Error("Failed to update Rent.");
             throw err;
             
         }
     }
+
+    public void UpdateParkingSlotInDatabase(PreparedStatement preparedStatement, int slot) throws SQLException{
+        preparedStatement.setInt(1, slot);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("slot updated successfully!");
+        } else {
+            Error err=new Error("Failed to update slot.");
+            throw err;
+            
+        }
+    }
+
     public void UpdateRoomInDatabase(PreparedStatement preparedStatement, int roomId) throws SQLException{
         preparedStatement.setInt(1, roomId);
         int rowsAffected = preparedStatement.executeUpdate();
         if (rowsAffected > 0) {
-            System.out.println("Rent deleted successfully!");
+            System.out.println("Room updated successfully!");
         } else {
-            Error err=new Error("Failed to delete Rent.");
+            Error err=new Error("Failed to update Room.");
             throw err;
             
         }

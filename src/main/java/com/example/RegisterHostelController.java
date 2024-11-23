@@ -265,6 +265,7 @@ public class RegisterHostelController {
             throw err;
         }
         uti.clearTextFields(mainpane);
+        initialize();
         
     }
 
@@ -323,6 +324,7 @@ public class RegisterHostelController {
             throw err;
         }
         uti.clearTextFields(mainpane);
+        initialize();
     }
 
     @FXML

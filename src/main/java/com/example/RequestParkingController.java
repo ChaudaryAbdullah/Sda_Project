@@ -159,6 +159,7 @@ public class RequestParkingController {
     @FXML
     void requestbtn_clicked(ActionEvent event) throws IOException {
      handle.ChooseParking(ParkingComboBox.getSelectionModel().getSelectedItem(), user.getID());   
+     initialize();
     }
 
 }
