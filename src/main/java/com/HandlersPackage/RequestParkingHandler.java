@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.jdbc;
+import com.BussinessLogic.DB.loadNotificationData;
 import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Room;
 import com.BussinessLogic.classes.parking;
@@ -64,13 +65,26 @@ public class RequestParkingHandler {
     
 }
     public void ChooseParking(String data,int userid){
-        int parking=Integer.parseInt(data);
+        int parkingid=Integer.parseInt(data);
         
         String query="INSERT INTO parkingrequest(slotId,tenantId) VALUES(?,?)";
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
-        javaJdbc.insertRequestParkingInDatabase(preparedStatement,parking,userid);   
+        javaJdbc.insertRequestParkingInDatabase(preparedStatement,parkingid,userid);  
+        
+        parking p=parkings.stream()
+        .filter(obj -> obj.getSlotId() == parkingid) 
+        .findFirst()
+        .orElse(null);
+        System.out.println(p.getRental());
+        Rental r=rentals.stream()
+            .filter(obj -> obj.getId() == p.getRental()) 
+            .findFirst()
+            .orElse(null);
+            int ownerid= new loadNotificationData().loadOwner(r.getId());
+            NotificationHandler notification=new NotificationHandler();
+            notification.sendNotificationToTenant("You got a parking request for slot Nmuber "+parkingid+" of "+r.getName(),ownerid); 
         } catch (Exception e) {
             e.printStackTrace();
         }

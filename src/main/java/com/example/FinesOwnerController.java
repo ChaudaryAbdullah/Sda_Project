@@ -6,6 +6,8 @@ import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
+import com.Factories.NotificationFactory;
+import com.HandlersPackage.NotificationHandler;
 import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
@@ -98,6 +100,7 @@ public class FinesOwnerController {
     public static void setUser(User u){
         user = u;
     }
+    NotificationHandler notification=new NotificationHandler();
 
     public void initialize() {
         LoadData util=new LoadData();
@@ -127,6 +130,7 @@ public class FinesOwnerController {
         int fineAmount = Integer.parseInt(fineString); 
         if(util.addFine(todayDate, reasonString, fineAmount, user.getID(), tenantId)){
             System.out.println("Fine added successful!");
+            notification.sendNotificationToTenant("You got a Fine of Rs "+fineString,tenantId);
         }
         else {
             util.clearTextFields(mainpane);

@@ -1,8 +1,10 @@
 package com.Factories;
 
-public class NotificationFactory {
-    public void createNotification(String desc,int userId){
+import com.BussinessLogic.classes.Notification;
 
+public class NotificationFactory {
+    public Notification createNotification(String desc,int userId){
+        return new Notification(userId, desc);
     }
     
 }

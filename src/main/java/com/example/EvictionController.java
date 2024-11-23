@@ -6,6 +6,7 @@ import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.HostelRental;
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.NotificationHandler;
 import com.BussinessLogic.DB.LoadComboData;
 
 import javafx.event.ActionEvent;
@@ -167,6 +168,8 @@ public class EvictionController {
 
         if(util.addEviction(todayDate, evictionDate, tenantId, user.getID(), rentalid, reason)){
             System.out.println("Room added successful!");
+            NotificationHandler notification=new NotificationHandler();
+            notification.sendNotificationToTenant("You got evicted.  ",tenantId);
         }
         else {
             util.clearTextFields(mainpane);

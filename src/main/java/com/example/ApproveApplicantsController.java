@@ -6,6 +6,7 @@ import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.LoadComboData;
 import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.NotificationHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -265,6 +266,8 @@ public class ApproveApplicantsController {
         }
         if(util.UpdateTenantRental(tenantId, roomId, price)){
             System.out.println("Room Allocation successful!");
+            NotificationHandler notification=new NotificationHandler();
+            notification.sendNotificationToTenant("Your request for Room Number  "+roomId+" just got approved",tenantId);
         }
         else {
             util.clearTextFields(mainpane);

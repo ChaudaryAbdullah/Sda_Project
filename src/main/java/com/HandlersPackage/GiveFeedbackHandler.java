@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.BussinessLogic.DB.jdbc;
+import com.BussinessLogic.DB.loadNotificationData;
 import com.BussinessLogic.classes.Rental;
 
 import javafx.scene.control.ComboBox;
@@ -51,6 +52,13 @@ public class GiveFeedbackHandler {
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
             javaJdbc.insertGiveFeedbackInDatabase(preparedStatement, rating,desc,rentalId,userId);   
+            Rental r=rentals.stream()
+            .filter(obj -> obj.getId() == rentalId) 
+            .findFirst()
+            .orElse(null);
+            int ownerid= new loadNotificationData().loadOwner(rentalId);
+            NotificationHandler notification=new NotificationHandler();
+            notification.sendNotificationToTenant("You got a feedback for  "+r.getName(),ownerid);
         } catch (Exception e) {
             e.printStackTrace();
         }
