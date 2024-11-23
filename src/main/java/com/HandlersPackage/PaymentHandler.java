@@ -39,7 +39,7 @@ public class PaymentHandler {
 
         String fineAmountQuery = "Select amount from fine WHERE tenantId = ?";
         try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(roomRentQuery);) {
+        PreparedStatement preparedStatement = conn.prepareStatement(fineAmountQuery);) {
             preparedStatement.setInt(1, tenantId);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -72,7 +72,7 @@ public class PaymentHandler {
                         "WHERE \r\n" + //
                         "    sm.tenantId = ?;";
         try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(roomRentQuery);) {
+        PreparedStatement preparedStatement = conn.prepareStatement(mealPriceQuery);) {
             preparedStatement.setInt(1, tenantId);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -94,6 +94,26 @@ public class PaymentHandler {
         int totalRent = roomRent + fineAmount + breakfastAmount + lunchAmount + dinnerAmount;
 
         return totalRent;
+
+    }
+
+    public boolean processPayment(int tenantID, String method, int amount){
+        boolean status = false;
+        int total = amount;
+        String query = "INSERT INTO payment (methode, total, status, tenantId) VALUES (?,?,?,?)";
+        jdbc javaJdbc= jdbc.getInstance();
+        boolean isInserted = false;
+
+        try (Connection connection = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                status=true;
+            javaJdbc.insertPaymentInDatabase(preparedStatement, method, total, status, tenantID);
+            isInserted=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
+
+        return isInserted;
 
     }
 }
