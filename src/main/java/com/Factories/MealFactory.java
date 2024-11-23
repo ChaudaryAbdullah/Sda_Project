@@ -4,6 +4,7 @@ import com.BussinessLogic.classes.Meal;
 
 public class MealFactory {
 
+    @SuppressWarnings("unused")
     private static String generateUniqueID() {
         return "Meal-" + System.currentTimeMillis();
     }

@@ -5,6 +5,7 @@ import com.BussinessLogic.classes.Owner;
 import com.BussinessLogic.classes.Tenant;
 
 public class UserFactory {
+    @SuppressWarnings("unused")
     private static String generateUniqueID() {
         return "USER-" + System.currentTimeMillis();
     }

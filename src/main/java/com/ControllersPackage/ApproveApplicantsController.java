@@ -108,6 +108,7 @@ public class ApproveApplicantsController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         //add the applicants after merged
         approveComboBox.getItems().addAll(

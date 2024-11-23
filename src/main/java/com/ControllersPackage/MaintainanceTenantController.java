@@ -96,6 +96,7 @@ public class MaintainanceTenantController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         //add the applicants after merged
         LoadData util=new LoadData();  

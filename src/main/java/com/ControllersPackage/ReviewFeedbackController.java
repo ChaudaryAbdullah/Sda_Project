@@ -79,6 +79,7 @@ public class ReviewFeedbackController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         LoadData util=new LoadData();        
         feedbackTable=util.loadReviewFeedbackData(feedbackTable,user.getID());

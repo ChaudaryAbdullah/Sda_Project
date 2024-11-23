@@ -82,6 +82,7 @@ public class rentedController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         //add the applicants after merged
 

@@ -2,8 +2,6 @@ package com.ControllersPackage;
 
 import java.io.IOException;
 
-import com.BussinessLogic.loadDataPackage.LoadData;
-import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.AllocateParkingHandler;
 import com.example.App;
@@ -94,7 +92,6 @@ public class AllocateParkingController {
     @FXML
     private TableView<String> parkingtable;
 
-    @SuppressWarnings("exports")
     public static User user = null;
 
     public static void setUser(User u){
@@ -102,8 +99,7 @@ public class AllocateParkingController {
     }
     AllocateParkingHandler handle=new AllocateParkingHandler();
 
-     @SuppressWarnings("unchecked")
-    @FXML
+     @FXML
     public void initialize() {
         handle.addRental(user.getID());
         handle.addParking(user.getID());

@@ -1,6 +1,5 @@
 package com.HandlersPackage;
 
-import com.BussinessLogic.classes.Fines;
 import com.Factories.FinesFactory;
 
 public class FinesOwnerHandler {
@@ -11,7 +10,7 @@ public class FinesOwnerHandler {
     }
 
     public void newFine(int fineID, String issueDate,String Reason, int amount, int ownerID, int tenatID) {
-        Fines fine = FinesFactory.createFines(fineID, issueDate, Reason, amount, ownerID, tenatID);
+        FinesFactory.createFines(fineID, issueDate, Reason, amount, ownerID, tenatID);
 
         finesDAO.addFine(issueDate, Reason, amount, ownerID, tenatID);
     }

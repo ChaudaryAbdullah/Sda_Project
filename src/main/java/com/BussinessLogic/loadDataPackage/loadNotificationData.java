@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 import com.BussinessLogic.DB.jdbc;
 
-import javafx.scene.control.TableView;
-
 public class loadNotificationData {
  
     public int loadOwner(int ID) throws SQLException {

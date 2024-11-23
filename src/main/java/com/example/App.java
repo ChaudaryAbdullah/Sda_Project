@@ -6,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.sql.*;
 
-import com.BussinessLogic.classes.*;
-
 import java.io.IOException;
 //
 /**

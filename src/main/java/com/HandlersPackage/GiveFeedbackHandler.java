@@ -37,6 +37,7 @@ public class GiveFeedbackHandler {
         }
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public ComboBox HandleComboBox(ComboBox combo){    
             for (Rental rent : rentals) {
                 combo.getItems().add(rent.getId()+" : "+rent.getName() + " : " + rent.getAddress());

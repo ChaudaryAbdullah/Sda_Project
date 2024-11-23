@@ -3,7 +3,6 @@ package com.ControllersPackage;
 import java.io.IOException;
 
 import com.BussinessLogic.DB.Utility;
-import com.BussinessLogic.classes.Owner;
 import com.example.App;
 
 import javafx.fxml.FXML;
@@ -63,6 +62,16 @@ public class SignUpController {
             alert.setTitle("Invalid Input");
             alert.setHeaderText("Error: Invalid Input");
             alert.setContentText("Please enter a valid input.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (password.length()<8) {
+            System.err.println("Password too short!");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid password.");
             alert.showAndWait();
             return;
         }

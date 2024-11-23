@@ -1,27 +1,16 @@
 package com.BussinessLogic.DB;
 
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import com.BussinessLogic.classes.*;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 
 public class Utility {
     
@@ -150,7 +139,6 @@ public class Utility {
         
     }
     public HostelRental getRentalfromTenant(int ID){
-        String rentalId = null;
         String query = "SELECT r.rentalId, r.rentalName, r.address, r.facilities, r.totalRooms, r.availableRooms " +
                        "FROM rental r " +
                        "JOIN owns o ON r.rentalId = o.rentalId " +
@@ -209,8 +197,6 @@ public class Utility {
         String description = String.valueOf(maintainceString);
         String date = String.valueOf(todayDate);
         String status = "0";
-        String completion = " ";
-
         try (Connection connection = javaJdbc.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 

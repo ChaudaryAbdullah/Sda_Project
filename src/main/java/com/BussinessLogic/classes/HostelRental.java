@@ -8,9 +8,6 @@ public class HostelRental {
     private int availableRooms;
     private String facilities;
 
-    private List<Tenant> tenants;
-    private Owner owner;
-
     public HostelRental(String propertyID, String address, int totalRooms, int availableRooms, String facilities) {
         this.propertyID = propertyID;
         this.address = address;

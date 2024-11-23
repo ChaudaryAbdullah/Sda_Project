@@ -1,7 +1,6 @@
 package com.ControllersPackage;
 
 import java.io.IOException;
-import java.util.logging.Handler;
 
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.SelectMenuHandler;

@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 
 public class TableAssistant {
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     TableView createTable(TableView Table, ResultSet rs) throws SQLException{
         for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
                 final int colIndex = i - 1;
@@ -37,6 +38,7 @@ public class TableAssistant {
             return Table;
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView runZeroParameterquery(String query,TableView Table)
      {
         jdbc javaJdbc=new jdbc();
@@ -78,6 +80,7 @@ public class TableAssistant {
         return data;
     }
     
+    @SuppressWarnings("rawtypes")
     public TableView runOneParameterquery(String query,TableView Table,int ID)
      {
         jdbc javaJdbc=new jdbc();
@@ -94,6 +97,7 @@ public class TableAssistant {
         return Table;
     }
 
+    @SuppressWarnings("rawtypes")
     TableView runTwoParameterquery(String query,TableView Table,int ID)
     {
         jdbc javaJdbc=new jdbc();

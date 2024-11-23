@@ -3,7 +3,6 @@ package com.ControllersPackage;
 import java.io.IOException;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
-import com.BussinessLogic.DB.Utility;
 import com.BussinessLogic.classes.User;
 import com.example.App;
 
@@ -83,7 +82,8 @@ public class OwnedControllor {
         user = u;
     }
     
-     public void initialize() {
+     @SuppressWarnings("unchecked")
+    public void initialize() {
         LoadData util=new LoadData();        
         ownedTable=util.loadOwnerData(ownedTable,user.getID());
 

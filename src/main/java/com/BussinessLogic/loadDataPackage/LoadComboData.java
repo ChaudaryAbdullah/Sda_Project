@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import com.BussinessLogic.DB.jdbc;
 
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
 
 
 public class LoadComboData {

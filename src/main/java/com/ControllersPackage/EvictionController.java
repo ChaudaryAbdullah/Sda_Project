@@ -103,6 +103,7 @@ public class EvictionController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
 
         LoadData util=new LoadData();

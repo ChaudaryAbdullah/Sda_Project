@@ -10,11 +10,6 @@ import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Meal;
 import com.BussinessLogic.classes.Menu;
-import com.BussinessLogic.classes.Rental;
-import com.BussinessLogic.classes.Tenant;
-import com.BussinessLogic.classes.User;
-import com.BussinessLogic.classes.parking;
-
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 
@@ -68,6 +63,7 @@ public class AddMenuHandler {
 
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public ComboBox HandleComboBox(ComboBox combo){    
             for (Meal meal : meals) {
                 combo.getItems().add(meal.getId()+" : "+meal.getName());
@@ -92,6 +88,7 @@ public class AddMenuHandler {
 
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView HandleTable(TableView table){
         LoadData util=new LoadData();
         return util.loadAddMenuData(table);

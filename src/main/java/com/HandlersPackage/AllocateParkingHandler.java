@@ -3,12 +3,10 @@ package com.HandlersPackage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
-import com.BussinessLogic.DB.TableAssistant;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Tenant;
@@ -107,6 +105,7 @@ public class AllocateParkingHandler {
         }
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public ComboBox HandleRentalComboBox(ComboBox combo, int ID){    
             // Directly populate the ComboBox
             for (Rental rent : rentals) {
@@ -116,6 +115,7 @@ public class AllocateParkingHandler {
         
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public ComboBox HandleParkingComboBox(ComboBox combo, int ID){    
         // Directly populate the ComboBox
         if (users==null||Requestpark==null) {
@@ -128,6 +128,7 @@ public class AllocateParkingHandler {
     
 }
 
+    @SuppressWarnings("rawtypes")
     public TableView HandleTable(TableView table,int ID){
         LoadData util=new LoadData();        
         return util.loadAllocateParkingData(table,ID);

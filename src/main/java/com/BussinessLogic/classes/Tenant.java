@@ -1,7 +1,5 @@
 package com.BussinessLogic.classes;
 
-import java.util.List;
-
 public class Tenant extends User{
 
     public Tenant(int ID, String username, String firstname, String lastname, String address, String dob, String password) {
