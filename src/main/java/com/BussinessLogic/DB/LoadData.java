@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class LoadData {
@@ -19,15 +23,44 @@ public class LoadData {
                        return table.runZeroParameterquery(query, Table);
     }
 
-    public TableView loadHomeNotificationData(TableView Table,int ID) {
-        String query = "select n.dateTime,n.description from notification n\n" + //
-                        "inner join sendnotificationtenant t on t.id = n.id\n" + //
-                        "inner join sendnotificationowner o  on o.Id=n.id\n" + //
-                        "where o.ownerId=? || t.tenantid=?";
-    
-                        TableAssistant table= new TableAssistant();
-                        return table.runOneParameterquery(query, Table, ID);
+   public TableView loadHomeNotificationData(TableView Table, int ID) {
+    String query1 = "select n.dateTime, n.description from notification n \n" +
+                    "join sendnotificationowner o on o.notificationId = n.id\n" +
+                    "where o.OwnerId = ?";
+    String query2 = "select n.dateTime, n.description from notification n \n" +
+                    "join sendnotificationtenant t on t.notificationId = n.id\n" +
+                    "where t.tenantId = ?";
+
+    TableAssistant tableAssistant = new TableAssistant();
+
+    // Get results from both queries
+    ObservableList<ObservableList<Object>> data1 = tableAssistant.runOneParameterquery(query1, ID);
+    ObservableList<ObservableList<Object>> data2 = tableAssistant.runOneParameterquery(query2, ID);
+
+    // Combine data
+    ObservableList<ObservableList<Object>> combinedData = FXCollections.observableArrayList();
+    combinedData.addAll(data1);
+    combinedData.addAll(data2);
+
+    // Create table columns (if not already created)
+    if (Table.getColumns().isEmpty()) {
+        TableColumn<ObservableList<Object>, String> dateTimeColumn = new TableColumn<>("DateTime");
+        dateTimeColumn.setCellValueFactory(param -> 
+            new SimpleStringProperty(param.getValue().get(0).toString()));
+
+        TableColumn<ObservableList<Object>, String> descriptionColumn = new TableColumn<>("Description");
+        descriptionColumn.setCellValueFactory(param -> 
+            new SimpleStringProperty(param.getValue().get(1).toString()));
+
+        Table.getColumns().addAll(dateTimeColumn, descriptionColumn);
     }
+
+    // Set the combined data into the table
+    Table.setItems(combinedData);
+
+    return Table;
+}
+
 
     public TableView loadApproveApplicantData(TableView Table,int ID) {
         
