@@ -112,14 +112,7 @@ public class LoadData {
     }
 
     public TableView loadEvictionOwnerData(TableView Table,int ID) {
-        String query = "select e.issueDate, e.evictionDate, e.reason from eviction e where e.tenantId=?";
-    
-                        TableAssistant table= new TableAssistant();
-                        return table.runOneParameterquery(query, Table, ID);
-    }
-
-    public TableView loadEvictionTenantData(TableView Table,int ID) {
-        String query = "select e.issueDate, e.evictionDate, e.reason from eviction e \n" + //
+        String query = "select e.issueDate, e.evictionDate, e.reason,t.userName,concat(t.firstname,' ',lastname) as fullname from eviction e\n" + //
                         "join tenant t on e.tenantId=t.tenantId \n" + //
                         "where ownerId=?";
     
@@ -127,13 +120,22 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    public TableView loadEvictionTenantData(TableView Table,int ID) {
+        String query = "select e.issueDate, e.evictionDate, e.reason from eviction e where e.tenantId=?";
+        
+    
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
+    }
+
     public TableView loadFineOwnerData(TableView Table,int ID) {
-        String query = "select t.username,t.firstname,t.lastName,t.dob, re.rentalName, room.rtype, room.descript, room.price from tenant t \n" + //
-                        "join rent r on  r.tenantId=t.tenantId\n" + //
+        String query = "select t.username,t.firstname,t.lastName,t.dob, re.rentalName, room.rtype,f.amount from tenant t\n" + //
+                        "join rent r on r.tenantId=t.tenantId\n" + //
                         "join room on r.roomId=room.roomId\n" + //
                         "join rental re on re.rentalId=r.rentalId\n" + //
                         "join owns on re.rentalId=owns.rentalId\n" + //
-                        "where ownerId=?";
+                        "join fine f on f.tenantId=t.tenantId\n" + //
+                        "where owns.ownerId=?";
                         
                         TableAssistant table= new TableAssistant();
                         return table.runOneParameterquery(query, Table, ID);
@@ -195,7 +197,6 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
-    
     public TableView loadFineTenantData(TableView Table,int ID) {
         String query = "select issueDate, reason,amount from fine where tenantId=?";
                         

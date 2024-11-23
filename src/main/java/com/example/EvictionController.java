@@ -105,7 +105,7 @@ public class EvictionController {
 
         LoadData util=new LoadData();
         LoadComboData cData = new LoadComboData();        
-        //evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
+        evictionTable=util.loadEvictionOwnerData(evictionTable,user.getID());
         selectTenantCombobox = cData.loadTenantDataComboBox(selectTenantCombobox, user.getID());        
     }
     
