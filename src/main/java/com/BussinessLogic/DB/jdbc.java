@@ -162,6 +162,20 @@ public class jdbc {
         }
     }
 
+    public boolean insertMealsnInDatabase(PreparedStatement preparedStatement, String name, String desc, long price) throws SQLException {
+        preparedStatement.setString(1, name);
+        preparedStatement.setString(2, desc);
+        preparedStatement.setLong(3, price);
+    
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Meal added successfully!");
+            return true; // Return true to indicate success
+        } else {
+            throw new SQLException("Failed to add meal to the database.");
+        }
+    }
+
     public void insertMaintainceInDatabase(PreparedStatement preparedStatement, String description, String status, String date, String rentalId) throws SQLException{
         preparedStatement.setString(1, description);
         preparedStatement.setString(2, status);

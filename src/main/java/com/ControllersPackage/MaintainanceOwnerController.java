@@ -135,7 +135,7 @@ public class MaintainanceOwnerController {
 
     @FXML
     void MealUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("");
+        App.setRoot("SelectMealsOwner");
     }
 
     @FXML
@@ -245,6 +245,7 @@ public class MaintainanceOwnerController {
     void MenuUrl_Clicked(ActionEvent event) throws IOException {
         App.setRoot("addMenu");
     }
+    
 
     @FXML
     void SearchButton_clicked(ActionEvent event) {

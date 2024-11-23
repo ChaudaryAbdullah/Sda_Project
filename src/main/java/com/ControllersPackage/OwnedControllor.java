@@ -101,7 +101,7 @@ public class OwnedControllor {
 
     @FXML
     void MealUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("");
+        App.setRoot("SelectMealsOwner");
     }
 
     @FXML
