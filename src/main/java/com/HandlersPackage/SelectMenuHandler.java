@@ -10,7 +10,7 @@ import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Meal;
 import com.BussinessLogic.classes.Menu;
-import com.example.selectMenuController;
+import com.ControllersPackage.selectMenuController;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
