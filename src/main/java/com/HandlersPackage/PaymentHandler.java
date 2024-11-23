@@ -4,16 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.BussinessLogic.DB.LoadData;
-import com.BussinessLogic.DB.TableAssistant;
 import com.BussinessLogic.DB.jdbc;
-import com.BussinessLogic.classes.Rental;
-import com.BussinessLogic.classes.Tenant;
-import com.BussinessLogic.classes.User;
-import com.BussinessLogic.classes.parking;
-
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
 
 
 public class PaymentHandler {

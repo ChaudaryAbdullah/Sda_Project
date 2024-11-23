@@ -6,12 +6,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.BussinessLogic.DB.LoadData;
+import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Meal;
 import com.BussinessLogic.classes.Menu;
-import com.ControllersPackage.selectMenuController;
-
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 

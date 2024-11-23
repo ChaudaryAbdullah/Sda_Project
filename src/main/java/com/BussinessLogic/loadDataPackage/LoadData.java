@@ -1,8 +1,10 @@
-package com.BussinessLogic.DB;
+package com.BussinessLogic.loadDataPackage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
+import com.BussinessLogic.DB.TableAssistant;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
