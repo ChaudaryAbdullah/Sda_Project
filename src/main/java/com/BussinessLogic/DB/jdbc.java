@@ -259,6 +259,18 @@ public class jdbc {
         }
     }
 
+    public void insertRequestParkingInDatabase(PreparedStatement preparedStatement,int parkingId,int tenantId) throws SQLException{
+        preparedStatement.setInt(2, tenantId);
+        preparedStatement.setInt(1, parkingId);
+        int rowsAffected = preparedStatement.executeUpdate();
+        if (rowsAffected > 0) {
+            System.out.println("Parking Request made successfully!");
+        } else {
+            Error err=new Error("Couldn't make parking parking.");
+            throw err;
+        }
+    }
+
     public void insertMenuInDatabase(PreparedStatement preparedStatement,int breakfastId,int lunchId,int dinnerId,String desc,int ownerId) throws SQLException{
         preparedStatement.setInt(1, breakfastId);
         preparedStatement.setInt(2 , lunchId);

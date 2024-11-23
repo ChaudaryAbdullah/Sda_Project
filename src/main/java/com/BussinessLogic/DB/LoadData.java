@@ -115,6 +115,16 @@ public class LoadData {
                         "where o.ownerId=?";
                         
         TableAssistant table= new TableAssistant();
+        return table.runOneParameterquery(query, Table, ID);   
+    }
+
+    public TableView loadRequestParkingData(TableView Table,int ID) {
+        String query = "select p.slotId, r.rentalName,r.address from parkingslot p \n" + //
+                        "inner join rental r on r.rentalId=p.rentalId\n" + //
+                        "inner join rent re on re.rentalId=r.rentalId\n" + //
+                        "where re.tenantId=? and p.is_occupied=0;";
+                        
+        TableAssistant table= new TableAssistant();
         return table.runOneParameterquery(query, Table, ID);
         
     }

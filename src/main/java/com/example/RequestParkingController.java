@@ -1,8 +1,8 @@
 package com.example;
 
 import java.io.IOException;
-
 import com.BussinessLogic.classes.User;
+import com.HandlersPackage.RequestParkingHandler;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +37,7 @@ public class RequestParkingController {
     private Button SearchButton;
       
     @FXML
-    private ComboBox<?> ParkingComboBox;
+    private ComboBox<String> ParkingComboBox;
 
     @FXML
     private TextField SearchTextField;
@@ -67,7 +67,7 @@ public class RequestParkingController {
     private Pane menupane;
 
     @FXML
-    private TableView<?> parkingTable;
+    private TableView<String> parkingTable;
 
     @FXML
     private Hyperlink parkingUrl;
@@ -80,10 +80,18 @@ public class RequestParkingController {
 
     public static User user = null;
 
+    RequestParkingHandler handle=new RequestParkingHandler();
+
     public static void setUser(User u){
         user = u;
     }
     
+    public void initialize() {
+        handle.tableHandler(parkingTable, user.getID());
+        handle.addParking(user.getID());
+        handle.HandleComboBox(ParkingComboBox);
+    }
+
     @FXML
     void DashbordLogo_clicked(MouseEvent event) throws IOException {
         App.setRoot("Dashboard");
@@ -150,7 +158,7 @@ public class RequestParkingController {
 
     @FXML
     void requestbtn_clicked(ActionEvent event) throws IOException {
-        
+     handle.ChooseParking(ParkingComboBox.getSelectionModel().getSelectedItem(), user.getID());   
     }
 
 }
