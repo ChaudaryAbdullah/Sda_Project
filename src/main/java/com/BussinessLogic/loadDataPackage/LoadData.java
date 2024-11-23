@@ -1,19 +1,15 @@
 package com.BussinessLogic.loadDataPackage;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import com.BussinessLogic.DB.TableAssistant;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class LoadData {
+    @SuppressWarnings("rawtypes")
     public TableView loadHomeData(TableView Table) {
         String query = "SELECT r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities, " +
                        "CONCAT(o.firstName, ' ', o.lastName) AS ownerName " +
@@ -25,7 +21,19 @@ public class LoadData {
                        return table.runZeroParameterquery(query, Table);
     }
 
-   public TableView loadHomeNotificationData(TableView Table, int ID) {
+    @SuppressWarnings("rawtypes")
+    public TableView loadSearchData(TableView Table,String data) {
+        String query = "SELECT r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities, CONCAT(o.firstName, ' ', o.lastName) AS ownerName FROM rental r\n" + //
+                        "JOIN owns own ON r.rentalId = own.rentalId\n" + //
+                        "JOIN owner o ON own.ownerId = o.ownerId\n" + //
+                        "WHERE r.address LIKE CONCAT('%', ? , '%');";
+    
+                       TableAssistant table= new TableAssistant();
+                       return table.runOneParameterquery(query, Table, data);
+    }
+
+   @SuppressWarnings({ "unchecked", "rawtypes" })
+public TableView loadHomeNotificationData(TableView Table, int ID) {
     String query1 = "select n.dateTime, n.description from notification n \n" +
                     "join sendnotificationowner o on o.notificationId = n.id\n" +
                     "where o.OwnerId = ?";
@@ -64,6 +72,7 @@ public class LoadData {
 }
 
 
+    @SuppressWarnings("rawtypes")
     public TableView loadApproveApplicantData(TableView Table,int ID) {
         
         String query = "select a.userName, a.firstName, a.lastName, a.address, a.dob from applyRental rent \n" + //
@@ -74,6 +83,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
     
+    @SuppressWarnings("rawtypes")
     public TableView loadOwnerData(TableView Table,int ID) {
         String query = "select r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities from rental r \n" + //
                         "join owns on r.rentalId=owns.rentalId \n" + //
@@ -83,6 +93,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadRenterData(TableView Table,int ID) {
         String query = "select room.rtype, room.descript,room.price, r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities from rental r \n" + //
                         "join rent on r.rentalId=rent.rentalId \n" + //
@@ -93,6 +104,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
     
+    @SuppressWarnings("rawtypes")
     public TableView loadMaintainanceData(TableView Table,int ID) {
         String query = "select m.description, r.rentalName,r.address,r.facilities from maintainance m\n" + //
                         "join rental r on m.rentalId=r.rentalId \n" + //
@@ -103,6 +115,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadMaintainanceTenantData(TableView Table,int ID) {
         String query = "select m.description, r.rentalName,r.address,r.facilities from maintainance m\n" + //
                         "join rental r on m.rentalId=r.rentalId\n" + //
@@ -113,6 +126,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadEvictionOwnerData(TableView Table,int ID) {
         String query = "select e.issueDate, e.evictionDate, e.reason,t.userName,concat(t.firstname,' ',lastname) as fullname from eviction e\n" + //
                         "join tenant t on e.tenantId=t.tenantId \n" + //
@@ -122,6 +136,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadEvictionTenantData(TableView Table,int ID) {
         String query = "select e.issueDate, e.evictionDate, e.reason from eviction e where e.tenantId=?";
         
@@ -130,6 +145,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadFineOwnerData(TableView Table,int ID) {
         String query = "select t.username,t.firstname,t.lastName,t.dob, re.rentalName, room.rtype,f.amount from tenant t\n" + //
                         "join rent r on r.tenantId=t.tenantId\n" + //
@@ -143,6 +159,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadReviewFeedbackData(TableView Table,int ID) {
         String query = "select f.rating, f.description, r.rentalName, r.address, r.facilities from feedback f \n" + //
                         "inner join rental r on r.rentalId=f.rentalId\n" + //
@@ -153,6 +170,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadAllocateParkingData(TableView Table,int ID) {
         String query = "select pr.slotId, t.firstName, t.lastName, t.username, r.rentalName,r.address from parkingrequest pr \n" + //
                         "join tenant t on pr.tenantId=t.tenantId\n" + //
@@ -165,6 +183,7 @@ public class LoadData {
         return table.runOneParameterquery(query, Table, ID);   
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadRequestParkingData(TableView Table,int ID) {
         String query = "select p.slotId, r.rentalName,r.address from parkingslot p \n" + //
                         "inner join rental r on r.rentalId=p.rentalId\n" + //
@@ -176,6 +195,7 @@ public class LoadData {
         
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadAddMenuData(TableView Table) {
         String query = "SELECT menu.menuId, breakfast.name as BreakFastName,\n" + //
                         "lunch.name as LunchName,dinner.name as DinnerName,menu.description FROM menu\n" + //
@@ -188,6 +208,7 @@ public class LoadData {
         
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadChoseRentalData(TableView Table,int ID) {
         String query = "select room.roomid,room.rtype, room.descript,room.price, r.rentalName, r.address, r.availableRooms, r.totalRooms, r.facilities from rental r \n" + //
                         "join rent on r.rentalId=rent.rentalId \n" + //
@@ -199,6 +220,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    @SuppressWarnings("rawtypes")
     public TableView loadFineTenantData(TableView Table,int ID) {
         String query = "select issueDate, reason,amount from fine where tenantId=?";
                         

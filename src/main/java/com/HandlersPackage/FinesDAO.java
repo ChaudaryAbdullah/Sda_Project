@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import com.BussinessLogic.DB.jdbc;
 
 public class FinesDAO {
+    @SuppressWarnings("unused")
     private final jdbc javaJdbc;
 
     FinesDAO(){

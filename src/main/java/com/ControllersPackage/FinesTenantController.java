@@ -115,8 +115,9 @@ public class FinesTenantController {
     }
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) {
-
+    void SearchButton_clicked(ActionEvent event) throws IOException {
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

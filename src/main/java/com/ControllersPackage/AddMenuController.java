@@ -120,7 +120,7 @@ public class AddMenuController {
 
     @FXML
     void MealUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("");
+        App.setRoot("SelectMealsOwner");
     }
 
     @FXML
@@ -130,6 +130,8 @@ public class AddMenuController {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) throws IOException {
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
         
     }
 

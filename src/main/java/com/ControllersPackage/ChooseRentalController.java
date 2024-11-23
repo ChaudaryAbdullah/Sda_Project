@@ -2,7 +2,6 @@ package com.ControllersPackage;
 
 import java.io.IOException;
 
-import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.chooseRentalHandler;
 import com.example.App;
@@ -114,7 +113,8 @@ public class ChooseRentalController {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

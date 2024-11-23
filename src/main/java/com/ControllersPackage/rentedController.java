@@ -82,6 +82,7 @@ public class rentedController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         //add the applicants after merged
 
@@ -117,7 +118,8 @@ public class rentedController {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

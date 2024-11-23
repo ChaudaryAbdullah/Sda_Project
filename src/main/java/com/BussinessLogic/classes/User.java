@@ -1,7 +1,5 @@
 package com.BussinessLogic.classes;
 
-import java.util.List;
-
 public abstract class User {
     private int ID;
     private String username;

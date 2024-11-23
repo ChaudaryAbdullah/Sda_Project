@@ -1,7 +1,6 @@
 package com.ControllersPackage;
 
 import java.io.IOException;
-import java.util.logging.Handler;
 
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.SelectMenuHandler;
@@ -117,7 +116,8 @@ public class selectMenuController {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

@@ -79,6 +79,7 @@ public class ReviewFeedbackController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         LoadData util=new LoadData();        
         feedbackTable=util.loadReviewFeedbackData(feedbackTable,user.getID());
@@ -106,7 +107,8 @@ public class ReviewFeedbackController {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

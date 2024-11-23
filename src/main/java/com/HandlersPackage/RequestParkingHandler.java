@@ -10,7 +10,6 @@ import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.loadDataPackage.loadNotificationData;
 import com.BussinessLogic.classes.Rental;
-import com.BussinessLogic.classes.Room;
 import com.BussinessLogic.classes.parking;
 import com.Factories.ParkingFactory;
 import com.Factories.RentalFactory;
@@ -51,12 +50,14 @@ public class RequestParkingHandler {
         }
     }
     
+    @SuppressWarnings("rawtypes")
     public TableView tableHandler(TableView table,int id){
         LoadData util=new LoadData();        
         return util.loadRequestParkingData(table,id);
     }
 
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public ComboBox HandleComboBox(ComboBox combo){    
         for (parking parking : parkings) {
             combo.getItems().add(String.valueOf(parking.getSlotId()));

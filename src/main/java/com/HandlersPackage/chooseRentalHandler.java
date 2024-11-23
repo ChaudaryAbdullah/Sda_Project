@@ -9,12 +9,8 @@ import java.util.List;
 import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.loadDataPackage.loadNotificationData;
-import com.BussinessLogic.classes.Meal;
-import com.BussinessLogic.classes.Menu;
 import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Room;
-import com.BussinessLogic.classes.User;
-
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 
@@ -52,12 +48,14 @@ public class chooseRentalHandler {
         }
     }
     
+    @SuppressWarnings("rawtypes")
     public TableView tableHandler(TableView table,int id){
         LoadData util=new LoadData();        
         return util.loadChoseRentalData(table,id);
     }
 
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public ComboBox HandleComboBox(ComboBox combo){    
         for (int i = 0; i < rooms.size(); i++) {
             combo.getItems().add(rooms.get(i).getRoomId()+" : "+rooms.get(i).getRtype()+" : "+rooms.get(i).getPrice()+" : "+rooms.get(i).getRentalId());

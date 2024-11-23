@@ -3,7 +3,7 @@ package com.ControllersPackage;
 import java.io.IOException;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
-import com.BussinessLogic.DB.Utility;
+import com.BussinessLogic.FacadePackage.Utility;
 import com.BussinessLogic.classes.User;
 import com.example.App;
 import com.BussinessLogic.loadDataPackage.LoadComboData;
@@ -108,6 +108,7 @@ public class MaintainanceOwnerController {
         user = u;
     }
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         //add the applicants after merged
         changestatuscombobox.getItems().addAll(
@@ -191,7 +192,6 @@ public class MaintainanceOwnerController {
         String selectedData = (String) selectmaintainanceComboBox.getSelectionModel().getSelectedItem();
         String changestatus = (String) changestatuscombobox.getSelectionModel().getSelectedItem();
         int maintainceId = 0;
-        int amount = 0;
         Utility util = new Utility();
         String todayDate = util.getTodayDate();
         if (selectedData != null) {
@@ -206,7 +206,6 @@ public class MaintainanceOwnerController {
             System.out.println("No hostel selected.");
         }
         try {
-            amount = Integer.parseInt(costfield.getText());
         } catch (NumberFormatException e) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Invalid Input");
@@ -248,8 +247,9 @@ public class MaintainanceOwnerController {
     
 
     @FXML
-    void SearchButton_clicked(ActionEvent event) {
-
+    void SearchButton_clicked(ActionEvent event) throws IOException {
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");
     }
 
     @FXML

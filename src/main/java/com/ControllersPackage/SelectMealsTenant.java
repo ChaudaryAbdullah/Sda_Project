@@ -2,7 +2,6 @@ package com.ControllersPackage;
 
 import java.io.IOException;
 
-import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.AddMealHandler;
 import com.example.App;
@@ -113,7 +112,8 @@ public class SelectMealsTenant {
 
     @FXML
     void SearchButton_clicked(ActionEvent event) throws IOException {
-        
+        HomePageController.setSearchData=SearchTextField.getText();
+        App.setRoot("HomePage");   
     }
 
     @FXML

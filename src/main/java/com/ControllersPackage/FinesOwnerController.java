@@ -3,10 +3,8 @@ package com.ControllersPackage;
 import java.io.IOException;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
-import com.BussinessLogic.DB.Utility;
-import com.BussinessLogic.classes.HostelRental;
+import com.BussinessLogic.FacadePackage.Utility;
 import com.BussinessLogic.classes.User;
-import com.Factories.NotificationFactory;
 import com.HandlersPackage.NotificationHandler;
 import com.example.App;
 import com.BussinessLogic.loadDataPackage.LoadComboData;
@@ -103,6 +101,7 @@ public class FinesOwnerController {
     }
     NotificationHandler notification=new NotificationHandler();
 
+    @SuppressWarnings("unchecked")
     public void initialize() {
         LoadData util=new LoadData();
         LoadComboData cData = new LoadComboData();        

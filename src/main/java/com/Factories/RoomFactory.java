@@ -3,6 +3,7 @@ package com.Factories;
 import com.BussinessLogic.classes.Room;
 
 public class RoomFactory {
+    @SuppressWarnings("unused")
     private static String generateUniqueID() {
         return "ROOM-" + System.currentTimeMillis();
     }

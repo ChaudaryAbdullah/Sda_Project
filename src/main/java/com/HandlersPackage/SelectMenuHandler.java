@@ -44,6 +44,7 @@ public class SelectMenuHandler{
         }
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public ComboBox HandleComboBox(ComboBox combo){    
             for (Menu menu : menus) {
                 combo.getItems().add(String.valueOf(menu.getID()));
@@ -65,7 +66,8 @@ public class SelectMenuHandler{
 
     }
 
-     public TableView tableHandler(TableView table){
+     @SuppressWarnings("rawtypes")
+    public TableView tableHandler(TableView table){
         LoadData util=new LoadData();        
         return util.loadAddMenuData(table);
     }

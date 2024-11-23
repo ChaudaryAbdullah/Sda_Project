@@ -2,9 +2,6 @@ package com.BussinessLogic.DB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +33,7 @@ public class jdbc {
         return connection;
     }
 
-    void insertUserInDatabase(PreparedStatement preparedStatement, String userName, String firstName, String lastName, String dob, String pass, String address) throws SQLException
+    public void insertUserInDatabase(PreparedStatement preparedStatement, String userName, String firstName, String lastName, String dob, String pass, String address) throws SQLException
     {
         preparedStatement.setString(1, userName);
         preparedStatement.setString(2, firstName);
@@ -56,7 +53,7 @@ public class jdbc {
         }
     }
 
-    User getUserFromDatabase(PreparedStatement preparedStatement) throws SQLException{
+    public User getUserFromDatabase(PreparedStatement preparedStatement) throws SQLException{
 
         // Execute query
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -82,7 +79,7 @@ public class jdbc {
         }
     }
 
-    void insertRentalInDatabase(PreparedStatement preparedStatement, String name, String address, String  facilities, String totalRoomsStr, String availableRoomsStr) throws SQLException
+    public void insertRentalInDatabase(PreparedStatement preparedStatement, String name, String address, String  facilities, String totalRoomsStr, String availableRoomsStr) throws SQLException
     {
         preparedStatement.setString(1, name);
         preparedStatement.setString(2, address);
@@ -101,7 +98,7 @@ public class jdbc {
         }
     }
 
-    void insertRoomInDatabase(PreparedStatement preparedStatement, String roomType, String roomStatus, String  descrip, String priceString, String rentalIdString, String imagePath) throws SQLException
+    public void insertRoomInDatabase(PreparedStatement preparedStatement, String roomType, String roomStatus, String  descrip, String priceString, String rentalIdString, String imagePath) throws SQLException
     {
         preparedStatement.setString(1, roomType);
         preparedStatement.setString(2, roomStatus);
