@@ -53,6 +53,31 @@ public class TableAssistant {
             return Table;
     }
 
+    public ObservableList<ObservableList<Object>> runOneParameterquery(String query, int ID) {
+        jdbc javaJdbc = new jdbc();
+        ObservableList<ObservableList<Object>> data = FXCollections.observableArrayList();
+    
+        try (Connection conn = javaJdbc.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+    
+            preparedStatement.setInt(1, ID);
+            ResultSet rs = preparedStatement.executeQuery();
+    
+            // Process rows
+            while (rs.next()) {
+                ObservableList<Object> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    row.add(rs.getObject(i));
+                }
+                data.add(row);
+            }
+    
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+    
     TableView runOneParameterquery(String query,TableView Table,int ID)
      {
         jdbc javaJdbc=new jdbc();
