@@ -274,9 +274,9 @@ public class jdbc {
         }
     }
 
-    public void insertApplyRentalInDatabase(PreparedStatement preparedStatement,int room, int rental,int user) throws SQLException{
-        preparedStatement.setInt(3, user);
-        preparedStatement.setInt(2, room);
+    public void insertApplyRentalInDatabase(PreparedStatement preparedStatement,int rental,int user) throws SQLException{
+        preparedStatement.setInt(2, user);
+        //preparedStatement.setInt(2, room);
         preparedStatement.setInt(1, rental);
         int rowsAffected = preparedStatement.executeUpdate();
         if (rowsAffected > 0) {

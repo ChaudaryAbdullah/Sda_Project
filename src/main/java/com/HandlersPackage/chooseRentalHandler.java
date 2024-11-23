@@ -59,7 +59,7 @@ public class chooseRentalHandler {
     public ComboBox HandleComboBox(ComboBox combo){    
         for (int i = 0; i < rooms.size(); i++) {
             for (Room room : rooms)
-            combo.getItems().add(rooms.get(i).getRoomId()+" : "+rooms.get(i).getRtype()+" : "+rooms.get(i).getPrice()+" : "+rentals.get(i).getId());
+            combo.getItems().add(rooms.get(i).getRoomId()+" : "+rooms.get(i).getRtype()+" : "+rooms.get(i).getPrice()+" : "+rooms.get(i).getRentalId());
         }
     return combo;
     
@@ -68,11 +68,11 @@ public class chooseRentalHandler {
         int rentalId=Integer.parseInt(data.split(" : ")[3]);
         int roomId=Integer.parseInt(data.split(" : ")[0]);
         
-        String query="INSERT INTO applyrental(rentalId,roomId,applicantId) VALUES(?,?,?)";
+        String query="INSERT INTO applyrental(rentalId,applicantId) VALUES(?,?)";
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
-        javaJdbc.insertApplyRentalInDatabase(preparedStatement,roomId,rentalId,userid);   
+        javaJdbc.insertApplyRentalInDatabase(preparedStatement,rentalId,userid);   
         } catch (Exception e) {
             e.printStackTrace();
         }
