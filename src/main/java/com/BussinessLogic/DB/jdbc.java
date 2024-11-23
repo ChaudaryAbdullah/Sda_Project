@@ -11,6 +11,21 @@ import java.sql.SQLException;
 import com.BussinessLogic.classes.*;
 
 public class jdbc {
+    private static jdbc instance;
+
+    // Step 2: Make the constructor private to prevent instantiation from other classes
+    /* 
+    private jdbc() {
+        
+    }*/
+
+    // Step 3: Provide a public static method to get the instance of the class
+    public static synchronized jdbc getInstance() {
+        if (instance == null) {
+            instance = new jdbc();
+        }
+        return instance;
+    }
     public Connection getConnection() throws SQLException
     {
         String url = "jdbc:mysql://localhost:3306/sda_project";
