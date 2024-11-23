@@ -195,6 +195,7 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    
     public TableView loadFineTenantData(TableView Table,int ID) {
         String query = "select issueDate, reason,amount from fine where tenantId=?";
                         
