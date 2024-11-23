@@ -99,7 +99,7 @@ public class MaintainanceTenantController {
         //add the applicants after merged
         LoadData util=new LoadData();  
         LoadComboData cData = new LoadComboData();      
-        maintaincetable = util.loadMaintainanceData(maintaincetable,user.getID());
+        maintaincetable = util.loadMaintainanceTenantData(maintaincetable,user.getID());
         selectrentalComboBox = cData.loadRentalDataTenantComboBox(selectrentalComboBox, user.getID());
     }
     @FXML

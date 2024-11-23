@@ -64,7 +64,7 @@ public class RequestParkingHandler {
     
 }
     public void ChooseParking(String data,int userid){
-        int parking=Integer.parseInt(datagit );
+        int parking=Integer.parseInt(data);
         
         String query="INSERT INTO parkingrequest(slotId,tenantId) VALUES(?,?)";
         jdbc javaJdbc=new jdbc();

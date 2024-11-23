@@ -68,6 +68,16 @@ public class LoadData {
                         return table.runOneParameterquery(query, Table, ID);
     }
 
+    public TableView loadMaintainanceTenantData(TableView Table,int ID) {
+        String query = "select m.description, r.rentalName,r.address,r.facilities from maintainance m\n" + //
+                        "join rental r on m.rentalId=r.rentalId\n" + //
+                        "join rent on rent.rentalId=m.rentalId\n" + //
+                        "where m.status=0 and rent.tenantId=?";
+    
+                        TableAssistant table= new TableAssistant();
+                        return table.runOneParameterquery(query, Table, ID);
+    }
+
     public TableView loadEvictionOwnerData(TableView Table,int ID) {
         String query = "select e.issueDate, e.evictionDate, e.reason from eviction e where e.tenantId=?";
     
