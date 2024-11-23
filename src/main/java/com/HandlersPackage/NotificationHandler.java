@@ -38,11 +38,14 @@ public class NotificationHandler {
             e.printStackTrace();
         }
 
-        try (Connection conn = javaJdbc.getConnection();
+        if(notificationId!=-1)
+        {
+            try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
         javaJdbc.insertNotificationUserInDatabase(preparedStatement,notification.getId(),notificationId); 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
     }
 }

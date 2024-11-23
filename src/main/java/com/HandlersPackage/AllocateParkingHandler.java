@@ -23,7 +23,7 @@ public class AllocateParkingHandler {
     private List<parking> park;
     private List<parking> Requestpark;
     private List<User> users;
-
+    private NotificationHandler notification=new NotificationHandler();
     public AllocateParkingHandler(){
         rentals=new ArrayList<>();
         park=new ArrayList<>();
@@ -187,7 +187,8 @@ public class AllocateParkingHandler {
                         "WHERE slotId = ? AND tenantId = ?";
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
-            javaJdbc.removeRequestFromDatabase(preparedStatement,slotId,userid);   
+            javaJdbc.removeRequestFromDatabase(preparedStatement,slotId,userid); 
+            notification.sendNotificationToTenant("Your Parking with slot Number  "+slotId+" just got approved",userid);  
         } catch (Exception e) {
             e.printStackTrace();
         }                        
@@ -210,6 +211,7 @@ public class AllocateParkingHandler {
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
             javaJdbc.removeRequestFromDatabase(preparedStatement,slotId,userid);   
+            notification.sendNotificationToTenant("Your Parking with slot Number  "+slotId+" just got rejected.",userid);
         } catch (Exception e) {
             e.printStackTrace();
         }   

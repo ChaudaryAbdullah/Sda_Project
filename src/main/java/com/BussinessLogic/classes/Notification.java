@@ -1,5 +1,6 @@
 package com.BussinessLogic.classes;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Notification {
@@ -9,7 +10,8 @@ public class Notification {
 
     public Notification(int id, String description) {
         this.id = id;
-        this.dateTime = (new Date()).toString() ;
+        SimpleDateFormat sqlDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.dateTime = sqlDateFormat.format(new Date());
         this.description = description;
     }
 

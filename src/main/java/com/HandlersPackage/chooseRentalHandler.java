@@ -8,10 +8,12 @@ import java.util.List;
 
 import com.BussinessLogic.DB.LoadData;
 import com.BussinessLogic.DB.jdbc;
+import com.BussinessLogic.DB.loadNotificationData;
 import com.BussinessLogic.classes.Meal;
 import com.BussinessLogic.classes.Menu;
 import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Room;
+import com.BussinessLogic.classes.User;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
@@ -70,8 +72,15 @@ public class chooseRentalHandler {
         String query="INSERT INTO applyrental(rentalId,roomId,applicantId) VALUES(?,?,?)";
         jdbc javaJdbc=new jdbc();
         try (Connection conn = javaJdbc.getConnection();
-        PreparedStatement preparedStatement = conn.prepareStatement(query)){
-        javaJdbc.insertApplyRentalInDatabase(preparedStatement,roomId,rentalId,userid);   
+            PreparedStatement preparedStatement = conn.prepareStatement(query)){
+            javaJdbc.insertApplyRentalInDatabase(preparedStatement,roomId,rentalId,userid);   
+            Rental r=rentals.stream()
+            .filter(obj -> obj.getId() == rentalId) 
+            .findFirst()
+            .orElse(null);
+            int ownerid= new loadNotificationData().loadOwner(rentalId);
+            NotificationHandler notification=new NotificationHandler();
+            notification.sendNotificationToTenant("You got request for Room Number  "+roomId+" of "+ r.getName(),ownerid);
         } catch (Exception e) {
             e.printStackTrace();
         }
