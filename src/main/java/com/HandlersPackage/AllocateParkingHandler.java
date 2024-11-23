@@ -73,8 +73,7 @@ public class AllocateParkingHandler {
                 rentals.add(r);
             }
         } catch (Exception e) {
-            
-            // TODO: handle exception
+            e.getStackTrace();
         }
     }
 
