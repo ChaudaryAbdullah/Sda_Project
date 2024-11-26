@@ -11,7 +11,7 @@ import javafx.scene.control.ComboBox;
 
 public class LoadComboData {
     public ComboBox<String> loadRentalDataComboBox(ComboBox<String> combo, int ID) {
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query = "select r.rentalId, r.rentalName from rental r " +
                        "join owns on r.rentalId = owns.rentalId " +
                        "where owns.ownerId = ?";
@@ -34,7 +34,7 @@ public class LoadComboData {
     }
 
     public ComboBox<String> loadTenantDataComboBox(ComboBox<String> combo, int ID) {
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query =  "SELECT t.tenantId, t.userName, t.firstName, t.lastName, t.address, t.dob " + 
                         "FROM tenant t " +
                         "JOIN rent r ON t.tenantId = r.tenantId " +
@@ -60,7 +60,7 @@ public class LoadComboData {
     }
 
     public ComboBox<String> loadRentalDataTenantComboBox(ComboBox<String> combo, int ID) {
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query = "SELECT rental.rentalId, rental.rentalName " +
                "FROM rental " +
                "JOIN rent ON rental.rentalId = rent.rentalId " +
@@ -86,7 +86,7 @@ public class LoadComboData {
     }
 
     public ComboBox<String> loadMaintainanceComboBox(ComboBox<String> combo, int ID) {
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query = "SELECT maintainance.maintananceId, maintainance.description FROM maintainance JOIN rental ON maintainance.rentalId = rental.rentalId JOIN owns ON rental.rentalId = owns.rentalId WHERE owns.ownerId = ?;";
 
         
@@ -108,7 +108,7 @@ public class LoadComboData {
     }
 
     public ComboBox<String> loadApplicantsComboBox(ComboBox<String> combo, int ID) {
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query = "SELECT a.applicantId, a.firstName, a.lastName, ar.rentalId, ar.roomId\n" + //
                         "FROM owns o JOIN applyRental ar \n" + //
                         "ON o.rentalId = ar.rentalId\n" + //
@@ -135,7 +135,7 @@ public class LoadComboData {
     }
 
     public ComboBox<String> loadNULLRents(ComboBox<String> combo, int ID){
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query = "SELECT r.tenantId, r.rentalId FROM rent r JOIN owns o ON r.rentalId = o.rentalId WHERE o.ownerId = ? AND r.roomId IS NULL";
         try (Connection conn = javaJdbc.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(query, 
@@ -155,7 +155,7 @@ public class LoadComboData {
         return combo;
     }
     public ComboBox<String> loadRoomsData(ComboBox<String> combo, int RentalID){
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         String query = "SELECT roomId, rtype, status, descript, price FROM room WHERE rentalId = ? AND status = '0'";
         try (Connection conn = javaJdbc.getConnection();
              PreparedStatement preparedStatement = conn.prepareStatement(query, 
@@ -175,7 +175,7 @@ public class LoadComboData {
         return combo;
     }
     public int getRoomPrice(int roomId){
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         int price=0;;
         String query = "SELECT price FROM room WHERE roomId = ? ";
         try (Connection conn = javaJdbc.getConnection();

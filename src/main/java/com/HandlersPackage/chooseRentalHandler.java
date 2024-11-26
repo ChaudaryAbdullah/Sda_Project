@@ -24,12 +24,10 @@ public class chooseRentalHandler {
         rooms=new ArrayList<>();
     }
 
-    public void addRentalandrooms(int ID){
-         jdbc javaJdbc=new jdbc();
+    public void addRental(int ID){
+         jdbc javaJdbc=jdbc.getInstance();
         String query = "select * from rental r \n" + //
-                        "join rent on r.rentalId=rent.rentalId \n" + //
-                        "join room on r.rentalId=room.rentalId \n" + //
-                        "join owns o on o.rentalId=r.rentalId\n" + //
+                        "join owns o on o.rentalId=r.rentalId \n" + //
                         "where o.ownerid!=?";
                         
             try (Connection conn = javaJdbc.getConnection();
@@ -37,19 +35,40 @@ public class chooseRentalHandler {
                 preparedStatement.setInt(1, ID);
                 ResultSet rs = preparedStatement.executeQuery();
                 while(rs.next()){
-                System.out.println("rental  "+rs.getInt(1));
-                System.out.println("room  "+rs.getInt(9));
                Rental r=RentalFactory.createRental(rs.getInt("rentalId"),rs.getString("rentalName"),rs.getString("address"),rs.getString("facilities"),rs.getInt("totalRooms"),rs.getInt("availableRooms"));
-               Room room=RoomFactory.createRoom(rs.getInt("roomId"), rs.getString("rtype"), rs.getString("status"), rs.getString("descript"), rs.getInt("price"), rs.getInt("rentalId"), rs.getString("picture"));
                 rentals.add(r);
-                rooms.add(room);
             }
+
+           
         } catch (Exception e) {
             
             e.printStackTrace();
         }
     }
     
+
+    public void addRooms(int ID){
+        jdbc javaJdbc=jdbc.getInstance();
+       String query = "select * from room r \n" + //
+                      "join owns o on o.rentalId=r.rentalId \n" + //
+                      "where o.ownerid!=?";
+                       
+           try (Connection conn = javaJdbc.getConnection();
+           PreparedStatement preparedStatement = conn.prepareStatement(query);) {
+               preparedStatement.setInt(1, ID);
+               ResultSet rs = preparedStatement.executeQuery();
+               while(rs.next()){
+                Room room=RoomFactory.createRoom(rs.getInt("roomId"), rs.getString("rtype"), rs.getString("status"), rs.getString("descript"), rs.getInt("price"), rs.getInt("rentalId"), rs.getString("picture"));
+                    rooms.add(room);
+                }
+                     
+            } catch (Exception e) {
+           
+             e.printStackTrace();
+            }
+   }
+
+   
     @SuppressWarnings("rawtypes")
     public TableView tableHandler(TableView table,int id){
         LoadData util=new LoadData();        
@@ -58,10 +77,11 @@ public class chooseRentalHandler {
 
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    public ComboBox HandleComboBox(ComboBox combo){    
-        for (int i = 0; i < rooms.size(); i++) {
-            combo.getItems().add(rooms.get(i).getRoomId()+" : "+rooms.get(i).getRtype()+" : "+rooms.get(i).getPrice()+" : "+rooms.get(i).getRentalId());
-        }
+    public ComboBox HandleComboBox(ComboBox combo){  
+        for (Room room : rooms) {
+           System.out.println(room.getRoomId());
+           combo.getItems().add(room.getRoomId()+" : "+room.getRtype()+" : "+room.getPrice()+" : "+room.getRentalId());
+        } 
     return combo;
     
 }
@@ -70,7 +90,7 @@ public class chooseRentalHandler {
         int roomId=Integer.parseInt(data.split(" : ")[0]);
         
         String query="INSERT INTO applyrental(rentalId,roomId,applicantId) VALUES(?,?,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
             PreparedStatement preparedStatement = conn.prepareStatement(query)){
             javaJdbc.insertApplyRentalInDatabase(preparedStatement,roomId,rentalId,userid);   

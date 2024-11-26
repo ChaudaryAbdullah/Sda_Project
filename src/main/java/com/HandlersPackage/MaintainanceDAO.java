@@ -12,7 +12,7 @@ public class MaintainanceDAO {
     private final jdbc javaJdbc;
 
     public MaintainanceDAO() {
-        this.javaJdbc = new jdbc(); // Singleton jdbc instance
+        this.javaJdbc = jdbc.getInstance(); // Singleton jdbc instance
     }
 
     public void insertMaintenanceRequest(MaintenanceRequest maintenanceRequest) {

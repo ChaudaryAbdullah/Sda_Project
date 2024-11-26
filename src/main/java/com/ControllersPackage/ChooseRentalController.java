@@ -87,7 +87,8 @@ public class ChooseRentalController {
 
      public void initialize() {
         handle.tableHandler(menuTable, user.getID());
-        handle.addRentalandrooms(user.getID());
+        handle.addRental(user.getID());
+        handle.addRooms(user.getID());
         handle.HandleComboBox(rentalComboBox);
     }
 

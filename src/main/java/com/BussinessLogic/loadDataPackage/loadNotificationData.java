@@ -10,7 +10,7 @@ import com.BussinessLogic.DB.jdbc;
 public class loadNotificationData {
  
     public int loadOwner(int ID) throws SQLException {
-         jdbc javaJdbc=new jdbc();
+         jdbc javaJdbc=jdbc.getInstance();
         String query = "select * from owns where owns.rentalid=?";   
             try (Connection conn = javaJdbc.getConnection();
             PreparedStatement preparedStatement = conn.prepareStatement(query);) {

@@ -21,7 +21,7 @@ public class GiveFeedbackHandler {
     }
 
      public void addRental(int ID){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query="select * from rental r \n" + //
                         "join rent re on re.rentalId=r.rentalId\n" + //
                         "where re.tenantId=?";
@@ -50,7 +50,7 @@ public class GiveFeedbackHandler {
         int rentalId=Integer.parseInt(data.split(" : ")[0]);
         
         String query="INSERT INTO feedback (rating, description, rentalId, tenantId) VALUES (?,?,?,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
             javaJdbc.insertGiveFeedbackInDatabase(preparedStatement, rating,desc,rentalId,userId);   

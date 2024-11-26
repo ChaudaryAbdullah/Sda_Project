@@ -198,10 +198,10 @@ public TableView loadHomeNotificationData(TableView Table, int ID) {
     @SuppressWarnings("rawtypes")
     public TableView loadAddMenuData(TableView Table) {
         String query = "SELECT menu.menuId, breakfast.name as BreakFastName,\n" + //
-                        "lunch.name as LunchName,dinner.name as DinnerName,menu.description FROM menu\n" + //
-                        "LEFT JOIN meals AS breakfast ON menu.breakfast = breakfast.mealId\n" + //
-                        "LEFT JOIN meals AS lunch ON menu.lunch = lunch.mealId\n" + //
-                        "LEFT JOIN meals AS dinner ON menu.dinner = dinner.mealId;";
+                        "lunch.name as LunchName,dinner.name as DinnerName,menu.description FROM menu \n" + //
+                        "JOIN meals AS breakfast ON menu.breakfast = breakfast.mealId \n" + //
+                        "JOIN meals AS lunch ON menu.lunch = lunch.mealId \n" + //
+                        "JOIN meals AS dinner ON menu.dinner = dinner.mealId;";
                         
         TableAssistant table= new TableAssistant();
         return table.runZeroParameterquery(query, Table);
@@ -226,5 +226,13 @@ public TableView loadHomeNotificationData(TableView Table, int ID) {
                         
                         TableAssistant table= new TableAssistant();
                         return table.runOneParameterquery(query, Table, ID);
+    }
+
+    @SuppressWarnings("rawtypes")
+    public TableView loadMealData(TableView Table) {
+        String query = "select * from Meals";
+                        
+                        TableAssistant table= new TableAssistant();
+                        return table.runZeroParameterquery(query, Table);
     }
 }
