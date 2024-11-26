@@ -42,7 +42,7 @@
                   <Text layoutX="52.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount of new parking" />
                   <TextField fx:id="amountTextfeild" layoutX="189.0" layoutY="96.0" />
                   <Text layoutX="108.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Rental" />
-                  <Button fx:id="createButton" layoutX="398.0" layoutY="102.0" mnemonicParsing="false" onAction="#createButton_clicked" text="Create " />
+                  <Button fx:id="createButton" layoutX="398.0" layoutY="102.0" mnemonicParsing="false" onAction="#createButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Create " />
                </children></Pane>
             <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">
                <font>

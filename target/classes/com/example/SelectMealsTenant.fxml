@@ -69,8 +69,8 @@
             <Line endX="100.0" layoutX="153.0" layoutY="249.0" startX="-152.99998474121094" startY="-1.52587890625E-5" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
             <Pane fx:id="menupane" layoutY="248.0" prefHeight="446.0" prefWidth="252.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Menu" />
-                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
+                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
+                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Meals" />
                   <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
                   <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
                   <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Choose Rental" />
