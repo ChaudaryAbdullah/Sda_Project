@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.loadDataPackage.loadNotificationData;
+import com.Factories.RentalFactory;
 import com.BussinessLogic.classes.Rental;
 
 import javafx.scene.control.ComboBox;
@@ -29,7 +30,7 @@ public class GiveFeedbackHandler {
             preparedStatement.setInt(1, ID);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                Rental r=new Rental(rs.getInt("rentalId"), rs.getString("rentalName"), rs.getString("address"), rs.getString("facilities"), rs.getInt("totalRooms"), rs.getInt("availableRooms"));
+                Rental r=RentalFactory.createRental(rs.getInt("rentalId"), rs.getString("rentalName"), rs.getString("address"), rs.getString("facilities"), rs.getInt("totalRooms"), rs.getInt("availableRooms"));
                 rentals.add(r);
             }
         } catch (Exception e) {

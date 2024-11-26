@@ -20,8 +20,6 @@ import javafx.scene.control.TableView;
 public class RequestParkingHandler {
      private List<Rental> rentals;
     private List<parking> parkings;
-    ParkingFactory parkingFactory=new ParkingFactory();
-    RentalFactory rentalFactory=new RentalFactory();
     public RequestParkingHandler(){
         rentals=new ArrayList<>();
         parkings=new ArrayList<>();
@@ -39,8 +37,8 @@ public class RequestParkingHandler {
                 preparedStatement.setInt(1, ID);
                 ResultSet rs = preparedStatement.executeQuery();
                 while(rs.next()){
-               Rental r=rentalFactory.cretaRental(rs.getInt("rentalId"),rs.getString("rentalName"),rs.getString("address"),rs.getString("facilities"),rs.getInt("totalRooms"),rs.getInt("availableRooms"));
-               parking p=parkingFactory.createParking(rs.getInt("slotId"), rs.getBoolean("is_occupied"), rs.getInt("rentalId"));
+               Rental r=RentalFactory.createRental(rs.getInt("rentalId"),rs.getString("rentalName"),rs.getString("address"),rs.getString("facilities"),rs.getInt("totalRooms"),rs.getInt("availableRooms"));
+               parking p=ParkingFactory.createParking(rs.getInt("slotId"), rs.getBoolean("is_occupied"), rs.getInt("rentalId"));
                 rentals.add(r);
                 parkings.add(p);
             }

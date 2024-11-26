@@ -8,7 +8,7 @@ public class RoomFactory {
         return "ROOM-" + System.currentTimeMillis();
     }
 
-    public Room createRoom(int roomId, String rtype, String status, String description, int price, int rentalId, String picture){
+    public static Room createRoom(int roomId, String rtype, String status, String description, int price, int rentalId, String picture){
         return new Room(roomId, rtype, status, description, price, rentalId, picture);
     }
 }

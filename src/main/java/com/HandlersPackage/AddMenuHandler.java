@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
+import com.Factories.MealFactory;
+import com.Factories.MenuFactory;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Meal;
 import com.BussinessLogic.classes.Menu;
@@ -33,10 +35,10 @@ public class AddMenuHandler {
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                Meal m1=new Meal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
-                Meal m2=new Meal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
-                Meal m3=new Meal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
-                Menu u=new Menu(rs.getInt("menuId"),m1,m2,m3,rs.getString("description"),rs.getInt("ownerId"));
+                Meal m1=MealFactory.CreateMeal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
+                Meal m2=MealFactory.CreateMeal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
+                Meal m3=MealFactory.CreateMeal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
+                Menu u=MenuFactory.createMenu(rs.getInt("menuId"),m1,m2,m3,rs.getString("description"),rs.getInt("ownerId"));
                 menus.add(u);
             }
         } catch (Exception e) {
@@ -53,7 +55,7 @@ public class AddMenuHandler {
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                Meal m=new Meal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
+                Meal m=MealFactory.CreateMeal(rs.getInt("mealId"),rs.getString("name"),rs.getString("description"),rs.getLong("price"));
                 meals.add(m);
             }
         } catch (Exception e) {

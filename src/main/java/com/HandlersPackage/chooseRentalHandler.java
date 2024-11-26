@@ -9,6 +9,8 @@ import java.util.List;
 import com.BussinessLogic.loadDataPackage.LoadData;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.loadDataPackage.loadNotificationData;
+import com.Factories.RentalFactory;
+import com.Factories.RoomFactory;
 import com.BussinessLogic.classes.Rental;
 import com.BussinessLogic.classes.Room;
 import javafx.scene.control.ComboBox;
@@ -37,8 +39,8 @@ public class chooseRentalHandler {
                 while(rs.next()){
                 System.out.println("rental  "+rs.getInt(1));
                 System.out.println("room  "+rs.getInt(9));
-               Rental r=new Rental(rs.getInt("rentalId"),rs.getString("rentalName"),rs.getString("address"),rs.getString("facilities"),rs.getInt("totalRooms"),rs.getInt("availableRooms"));
-               Room room=new Room(rs.getInt("roomId"), rs.getString("rtype"), rs.getString("status"), rs.getString("descript"), rs.getInt("price"), rs.getInt("rentalId"), rs.getString("picture"));
+               Rental r=RentalFactory.createRental(rs.getInt("rentalId"),rs.getString("rentalName"),rs.getString("address"),rs.getString("facilities"),rs.getInt("totalRooms"),rs.getInt("availableRooms"));
+               Room room=RoomFactory.createRoom(rs.getInt("roomId"), rs.getString("rtype"), rs.getString("status"), rs.getString("descript"), rs.getInt("price"), rs.getInt("rentalId"), rs.getString("picture"));
                 rentals.add(r);
                 rooms.add(room);
             }
