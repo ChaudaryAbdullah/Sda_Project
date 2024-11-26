@@ -9,17 +9,16 @@ import com.Factories.NotificationFactory;
 
 public class NotificationHandler {
     Notification notification;
-    NotificationFactory nFactory=new NotificationFactory();
 
     public void sendNotificationToTenant(String desc,int id){
-        notification=nFactory.createNotification(desc, id);
+        notification=NotificationFactory.createNotification(desc, id);
         String query="INSERT INTO sendnotificationtenant (tenantID, NotificationID)\n" + //
                         "VALUES (?,?)";
         QueryRunner(query);
     }
 
     public void sendNotificationToOwner(String desc,int id){
-        notification=nFactory.createNotification(desc, id);
+        notification=NotificationFactory.createNotification(desc, id);
         String query="INSERT INTO sendnotificationtenant (tenantID, NotificationID)\n" + //
                         "VALUES (?,?)";
         QueryRunner(query);

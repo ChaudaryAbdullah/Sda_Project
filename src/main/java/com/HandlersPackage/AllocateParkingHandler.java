@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.BussinessLogic.loadDataPackage.LoadData;
+import com.Factories.ParkingFactory;
+import com.Factories.UserFactory;
 import com.BussinessLogic.DB.jdbc;
 import com.BussinessLogic.classes.Rental;
-import com.BussinessLogic.classes.Tenant;
 import com.BussinessLogic.classes.User;
 import com.BussinessLogic.classes.parking;
 
@@ -43,10 +44,9 @@ public class AllocateParkingHandler {
             preparedStatement.setInt(1, ID);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                User u=new Tenant(rs.getInt("tenantId"),rs.getString("userName"), rs.getString("FirstName"), rs.getString("lastName"),rs.getString("address"),rs.getString("dob"),rs.getString("password"));
+                User u=UserFactory.createTenant(rs.getInt("tenantId"),rs.getString("userName"), rs.getString("FirstName"), rs.getString("lastName"),rs.getString("address"),rs.getString("dob"),rs.getString("password"));
                 users.add(u);
-                parking p=new parking();
-                p.Parking(rs.getInt("slotId"), rs.getBoolean("is_occupied"),   rs.getInt("rentalId"));
+                parking p=ParkingFactory.createParking(rs.getInt("slotId"), rs.getBoolean("is_occupied"),   rs.getInt("rentalId"));
                 Requestpark.add(p);
                 System.err.println(u.getID());
             }
@@ -86,8 +86,7 @@ public class AllocateParkingHandler {
             preparedStatement.setInt(1, ID);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                parking p=new parking();
-                p.Parking(rs.getInt("slotId"), rs.getBoolean("is_occupied"),   rs.getInt("rentalId"));
+                parking p=ParkingFactory.createParking(rs.getInt("slotId"), rs.getBoolean("is_occupied"),   rs.getInt("rentalId"));
                 park.add(p);
 
                 for (Rental rent : rentals) {

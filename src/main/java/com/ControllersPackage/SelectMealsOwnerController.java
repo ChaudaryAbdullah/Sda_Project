@@ -107,7 +107,7 @@ public class SelectMealsOwnerController {
 
     @FXML
     void MenuUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("SelectMenu");
+        App.setRoot("AddMenu");
     }
 
     @FXML
@@ -118,17 +118,17 @@ public class SelectMealsOwnerController {
 
     @FXML
     void evictionUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("EvictionTenant");
+        App.setRoot("Eviction");
     }
 
     @FXML
     void feedbackUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("GiveFeedback");
+        App.setRoot("ReviewFeedback");
     }
 
     @FXML
     void finesUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("FinesTenant");
+        App.setRoot("FinesOwner");
     }
 
     @FXML
@@ -138,17 +138,17 @@ public class SelectMealsOwnerController {
 
     @FXML
     void maintainanceUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("MaintainanceTenant");
+        App.setRoot("MaintainanceOwner");
     }
 
     @FXML
     void parkingUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("RequestParking");
+        App.setRoot("AllocateParking");
     }
 
     @FXML
     void registerUrl_Clicked(ActionEvent event) throws IOException {
-        App.setRoot("ChooseRental");
+        App.setRoot("RegisterHostel");
     }
 
     @FXML

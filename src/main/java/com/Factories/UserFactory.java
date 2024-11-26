@@ -10,7 +10,7 @@ public class UserFactory {
         return "USER-" + System.currentTimeMillis();
     }
 
-    public Tenant createTenant(int ID, String username, String firstname, String lastname, String address, String dob, String password) {
+    public static Tenant createTenant(int ID, String username, String firstname, String lastname, String address, String dob, String password) {
         return new Tenant(ID, username, firstname, lastname, address, dob, password);
     }
 

@@ -9,7 +9,7 @@ public class MealFactory {
         return "Meal-" + System.currentTimeMillis();
     }
 
-    public Meal CreateMeal(int id, String name, String description, long price) {
+    public static Meal CreateMeal(int id, String name, String description, long price) {
         return new Meal(id, name, description, price);
     }
     
