@@ -20,7 +20,7 @@ public class Utility {
 
         
         String query = "SELECT * FROM owner WHERE username = ? && password = ?";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection connection = javaJdbc.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, user);
@@ -47,7 +47,7 @@ public class Utility {
 
     public boolean addUser(String userName, String firstName, String lastName, String dob, String pass, String address){
         
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query0 = "INSERT INTO owner (userName, firstName, lastName, address, dob, password) VALUES (?, ?, ?, ?, ?, ?)";
         String query1 = "INSERT INTO applicant (userName, firstName, lastName, address, dob, password) VALUES (?, ?, ?, ?, ?, ?)";
         String query2 = "INSERT INTO tenant (userName, firstName, lastName, address, dob, password) VALUES (?, ?, ?, ?, ?, ?)";
@@ -102,7 +102,7 @@ public class Utility {
     }
 
     public boolean addRental(String name, String address, String facilities, int Totalrooms, int availableRooms){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO rental (rentalName, address, facilities, totalRooms, availableRooms) VALUES (?, ?, ?, ?, ?)";
         boolean isInserted = false;
         String totalRoomsStr = String.valueOf(Totalrooms);
@@ -121,7 +121,7 @@ public class Utility {
     }
 
     public boolean addRooms(int rentalId, String roomType, String descrip, int price, String imagePath){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO room (rtype, status, descript, price, rentalId, picture) VALUES (?, ?, ?, ?, ?, ?)";
         boolean isInserted = false;
         String rentalIdString = String.valueOf(rentalId);
@@ -146,7 +146,7 @@ public class Utility {
                        "JOIN owns o ON r.rentalId = o.rentalId " +
                        "JOIN rent ren ON o.rentalId = ren.rentalId " +
                        "WHERE ren.tenantId = ?";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String IdString = String.valueOf(ID);
         try (Connection connection = javaJdbc.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -171,7 +171,7 @@ public class Utility {
     }
 
     public boolean addEviction(String todayDate, String evictionDate, int  tenantId, int ownerID, int  rentalid, String reason){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO eviction (issueDate, evictionDate, tenantId, ownerId, reason) \r\n" + //
                         "VALUES (?, ?, ?, ?, ?);";
         boolean isInserted = false;
@@ -192,7 +192,7 @@ public class Utility {
         
     }
     public boolean addNewMaintaince(String maintainceString, int rentalId, String todayDate){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO maintainance (description, status, requestDate, rentalId) VALUES (?, ?, ?, ?)";
         boolean isInserted = false;
         String rentalIdString = String.valueOf(rentalId);
@@ -211,7 +211,7 @@ public class Utility {
         return isInserted;
     }
     public boolean UpdateMaintaince(Boolean status, int maintainceId, String todayDate){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "UPDATE maintainance SET status = ?, completionDate = ? WHERE maintananceId = ?";
         boolean isInserted = false;
         String maintainceString = String.valueOf(maintainceId);
@@ -228,7 +228,7 @@ public class Utility {
         return isInserted;
     }
     public boolean addFine(String todayDate, String reasonString, int fineAmount, int ownerId, int tenantId){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO fine (issueDate, reason, amount, ownerId, tenantId) \r\n" + //
                         "VALUES (?, ?, ?, ?, ?)";
         boolean isInserted = false;
@@ -248,7 +248,7 @@ public class Utility {
         return isInserted;
     }
 	public boolean addTenantRental(int tenantId, int rentalId, int roomId, int price){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO rent (tenantId, rentalId, roomId, amount) VALUES (?, ?, ?, ?)";
         boolean isInserted = false;
 
@@ -265,7 +265,7 @@ public class Utility {
     }
 
     public boolean deleteRent(int applicantId){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "DELETE FROM applyRental WHERE applicantId = ?";
         boolean isInserted = false;
 
@@ -282,7 +282,7 @@ public class Utility {
     }
     
     public boolean UpdateTenantRental(int tenantId, int room, int rent){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "DELETE FROM applyRental WHERE applicantId = ?";
         boolean isInserted = false;
 
@@ -298,7 +298,7 @@ public class Utility {
         return isInserted;
     }
     public boolean UpdateRoomStatus(int roomId){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "UPDATE room SET status = '1' WHERE roomId = ?";
         boolean isInserted = false;
 

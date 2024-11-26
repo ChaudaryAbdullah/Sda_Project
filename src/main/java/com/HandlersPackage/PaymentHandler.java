@@ -11,7 +11,7 @@ public class PaymentHandler {
     
 
     public int calculateRent(int tenantId){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         int roomRent = 0;
         int fineAmount = 0;
         String roomRentQuery = "Select amount FROM rent WHERE tenantId = ?";
@@ -20,7 +20,7 @@ public class PaymentHandler {
             preparedStatement.setInt(1, tenantId);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                roomRent = rs.getInt("amount");
+                roomRent += rs.getInt("amount");
             }
         } catch (Exception e) {
             
@@ -34,7 +34,7 @@ public class PaymentHandler {
             preparedStatement.setInt(1, tenantId);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                fineAmount = rs.getInt("amount");
+                fineAmount += rs.getInt("amount");
             }
         } catch (Exception e) {
             
@@ -67,9 +67,9 @@ public class PaymentHandler {
             preparedStatement.setInt(1, tenantId);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
-                breakfastAmount = rs.getInt("breakfast_price");
-                lunchAmount = rs.getInt("lunch_price");
-                dinnerAmount = rs.getInt("dinner_price");
+                breakfastAmount += rs.getInt("breakfast_price");
+                lunchAmount += rs.getInt("lunch_price");
+                dinnerAmount += rs.getInt("dinner_price");
             }
         } catch (Exception e) {
             
@@ -83,7 +83,6 @@ public class PaymentHandler {
         System.err.println("Dinner Amount: "+ dinnerAmount);
 
         int totalRent = roomRent + fineAmount + breakfastAmount + lunchAmount + dinnerAmount;
-
         return totalRent;
 
     }

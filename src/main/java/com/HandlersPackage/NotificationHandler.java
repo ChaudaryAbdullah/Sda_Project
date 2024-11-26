@@ -25,7 +25,7 @@ public class NotificationHandler {
     }
 
     private void QueryRunner(String query){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         int notificationId=-1;
         String query1="INSERT INTO Notification (description, DateTime)\n" + //
                         "VALUES (?,?)";

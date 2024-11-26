@@ -25,7 +25,7 @@ public class AddMenuHandler {
     }
 
     public void addMenu(){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "SELECT * from menu" + //
                         "LEFT JOIN meals AS breakfast ON menu.breakfast = breakfast.mealId\n" + //
                         "LEFT JOIN meals AS lunch ON menu.lunch = lunch.mealId\n" + //
@@ -48,7 +48,7 @@ public class AddMenuHandler {
     }
 
     public void addMeal(){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "SELECT * from meals";
                         
         try (Connection conn = javaJdbc.getConnection();
@@ -80,7 +80,7 @@ public class AddMenuHandler {
         int dinnerId=Integer.parseInt(dinner.split(" : ")[0]);
 
         String query="INSERT INTO menu (breakfast, lunch, dinner, description, ownerId) VALUES (?,?,?,?,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
         javaJdbc.insertMenuInDatabase(preparedStatement,breakfastId,lunchId,dinnerId,desc,userid);   

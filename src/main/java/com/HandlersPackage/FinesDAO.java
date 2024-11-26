@@ -14,7 +14,7 @@ public class FinesDAO {
     }
 
     public boolean addFine(String todayDate, String reasonString, int fineAmount, int ownerId, int tenantId){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "INSERT INTO fine (issueDate, reason, amount, ownerId, tenantId) \r\n" + //
                         "VALUES (?, ?, ?, ?, ?)";
         boolean isInserted = false;

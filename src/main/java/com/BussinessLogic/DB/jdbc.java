@@ -11,10 +11,9 @@ public class jdbc {
     private static jdbc instance;
 
     // Step 2: Make the constructor private to prevent instantiation from other classes
-    /* 
     private jdbc() {
         
-    }*/
+    }
 
     // Step 3: Provide a public static method to get the instance of the class
     public static synchronized jdbc getInstance() {

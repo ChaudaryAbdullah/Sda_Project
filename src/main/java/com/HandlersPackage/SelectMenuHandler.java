@@ -24,7 +24,7 @@ public class SelectMenuHandler{
 
 
     public void addMenu(){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "SELECT * from menu " + //
                         "LEFT JOIN meals AS breakfast ON menu.breakfast = breakfast.mealId\n" + //
                         "LEFT JOIN meals AS lunch ON menu.lunch = lunch.mealId\n" + //
@@ -58,7 +58,7 @@ public class SelectMenuHandler{
         int menuId=Integer.parseInt(data);
 
         String query="INSERT INTO selectmenu (tenantId,menuId) VALUES (?,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
         javaJdbc.insertselectMenuInDatabase(preparedStatement,userid,menuId);   

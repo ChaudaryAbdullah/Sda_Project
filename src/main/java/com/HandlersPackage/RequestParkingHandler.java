@@ -26,7 +26,7 @@ public class RequestParkingHandler {
     }
 
     public void addParking(int ID){
-         jdbc javaJdbc=new jdbc();
+         jdbc javaJdbc=jdbc.getInstance();
         String query = "select * from parkingslot p \n" + //
                         "inner join rental r on r.rentalId=p.rentalId\n" + //
                         "inner join rent re on re.rentalId=r.rentalId\n" + //
@@ -67,7 +67,7 @@ public class RequestParkingHandler {
         int parkingid=Integer.parseInt(data);
         
         String query="INSERT INTO parkingrequest(slotId,tenantId) VALUES(?,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
         javaJdbc.insertRequestParkingInDatabase(preparedStatement,parkingid,userid);  

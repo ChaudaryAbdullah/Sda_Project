@@ -31,7 +31,7 @@ public class AllocateParkingHandler {
     }
 
     public void addUser(int ID){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query = "select * from parkingrequest pr \n" + //
                         "join tenant t on pr.tenantId=t.tenantId\n" + //
                         "join parkingslot p on p.slotId=pr.slotId\n" + //
@@ -58,7 +58,7 @@ public class AllocateParkingHandler {
     }
 
     public void addRental(int ID){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query="select * from rental r \n" + //
                         "join owns o on o.rentalId=r.rentalId\n" + //
                         "where o.ownerId=?";
@@ -76,7 +76,7 @@ public class AllocateParkingHandler {
     }
 
     public void addParking(int ID){
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query="select * from parkingslot p \n" + //
                         "inner join rental r on r.rentalId=p.rentalId\n" + //
                         "inner join owns o on o.rentalId=r.rentalId\n" + //
@@ -99,8 +99,7 @@ public class AllocateParkingHandler {
            
             
         } catch (Exception e) {
-            
-            // TODO: handle exception
+            e.printStackTrace();        
         }
     }
 
@@ -138,7 +137,7 @@ public class AllocateParkingHandler {
         int id=Integer.parseInt(data.split(" : ")[0]);
         
         String query="INSERT INTO parkingslot (is_occupied, rentalId) VALUES (0,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
 
@@ -167,7 +166,7 @@ public class AllocateParkingHandler {
         }
         
         String query="INSERT INTO parkingAllocation (slotId, tenantId) VALUES (?,?)";
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query)){
         javaJdbc.insertAllocationInDatabase(preparedStatement,userid,slotId);   
@@ -205,7 +204,7 @@ public class AllocateParkingHandler {
                 break;
             }
         }
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         String query="DELETE FROM parkingRequest\n" + //
                         "WHERE slotId = ? AND tenantId = ?";
         try (Connection conn = javaJdbc.getConnection();

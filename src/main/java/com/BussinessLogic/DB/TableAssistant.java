@@ -41,7 +41,7 @@ public class TableAssistant {
     @SuppressWarnings("rawtypes")
     public TableView runZeroParameterquery(String query,TableView Table)
      {
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);
          ResultSet rs = preparedStatement.executeQuery(query)) {
@@ -56,7 +56,7 @@ public class TableAssistant {
     }
 
     public ObservableList<ObservableList<Object>> runOneParameterquery(String query, int ID) {
-        jdbc javaJdbc = new jdbc();
+        jdbc javaJdbc = jdbc.getInstance();
         ObservableList<ObservableList<Object>> data = FXCollections.observableArrayList();
     
         try (Connection conn = javaJdbc.getConnection();
@@ -83,7 +83,7 @@ public class TableAssistant {
     @SuppressWarnings("rawtypes")
     public TableView runOneParameterquery(String query,TableView Table,int ID)
      {
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             preparedStatement.setInt(1, ID);
@@ -100,7 +100,7 @@ public class TableAssistant {
     @SuppressWarnings("rawtypes")
     public TableView runOneParameterquery(String query,TableView Table,String data)
      {
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             preparedStatement.setString(1, data);
@@ -117,7 +117,7 @@ public class TableAssistant {
     @SuppressWarnings("rawtypes")
     TableView runTwoParameterquery(String query,TableView Table,int ID)
     {
-        jdbc javaJdbc=new jdbc();
+        jdbc javaJdbc=jdbc.getInstance();
         try (Connection conn = javaJdbc.getConnection();
         PreparedStatement preparedStatement = conn.prepareStatement(query);) {
             preparedStatement.setInt(1, ID);
