@@ -29,11 +29,6 @@
       </Pane>
       <Pane fx:id="mainpane" layoutX="256.0" layoutY="111.0" prefHeight="606.0" prefWidth="823.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
          <children>
-            <Label fx:id="fineslabel" layoutX="45.0" layoutY="40.0" text="Maintainance">
-               <font>
-                  <Font name="SansSerif Regular" size="28.0" />
-               </font>
-            </Label>
             <Label layoutX="101.0" layoutY="81.0" text="Select Rental">
                <font>
                   <Font name="SansSerif Bold" size="16.0" />
@@ -54,6 +49,11 @@
             </Label>
             <TextField fx:id="maintainceDescription" layoutX="101.0" layoutY="206.0" onAction="#maintainceDescriptionClicked" prefHeight="37.0" prefWidth="311.0" />
             <Button fx:id="RegisterNew" layoutX="471.0" layoutY="205.0" mnemonicParsing="false" onAction="#RegisterNewClicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Register New" />
+            <Label fx:id="fineslabel" layoutX="45.0" layoutY="40.0" text="Maintainance">
+               <font>
+                  <Font name="SansSerif Bold" size="28.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Text layoutX="86.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rented" wrappingWidth="80.9753532409668">

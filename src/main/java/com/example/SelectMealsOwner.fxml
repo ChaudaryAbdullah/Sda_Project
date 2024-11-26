@@ -18,14 +18,14 @@
          <children>
             <Line endX="965.452880859375" endY="-7.62939453125E-6" layoutX="115.0" layoutY="100.0" startX="-114.99999237060547" startY="-7.62939453125E-6" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
             <Line endX="-100.0" endY="605.867919921875" layoutX="354.0" layoutY="101.0" startX="-100.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
-            <Pane fx:id="mainpane" layoutX="257.0" layoutY="103.0" prefHeight="602.0" prefWidth="823.0" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css">
+            <Pane fx:id="mainpane" layoutX="255.0" layoutY="100.0" prefHeight="602.0" prefWidth="823.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
                <children>
                   <Text layoutX="372.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meal" wrappingWidth="117.20173263549805">
                      <font>
                         <Font name="Eras Bold ITC" size="20.0" />
                      </font>
                   </Text>
-                  <Button fx:id="addbtn" layoutX="292.0" layoutY="536.0" mnemonicParsing="false" onAction="#addbuttonbtn_clicked" prefHeight="38.0" prefWidth="113.0" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Add">
+                  <Button fx:id="addbtn" layoutX="339.0" layoutY="527.0" mnemonicParsing="false" onAction="#addbuttonbtn_clicked" prefHeight="38.0" prefWidth="113.0" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Add">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -35,27 +35,27 @@
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="NameTextFeild" layoutX="158.0" layoutY="401.0">
+                  <TextField fx:id="NameTextFeild" layoutX="158.0" layoutY="390.0" styleClass="text-field" stylesheets="@mainCSSFile.css">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </TextField>
-                  <Text layoutX="29.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="128.90668106079102">
+                  <Text layoutX="29.0" layoutY="478.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="128.90668106079102">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="DescrptionTextFeild" layoutX="158.0" layoutY="445.0">
+                  <TextField fx:id="DescrptionTextFeild" layoutX="158.0" layoutY="445.0" styleClass="text-field" stylesheets="@mainCSSFile.css">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </TextField>
-                  <Text layoutX="93.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="56.45389175415039">
+                  <Text layoutX="93.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price" wrappingWidth="56.45389175415039">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="PriceTextFeild" layoutX="158.0" layoutY="493.0">
+                  <TextField fx:id="PriceTextFeild" layoutX="158.0" layoutY="501.0" styleClass="text-field" stylesheets="@mainCSSFile.css">
                      <font>
                         <Font name="Cascadia Code Regular" size="19.0" />
                      </font>
@@ -69,8 +69,8 @@
             <Line endX="100.0" layoutX="153.0" layoutY="249.0" startX="-152.99998474121094" startY="-1.52587890625E-5" styleClass="file:/D:/FAST%20NUCES/FAST%20SEMESTER%205/SDA/Sda_Project/src/main/java/com/example/mainCSSFile.css" />
             <Pane fx:id="menupane" layoutY="248.0" prefHeight="446.0" prefWidth="252.0" styleClass="menuBar-pane" stylesheets="@mainCSSFile.css">
                <children>
-                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Menu" />
-                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" stylesheets="@mainCSSFile.css" text="Meals" />
+                  <Hyperlink fx:id="MenuUrl" alignment="CENTER" layoutX="-3.0" layoutY="52.0" onAction="#MenuUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Menu" />
+                  <Hyperlink fx:id="MealUrl_Clicked" alignment="CENTER" layoutY="98.0" onAction="#MealUrl_Clicked" prefHeight="25.0" prefWidth="255.0" styleClass="hyperlink-selected" stylesheets="@mainCSSFile.css" text="Meals" />
                   <Hyperlink fx:id="parkingUrl" alignment="CENTER" layoutX="-4.0" layoutY="146.0" onAction="#parkingUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Parking" />
                   <Hyperlink fx:id="feedbackUrl" alignment="CENTER" layoutY="197.0" onAction="#feedbackUrl_Clicked" prefHeight="25.0" prefWidth="253.0" stylesheets="@mainCSSFile.css" text="Feedback" />
                   <Hyperlink fx:id="registerUrl" alignment="CENTER" layoutX="-2.0" layoutY="243.0" onAction="#registerUrl_Clicked" prefHeight="25.0" prefWidth="257.0" stylesheets="@mainCSSFile.css" text="Choose Rental" />

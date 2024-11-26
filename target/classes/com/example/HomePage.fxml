@@ -20,13 +20,13 @@
             <Line endX="-100.0" endY="605.867919921875" layoutX="786.0" layoutY="99.0" startX="-100.0" />
             <Pane fx:id="mappane" layoutX="688.0" layoutY="103.0" prefHeight="602.0" prefWidth="392.0" styleClass="corner-side" stylesheets="@mainCSSFile.css">
                <children>
-                  <TableView fx:id="NotificationTable" layoutX="7.0" layoutY="37.0" onSort="#NotificationTable_sort" prefHeight="526.0" prefWidth="378.0" />
+                  <TableView fx:id="NotificationTable" layoutX="9.0" layoutY="16.0" onSort="#NotificationTable_sort" prefHeight="526.0" prefWidth="378.0" />
                   <Text layoutX="2.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" textAlignment="CENTER" wrappingWidth="391.633544921875">
                      <font>
                         <Font name="Britannic Bold" size="20.0" />
                      </font>
                   </Text>
-                  <Button fx:id="logOutButton" layoutX="173.0" layoutY="571.0" mnemonicParsing="false" onAction="#logOutButton_clicked" text="Log out">
+                  <Button fx:id="logOutButton" layoutX="154.0" layoutY="548.0" mnemonicParsing="false" onAction="#logOutButton_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Log out">
                      <font>
                         <Font name="Britannic Bold" size="13.0" />
                      </font>

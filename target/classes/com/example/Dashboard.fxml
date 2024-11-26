@@ -20,7 +20,7 @@
             <Line endX="-100.0" endY="605.867919921875" layoutX="354.0" layoutY="101.0" startX="-100.0" />
             <Pane fx:id="mainpane" layoutX="256.0" layoutY="96.0" prefHeight="609.0" prefWidth="824.0" styleClass="work-scene" stylesheets="@mainCSSFile.css">
                <children>
-                  <Button fx:id="paymentButton" layoutX="663.0" layoutY="530.0" mnemonicParsing="false" onAction="#paymentButton_clicked" prefHeight="40.0" prefWidth="115.0" text="Payment" />
+                  <Button fx:id="paymentButton" layoutX="663.0" layoutY="530.0" mnemonicParsing="false" onAction="#paymentButton_clicked" prefHeight="40.0" prefWidth="115.0" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Payment" />
                   <TableView fx:id="DashboardTable" layoutX="37.0" layoutY="43.0" onSort="#DashboardTable_sort" prefHeight="426.0" prefWidth="751.0" />
                </children></Pane>
             <Line endX="100.0" layoutX="153.0" layoutY="249.0" startX="-152.99998474121094" startY="-1.52587890625E-5" />

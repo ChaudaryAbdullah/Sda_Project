@@ -26,7 +26,7 @@
                         <Font name="Eras Bold ITC" size="20.0" />
                      </font>
                   </Text>
-                  <Button fx:id="approveBtn" layoutX="645.0" layoutY="539.0" mnemonicParsing="false" onAction="#approveBtn_clicked" text="Approve/Reject Applicants" />
+                  <Button fx:id="approveBtn" layoutX="611.0" layoutY="539.0" mnemonicParsing="false" onAction="#approveBtn_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Approve/Reject Applicants" />
                </children></Pane>
             <Text layoutX="73.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Owned" wrappingWidth="80.9753532409668">
                <font>

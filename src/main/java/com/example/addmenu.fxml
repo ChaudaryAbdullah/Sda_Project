@@ -27,7 +27,7 @@
                         <Font name="Eras Bold ITC" size="20.0" />
                      </font>
                   </Text>
-                  <Button fx:id="addBtn" layoutX="341.0" layoutY="518.0" mnemonicParsing="false" onAction="#addBtn_clicked" text="Add">
+                  <Button fx:id="addBtn" layoutX="341.0" layoutY="518.0" mnemonicParsing="false" onAction="#addBtn_clicked" styleClass="button-glow" stylesheets="@mainCSSFile.css" text="Add">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
