@@ -143,6 +143,7 @@ public class EvictionController {
 
     }
 
+    @SuppressWarnings("unused")
     @FXML
     void evictiButton_Clicked(ActionEvent event) {
         String selectedData = (String) selectTenantCombobox.getSelectionModel().getSelectedItem();
@@ -159,17 +160,28 @@ public class EvictionController {
                 System.out.println("Error: The selected data does not start with a valid number.");
             }
         } else {
-            System.out.println("No tenant selected.");
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("No tenant selected!");
+            throw err;
         }
         evictionDate = util.getFormattedDateForMySQL(selectDate);
 
         HostelRental host = util.getRentalfromTenant(tenantId);
+        
+        int rentalid=0;
+        if(host!=null)
+        {
+            String rentalIDString = host.getPropertyID();
+             rentalid = Integer.parseInt(rentalIDString); 
+        }
 
-        String rentalIDString = host.getPropertyID();
-        int rentalid = Integer.parseInt(rentalIDString); 
 
-
-        if(util.addEviction(todayDate, evictionDate, tenantId, user.getID(), rentalid, reason)){
+        if(tenantId!=0&&reason!=null&&rentalid!=0&&util.addEviction(todayDate, evictionDate, tenantId, user.getID(), rentalid, reason)){
             System.out.println("Room added successful!");
             NotificationHandler notification=new NotificationHandler();
             notification.sendNotificationToTenant("You got evicted.  ",tenantId);

@@ -2,12 +2,15 @@ package com.ControllersPackage;
 
 import java.io.IOException;
 
+import com.BussinessLogic.FacadePackage.Utility;
 import com.BussinessLogic.classes.User;
 import com.HandlersPackage.chooseRentalHandler;
 import com.example.App;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
@@ -155,6 +158,18 @@ public class ChooseRentalController {
 
     @FXML
     void selectbtn_clicked(ActionEvent event) {
+        if(rentalComboBox.getSelectionModel().getSelectedItem()==null)
+        {   
+            System.err.println("All fields are required!");
+            Utility uti = new Utility();
+            uti.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid input.");
+            alert.showAndWait();
+            return;
+        }
         handle.ChooseRental(rentalComboBox.getSelectionModel().getSelectedItem(),user.getID());
         initialize();
     }
