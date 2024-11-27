@@ -155,7 +155,14 @@ public class MaintainanceOwnerController {
             }
         } 
         else{
-            System.out.println("No hostel selected.");
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("No hostel selected!");
+            throw err;
         }
 
         if (maintainceString.isEmpty()) {
@@ -203,7 +210,14 @@ public class MaintainanceOwnerController {
             }
         } 
         else{
-            System.out.println("No hostel selected.");
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("No hostel selected!");
+            throw err;
         }
         try {
         } catch (NumberFormatException e) {

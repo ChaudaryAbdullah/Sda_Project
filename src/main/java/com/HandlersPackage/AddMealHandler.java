@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 public class AddMealHandler {
 
     public boolean addNewMeal(String name, String desc, long price) {
+        
         String query = "INSERT INTO meals (name, description, price) VALUES (?, ?, ?)";
         jdbc javaJdbc = jdbc.getInstance();
         System.out.println(name);

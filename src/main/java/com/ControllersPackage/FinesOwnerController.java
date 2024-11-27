@@ -125,10 +125,17 @@ public class FinesOwnerController {
                 System.out.println("Error: The selected data does not start with a valid number.");
             }
         } else {
-            System.out.println("No tenant selected.");
+            util.clearTextFields(mainpane);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("Error: Invalid Input");
+            alert.setContentText("Please enter a valid information.");
+            alert.showAndWait();
+            Error err=new Error("No tenant selected!");
+            throw err;
         }
         int fineAmount = Integer.parseInt(fineString); 
-        if(util.addFine(todayDate, reasonString, fineAmount, user.getID(), tenantId)){
+        if(reasonString!=""&&fineString!=""&&util.addFine(todayDate, reasonString, fineAmount, user.getID(), tenantId)){
             System.out.println("Fine added successful!");
             notification.sendNotificationToTenant("You got a Fine of Rs "+fineString,tenantId);
         }
